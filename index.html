@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
+<title>微见智金官网</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: Apple-style big type, black hero and contact bands, light grey "mist" panels between white sections. Single deliberate black/white look. */
+:root{
+  --black:#000000;
+  --ink:#1d1d1f;
+  --paper:#ffffff;
+  --mist:#f5f5f7;
+  --grey:#515154;
+  --line:#d2d2d7;
+  --todo-bg:#fff8db;
+  --todo-line:#c9a227;
+  --todo-ink:#5c4a00;
+  --font: "Inter","PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  --w: 1120px;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:rgba(255,255,255,.9)}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--w);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.muted{color:var(--grey)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid rgba(0,0,0,.08)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:60px}
+.logo{font-weight:800;font-size:18px;letter-spacing:.02em;display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.logo small{font-weight:600;font-size:12px;color:var(--grey);letter-spacing:.08em}
+.links{display:flex;gap:26px;font-size:14px;margin-left:auto}
+.links a{color:var(--grey);transition:color .2s}
+.links a:hover,.links a.on{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:999px;font-weight:600;font-size:15px;padding:10px 22px;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,opacity .2s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0071e3;outline-offset:3px}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-light{background:var(--paper);color:var(--black)}
+.btn-ghost{background:transparent;color:inherit;padding-inline:4px}
+.nav .btn{padding:8px 18px;font-size:14px}
+.menu-btn{display:none;background:none;border:0;font-size:22px;cursor:pointer;color:var(--ink);padding:4px 8px;margin-left:auto}
+@media (max-width:860px){
+  .links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  .links.open{display:flex}
+  .links a{padding:12px 0;font-size:17px;color:var(--ink);border-bottom:1px solid var(--mist)}
+  .menu-btn{display:block}
+  .nav .btn{margin-left:0}
+}
+
+/* type scale */
+.display{font-size:clamp(40px,7vw,80px);font-weight:800;line-height:1.08}
+.h2{font-size:clamp(30px,4.6vw,52px);font-weight:800;line-height:1.12}
+.h3{font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.2}
+.lead{font-size:clamp(18px,2vw,22px);line-height:1.55}
+.split b{font-weight:800}
+.split span{color:var(--grey);font-weight:700}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--grey)}
+
+section.band{padding-block:clamp(72px,10vw,128px)}
+.mist{background:var(--mist)}
+.dark{background:var(--black);color:var(--paper)}
+.dark .muted{color:#a1a1a6}
+.dark .split span{color:#86868b}
+
+/* hero */
+.hero{text-align:center;padding-block:clamp(88px,12vw,150px) clamp(56px,8vw,96px)}
+.hero .display{max-width:13em;margin:0 auto}
+.hero .lead{max-width:34em;margin:28px auto 0;color:#a1a1a6}
+.hero .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.flow{margin:72px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #333}
+.flow div{padding:20px 12px 0;text-align:left;position:relative;color:#6e6e73;font-size:15px;transition:color .4s}
+.flow div::before{content:"";position:absolute;top:-1px;left:0;height:2px;width:0;background:var(--paper);transition:width 1.2s linear}
+.flow div.on{color:var(--paper)}
+.flow div.on::before{width:100%}
+.flow div b{display:block;font-size:13px;letter-spacing:.1em;font-weight:600;margin-bottom:4px;font-family:Inter,sans-serif}
+@media (max-width:600px){.flow{grid-template-columns:1fr 1fr;row-gap:28px}}
+
+/* placeholders */
+.ph{position:relative;border-radius:20px;background:var(--paper);border:1.5px dashed #c7c7cc;color:#8e8e93;display:flex;flex-direction:column;justify-content:center;padding:52px 20px 16px;min-height:220px;max-width:100%;font-size:14px}
+.mist .card .ph,.str .ph{background:#fafafc}
+.ph svg{display:block;width:100%;height:auto;max-height:340px}
+.ph svg text{fill:currentColor;stroke:none;font-family:var(--font);font-size:14px;font-weight:600}
+.ph svg .hl{stroke:var(--ink)}
+.ph svg text.hl{fill:var(--ink)}
+.sk-label{position:absolute;top:12px;left:12px;right:12px;font-size:12.5px;line-height:1.45;color:var(--ink);background:var(--mist);border-radius:8px;padding:5px 10px;text-align:left}
+.sk-label b{font-family:Inter,sans-serif;margin-right:6px}
+.focus{position:relative;box-shadow:inset 0 0 0 3px var(--ink)}
+.focus-tag{display:inline-block;background:var(--ink);color:var(--paper);font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;margin-bottom:12px;letter-spacing:.04em}
+body:not(.clean) .focus-tag::after{content:""}
+.todo{display:block;margin-top:10px;background:var(--todo-bg);border:1px dashed var(--todo-line);color:var(--todo-ink);border-radius:10px;padding:10px 14px;font-size:14px;line-height:1.55;font-weight:400;letter-spacing:0;text-align:left}
+.todo::before{content:"✎ 待写 ";font-weight:700}
+.todo.confirm::before{content:"⚠ 待确认 "}
+body.clean .todo{display:none}
+/* prompts outside the current block are quieter grey; the current block keeps yellow */
+.todo{background:#f2f2f4;border-color:#c7c7cc;color:#6e6e73}
+.focus .todo{background:var(--todo-bg);border-color:var(--todo-line);color:var(--todo-ink)}
+.draft{display:block;margin-top:10px;background:#eef5ff;border:1.5px solid #0071e3;color:var(--ink);border-radius:10px;padding:12px 14px;font-size:16px;line-height:1.65}
+.draft::before{content:"草稿 · 待您确认";display:block;font-size:12px;font-weight:700;color:#0071e3;letter-spacing:.06em;margin-bottom:4px}
+.draft u{text-decoration:none;background:#ffe58f;border-radius:3px;padding:0 2px}
+/* carousel: auto-plays, swipe/scroll by hand, arrows + dots */
+.carousel{position:relative;min-width:0;max-width:100%}
+.feature .carousel{position:sticky;top:180px}
+@media (max-width:860px){.feature .carousel{position:static}}
+.card .carousel{margin-top:10px}
+.c-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.c-track::-webkit-scrollbar{display:none}
+.c-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px;min-width:0}
+.c-img{aspect-ratio:4/3;max-width:100%;border-radius:20px;background:var(--paper);border:1.5px dashed #c7c7cc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#8e8e93;text-align:center;padding:20px}
+.feature .c-img{background:var(--mist)}
+.c-img b{font-family:Inter,sans-serif;color:var(--ink);font-size:13px;letter-spacing:.04em}
+.c-img.has-sk{justify-content:center;padding:16px;border:1px solid var(--line)}
+.c-img.has-sk b{align-self:stretch;text-align:left;background:var(--mist);border-radius:8px;padding:4px 10px;font-weight:600}
+.feature .c-img.has-sk{background:var(--paper)}
+.c-img svg text{stroke:none;font-family:var(--font)}
+.c-img svg .hl{stroke:var(--ink)}
+.c-img svg text.hl{fill:var(--ink)}
+.c-img svg text.num{font-family:Inter,sans-serif;font-size:22px;font-weight:800}
+.c-cap{font-size:15px;line-height:1.55;padding:0 4px;min-height:3.2em}
+.c-cap strong{display:block;font-size:16px}
+.c-cap span{color:var(--grey)}
+.c-ctl{display:flex;align-items:center;gap:10px;margin-top:6px;padding:0 4px}
+.c-dots{display:flex;gap:8px}
+.c-dots button{width:8px;height:8px;border-radius:999px;border:0;background:#c7c7cc;padding:0;cursor:pointer;transition:width .3s,background .3s}
+.c-dots button.on{width:24px;background:var(--ink)}
+.c-arrows{margin-left:auto;display:flex;gap:8px}
+.c-arrows button{width:36px;height:36px;border-radius:999px;border:0;background:#e8e8ed;color:var(--ink);font-size:18px;cursor:pointer;font-family:inherit}
+.h4{font-size:clamp(20px,2.2vw,24px);font-weight:700;line-height:1.35;margin:0;text-wrap:balance}
+.brand .card{background:var(--mist)}
+.vis{background:var(--paper);border-radius:20px;padding:16px;max-width:100%;min-width:0}
+.mist .vis{background:var(--paper)}
+.vis svg{display:block;width:100%;height:auto}
+.brand .vis{margin-top:auto}
+.idea{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.idea{grid-template-columns:1fr}}
+.idea > div{background:var(--mist);border-radius:24px;padding:32px 28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.idea .char{font-size:72px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.idea h3{font-size:20px}
+.feature h2.split b{display:block}
+.howto{margin:0;padding:0;list-style:none;counter-reset:h;display:grid;gap:10px}
+.howto li{counter-increment:h;display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;align-items:start}
+.howto li::before{content:counter(h);width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--paper);font:700 13px/24px Inter,sans-serif;text-align:center;margin-top:2px}
+.vis.wide{overflow-x:auto}
+@media (max-width:760px){.vis.wide svg{min-width:700px}}
+/* feature sections: header + carousel on top, five parts as cards below */
+.f-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.f-top.rev .f-head{order:2}
+.f-head{display:flex;flex-direction:column;gap:14px;min-width:0}
+.f-head h2.split b{display:block}
+.f-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+.f-card{background:var(--mist);border-radius:22px;padding:26px 28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mist .f-card{background:var(--paper)}
+.f-card p{margin:0;font-size:16px;line-height:1.7}
+.f-k{font-size:13px!important;font-weight:700;letter-spacing:.08em;color:var(--grey)}
+.f-wide{grid-column:1 / -1}
+.f-key{background:var(--ink)!important;color:var(--paper)}
+.f-key .f-k{color:#a1a1a6}
+.howto.row{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.howto.row li{grid-template-columns:1fr;gap:10px;background:var(--paper);border-radius:16px;padding:16px 18px;font-size:15px;line-height:1.6}
+.mist .howto.row li{background:var(--mist)}
+@media (max-width:860px){.f-top{grid-template-columns:1fr;gap:32px}.f-top.rev .f-head{order:0}.f-grid{grid-template-columns:1fr}}
+/* compact feature panels: one block per feature */
+section.band.fblk{padding-block:12px}
+#s-analysis{padding-top:40px}
+#s-schedule{padding-bottom:72px}
+.f-panel{background:var(--mist);border-radius:28px;padding:36px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start}
+.f-left,.f-right{display:flex;flex-direction:column;gap:14px;min-width:0}
+.f-left h2{font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.25;margin:0}
+.f-lead{font-size:16px;line-height:1.65;color:var(--grey);margin:0}
+.f-rows{margin:4px 0 0;border-top:1px solid var(--line)}
+.f-rows div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.65}
+.f-rows dt{font-weight:700;font-size:13.5px}
+.f-rows dd{margin:0;min-width:0}
+.f-key2{background:var(--ink);color:var(--paper);border-radius:16px;padding:14px 18px;display:grid;gap:4px}
+.f-key2 p{margin:0;font-size:14.5px;line-height:1.65}
+.f-key2 .f-k{color:#a1a1a6}
+.f-right .c-img{background:var(--paper)!important}
+.f-how{background:var(--paper);border-radius:16px;padding:16px 18px;display:grid;gap:10px}
+.f-how .howto{gap:8px}
+.f-how .howto li{font-size:14.5px;line-height:1.6}
+.f-howp{margin:0;font-size:14.5px;line-height:1.65}
+@media (max-width:860px){.f-panel{grid-template-columns:1fr;padding:24px;gap:24px}}
+.quote{margin:0;background:var(--paper);border-radius:18px;padding:24px 26px 20px;display:grid;gap:14px}
+.quote blockquote{margin:0;font-size:17px;line-height:1.8;font-weight:500;color:var(--ink)}
+.quote figcaption{justify-self:end;font-size:14px;color:var(--grey);font-weight:600}
+.f-panel{align-items:stretch}
+.f-how{margin-top:auto}
+.howto.step{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:14px;padding-top:4px}
+.howto.step li{display:flex;flex-direction:column;gap:12px;position:relative;font-size:14px;line-height:1.6}
+.howto.step li::before{width:32px;height:32px;font-size:14px;line-height:32px;margin:0;position:relative;z-index:1}
+.howto.step li:not(:last-child)::after{content:"";position:absolute;top:16px;left:40px;right:-10px;height:2px;background:var(--line)}
+@media (max-width:560px){.howto.step{grid-auto-flow:row}.howto.step li{flex-direction:row;align-items:flex-start}.howto.step li::after{display:none}}
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.story-head{position:sticky;top:120px}
+@media (max-width:860px){.story{grid-template-columns:1fr;gap:32px}.story-head{position:static}}
+.timeline{list-style:none;margin:0;padding:0;max-width:860px;position:relative;display:grid;gap:0}
+.timeline::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 36px 48px;display:grid;gap:6px}
+.timeline li:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:4px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+.timeline li.now .tl-dot{background:var(--ink)}
+.tl-tag{margin:0;font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--grey)}
+.timeline h3{font-size:clamp(20px,2.2vw,26px);font-weight:800}
+.timeline li > p:last-child{margin:0;font-size:16px;line-height:1.75;max-width:40em;color:var(--ink)}
+.name-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:start}
+.values{display:grid;gap:14px}
+.values > div{background:var(--mist);border-radius:20px;padding:22px 24px;display:grid;gap:6px}
+.values h3{font-size:20px;font-weight:800}
+.values p{margin:0;font-size:15px;line-height:1.65}
+@media (max-width:820px){.name-row{grid-template-columns:1fr;gap:32px}}
+.path{position:relative;margin-top:24px}
+.path-line{position:absolute;inset:0;width:100%;height:100%}
+.stop{position:relative;height:150px;display:flex;align-items:center;gap:18px}
+.stop.l{padding-left:calc(14% - 28px)}
+.stop.r{flex-direction:row-reverse;padding-right:calc(14% - 28px);text-align:right}
+.stop-ic{flex:none;width:56px;height:56px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;box-shadow:0 0 0 8px var(--mist)}
+.stop-ic svg{width:26px;height:26px}
+.stop-tx{background:var(--mist);border-radius:14px;padding:6px 10px;max-width:420px}
+.stop-tx h3{font-size:20px;font-weight:800}
+.stop-tx p{margin:4px 0 0;font-size:15.5px;line-height:1.65;color:var(--ink)}
+@media (max-width:700px){.path-line{display:none}.stop{height:auto;padding:0 0 22px!important;flex-direction:row!important;text-align:left!important;align-items:flex-start}.stop-ic{width:44px;height:44px}.stop-ic svg{width:22px;height:22px}}
+.pbio{margin:0;font-size:15px;line-height:1.65}
+.person .ask{align-self:flex-start;margin-top:4px;padding:8px 18px;font-size:14px}
+.ask-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.ask-form textarea{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%;resize:vertical}
+@media (max-width:820px){.ask-wrap{grid-template-columns:1fr;gap:28px}}
+.about-hero{padding-block:clamp(96px,12vw,150px) clamp(72px,9vw,110px);background:radial-gradient(ellipse at 85% 0%,#2c2c30 0%,#000 55%)!important}
+.about-hero.focus{box-shadow:inset 0 0 0 3px #fff}
+.triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:64px;border-top:1px solid #3a3a3c}
+.triad div{padding:24px 24px 0 0;display:grid;gap:6px}
+.triad div+div{padding-left:24px;border-left:1px solid #3a3a3c}
+.triad b{font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:.02em;color:#fff;line-height:1.1}
+.triad span{color:#a1a1a6;font-size:15px}
+@media (max-width:640px){.triad{grid-template-columns:1fr}.triad div+div{padding-left:0;border-left:0;border-top:1px solid #3a3a3c}}
+.story2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.story2 .lead{margin:0;line-height:1.85}
+@media (max-width:820px){.story2{grid-template-columns:1fr;gap:20px}}
+.team{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:20px}
+.lead-card{background:var(--ink);color:var(--paper);border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:10px}
+.lead-card h3{font-size:34px;font-weight:800;margin-top:8px}
+.mates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mate{background:var(--paper);border-radius:22px;padding:20px;display:flex;gap:14px;align-items:flex-start;min-width:0}
+.mate h3{font-size:18px;font-weight:800}
+.mate:last-child:nth-child(odd){grid-column:1 / -1}
+.av{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:800 20px Inter,"PingFang SC",sans-serif}
+.av.big{width:84px;height:84px;font-size:34px;background:var(--paper);color:var(--ink)}
+.role{margin:2px 0 0;font-size:13.5px;font-weight:700;color:var(--grey)}
+.duty{margin:6px 0 0;font-size:14.5px;line-height:1.6}
+.ask-link{background:none;border:0;padding:0;margin-top:8px;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink);cursor:pointer}
+.edge{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.edge > div{background:var(--paper);border-radius:22px;padding:22px 24px}
+.edge b{font-size:18px}
+.edge p{margin:6px 0 0;font-size:14.5px;line-height:1.6;color:var(--grey)}
+@media (max-width:900px){.team{grid-template-columns:1fr}.mates{grid-template-columns:1fr}.edge{grid-template-columns:1fr}}
+.story3{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:center}
+.flow3{background:var(--mist);border-radius:24px;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.f3{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;flex:1;min-width:0}
+.f3-ic{width:52px;height:52px;border-radius:16px;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+.f3-ic svg{width:24px;height:24px}
+.f3 b{font-size:18px}
+.f3 span:last-child{font-size:12.5px;color:var(--grey);line-height:1.5}
+.f3-ar{color:#aeaeb2;font-size:20px;flex:none}
+@media (max-width:820px){.story3{grid-template-columns:1fr;gap:28px}}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none;cursor:grab;user-select:none}
+.rail::-webkit-scrollbar{display:none}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.pc{flex:0 0 250px;scroll-snap-align:start;background:var(--paper);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.pc-photo{aspect-ratio:4/5;max-width:100%;background:linear-gradient(160deg,#e8e8ed,#d6d6dc);display:grid;place-items:center;position:relative}
+.pc-photo span{font:800 64px Inter,"PingFang SC",sans-serif;color:#fff}
+.pc-photo small{position:absolute;bottom:10px;font-size:11.5px;color:#6e6e73}
+.pc.lead .pc-photo{background:linear-gradient(160deg,#3a3a3c,#1d1d1f)}
+.pc-body{padding:16px 18px 18px}
+.pc-body h3{font-size:19px;font-weight:800}
+.rail-ctl{display:flex;align-items:center;gap:12px;margin-top:6px}
+.rail-ctl .c-arrows{margin-left:auto}
+.ab-hero{background:linear-gradient(180deg,var(--mist) 0%,var(--paper) 100%);padding-block:clamp(40px,5vw,64px) 8px;overflow:hidden}
+.ab-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center}
+.ab-h{font-size:clamp(30px,3.8vw,48px);font-weight:800;line-height:1.15;margin-top:14px;letter-spacing:-.01em}
+.ab-h span{color:var(--grey);font-weight:700}
+.ab-art{position:relative;aspect-ratio:1/1;max-width:300px;width:100%;justify-self:center}
+.ab-dots{position:absolute;inset:0;border-radius:50%;background-image:radial-gradient(#b9b9c0 1.3px,transparent 1.5px);background-size:16px 16px;-webkit-mask:radial-gradient(circle,#000 55%,transparent 71%);mask:radial-gradient(circle,#000 55%,transparent 71%)}
+.ab-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:108px;height:108px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;text-align:center;font-weight:800;font-size:22px;line-height:1.25;box-shadow:0 0 0 14px rgba(29,29,31,.06),0 0 0 30px rgba(29,29,31,.04)}
+.ab-chip{position:absolute;background:var(--paper);border-radius:16px;padding:10px 14px;font-size:12.5px;color:var(--grey);box-shadow:0 10px 30px rgba(0,0,0,.08);display:grid;gap:2px;white-space:nowrap}
+.ab-chip b{font:800 18px Inter,"PingFang SC",sans-serif;color:var(--ink)}
+.ab-chip.c1{left:0;top:14%}.ab-chip.c2{right:0;top:38%}.ab-chip.c3{left:10%;bottom:8%}
+@media (max-width:820px){.ab-grid{grid-template-columns:1fr}.ab-art{max-width:320px}}
+.pc.open .pc-photo{aspect-ratio:4/2.2}
+.pc-form{display:grid;gap:10px;margin-top:10px}
+.pc-form[hidden],.ask[hidden]{display:none!important}
+.band:not(.mist) .edge > div{background:var(--mist)}
+.pc-form label{display:grid;gap:4px;font-size:12.5px;font-weight:700}
+.pc-form textarea,.pc-form input{font:inherit;font-size:15px;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%;resize:vertical}
+.pc-fa{display:flex;gap:10px;align-items:center}
+.pc-fa .btn{padding:8px 18px;font-size:14px}
+.ask-cancel{background:none;border:0;font:inherit;font-size:14px;color:var(--grey);cursor:pointer}
+.pc-form .note{margin:0;font-size:12.5px;color:var(--grey)}
+.q-foot{margin:14px 4px 0;font-size:12.5px;color:var(--grey)}
+.story3{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:center}
+.story-p{margin:14px 0 0;font-size:17px;line-height:1.85;color:var(--ink)}
+.story-art{padding:0;background:transparent}
+.sie{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center;margin-top:36px}
+.sie-card{background:var(--mist);border-radius:20px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;height:100%;min-width:0}
+.sie-art{background:var(--paper);border-radius:14px;margin-bottom:6px;max-height:96px;overflow:hidden;display:grid;place-items:center}
+.sie-art svg{display:block;width:auto;height:96px;max-width:100%}
+.sie-n{margin:0;font:700 13px Inter,sans-serif;color:var(--grey);letter-spacing:.1em}
+.sie-card h3{font-size:22px;font-weight:800;line-height:1.2}
+.sie-why{align-self:flex-start;background:var(--ink);color:var(--paper);font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 12px;margin:2px 0 4px}
+.sie-card > p:last-child{margin:0;font-size:14px;line-height:1.65}
+.sie-ar{font-size:22px;color:#aeaeb2}
+@media (max-width:900px){.sie{grid-template-columns:1fr}.sie-ar{display:none}}
+.ev-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.ev-info > div{background:var(--tint,var(--mist));border-radius:22px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.ev-info h3{font-size:19px;font-weight:800}
+.ev-info p{margin:0;font-size:15px;line-height:1.75}
+.ev-ic{width:44px;height:44px;border-radius:14px;background:var(--icbg,var(--ink));color:var(--paper);display:grid;place-items:center}
+.ev-ic svg{width:22px;height:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--paper);color:#157a4a;border-radius:999px;padding:5px 12px;font-size:13.5px;font-weight:600}
+.ev-tabs{display:inline-flex;background:#e5e5ea;border-radius:999px;padding:4px;gap:4px;margin-bottom:28px}
+.ev-tabs button{border:0;background:none;font:inherit;font-size:15px;font-weight:700;padding:9px 22px;border-radius:999px;cursor:pointer;color:var(--grey)}
+.ev-tabs button.on{background:var(--paper);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.ev-panel[hidden]{display:none!important}
+.month{font-size:15px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px;margin:22px 0 12px;letter-spacing:.04em}
+.month:first-child{margin-top:0}
+.ev{background:var(--paper);border-radius:20px;padding:18px 20px;display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:18px;align-items:center;margin-bottom:12px}
+.ev-date{background:var(--mist);color:var(--ink);border-radius:14px;padding:14px 0 10px;display:grid;place-items:center;gap:2px;position:relative;overflow:hidden}
+.ev-date::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:#1f9d61}
+.ev-date b{font:800 20px Inter,"PingFang SC",sans-serif}
+.ev-date span{font-size:11px;color:var(--grey)}
+.ev-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tg{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--mist);color:var(--grey)}
+.tg.off{background:#e3f5ec;color:#157a4a}
+.tg.on{background:#fff4d1;color:#a87400}
+.ev h3{font-size:18px;font-weight:800;margin:6px 0 2px}
+.ev .muted{margin:0;font-size:14px}
+.ev-btn{padding:9px 18px;font-size:14px;background:var(--paper)!important;color:var(--ink)!important;border:1.5px solid var(--ink)}
+.ev-btn:hover{background:var(--ink)!important;color:var(--paper)!important;opacity:1}
+.month::before{content:"";width:8px;height:8px;border-radius:50%;background:#1f9d61}
+.ev{border:1px solid transparent;transition:border-color .2s}
+.ev:hover{border-color:#cfe9da}
+.ev-note{font-size:13px;color:var(--grey);margin:8px 2px 0}
+@media (max-width:700px){.ev{grid-template-columns:64px minmax(0,1fr)}.ev-btn{grid-column:1 / -1;justify-self:start}.ev-info{grid-template-columns:1fr}}
+.rc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.rc{background:var(--paper);border-radius:20px;overflow:hidden}
+.rc summary{list-style:none;cursor:pointer}
+.rc summary::-webkit-details-marker{display:none}
+.rc-photo{aspect-ratio:16/10;background:linear-gradient(150deg,#e3f5ec,#fff4d1);display:grid;place-items:center;color:#8e8e93;font-size:13px}
+.rc-hd{padding:14px 18px 16px}
+.rc-hd .muted{margin:0;font-size:13px}
+.rc-hd h3{font-size:17px;font-weight:800;margin:4px 0 8px}
+.rc-more{font-size:13.5px;font-weight:700}
+.rc-more::after{content:" ↓"}
+.rc[open] .rc-more::after{content:" ↑"}
+.rc-body{padding:0 18px 18px;border-top:1px solid var(--line)}
+.rc-k{font-size:13px;font-weight:700;color:var(--grey);margin:14px 0 6px}
+.rc-body ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.8}
+@media (max-width:820px){.rc-grid{grid-template-columns:1fr}}
+.sie-mini{padding:0;background:transparent;margin-top:22px;max-width:440px}
+/* phone fixes */
+body.clean .todo{display:none!important}
+@media (max-width:820px){
+  .story3{grid-template-columns:1fr!important;gap:28px}
+  .sie-mini{max-width:100%}
+}
+@media (max-width:600px){
+  .card{padding:24px 18px 22px}
+  .card .carousel{margin-inline:-6px}
+  .f-panel{padding:20px 16px}
+  .ab-art{max-width:280px}
+  .ab-chip{padding:8px 11px}
+  .ab-chip b{font-size:16px}
+  .ev-info > div{padding:18px 20px}
+  .quote{padding:20px}
+  .lead{font-size:17px}
+  .ab-h{font-size:27px}
+}
+.nowbar{background:var(--ink);color:var(--paper);font-size:13px}
+.nowbar .wrap{height:34px;display:flex;align-items:center;gap:10px}
+.nowbar b{background:var(--paper);color:var(--ink);border-radius:999px;padding:1px 10px;font-size:12px}
+.nowbar a{margin-left:auto;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+
+/* section header */
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.sec-head > div{min-width:0;max-width:760px}
+.more{font-size:17px;font-weight:600;white-space:nowrap}
+.more::after{content:" ›"}
+
+/* solution cards */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--paper);border-radius:28px;padding:36px 32px 32px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.mist .card{background:var(--paper)}
+.card .ph{margin-top:10px;min-height:240px}
+.card .more{margin-top:auto;padding-top:8px}
+.tag{font-size:13px;font-weight:600;color:var(--grey);letter-spacing:.06em}
+
+/* strengths */
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:980px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid4{grid-template-columns:1fr}}
+.str{background:var(--mist);border-radius:24px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.str .k{font-size:15px;font-weight:700}
+.str .big{font-family:Inter,sans-serif;font-size:56px;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.str .big small{font-size:20px;font-weight:700;margin-left:2px;letter-spacing:0}
+.str .chain{display:flex;flex-wrap:wrap;gap:6px;font-size:13px;font-weight:600}
+.str .chain span{background:var(--paper);border-radius:999px;padding:4px 10px}
+.str p{font-size:15px;color:var(--ink)}
+
+/* contact band */
+.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.contact .ways{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:480px){.contact .ways{grid-template-columns:1fr}}
+.way{background:#1c1c1e;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;min-width:0}
+.light-ways .way{background:var(--mist)}
+.qr{width:150px;height:150px;border-radius:12px;background:#fff url(data:image/png;base64,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) center/128px 128px no-repeat;border:1px solid var(--line)}
+.phone{font-family:Inter,sans-serif;font-size:26px;font-weight:700;letter-spacing:.01em;user-select:all;font-variant-numeric:tabular-nums}
+.copy{background:none;border:1px solid currentColor;color:inherit;border-radius:999px;font-size:13px;padding:4px 12px;cursor:pointer;font-family:inherit;opacity:.8}
+
+/* product page */
+.pills{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
+.pills .wrap{display:flex;gap:10px;padding-block:12px;overflow-x:auto;scrollbar-width:none}
+.pills a{flex:none;padding:8px 18px;border-radius:999px;font-size:14px;font-weight:600;color:var(--grey);background:var(--mist)}
+.pills a.on{background:var(--ink);color:var(--paper)}
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.feature.rev .ph{order:-1}
+@media (max-width:860px){.feature{grid-template-columns:1fr;gap:32px}.feature.rev .ph{order:0}}
+.feature .ph{min-height:420px;position:sticky;top:150px}
+@media (max-width:860px){.feature .ph{position:static;min-height:260px}}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:36px;border-top:1px solid var(--line)}
+.steps div{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px}
+@media (max-width:480px){.steps div{grid-template-columns:1fr;gap:6px}}
+.steps dt{font-weight:700;font-size:15px}
+.steps dd{margin:0;font-size:16px;min-width:0}
+.anchor{scroll-margin-top:140px}
+
+/* about */
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.people{grid-template-columns:1fr}}
+.person{display:flex;flex-direction:column;gap:10px;min-width:0}
+.person .ph{min-height:300px;border-radius:24px}
+.person .ph::before{content:""}
+.person h3{font-size:20px}
+.strength-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding-block:56px;border-top:1px solid var(--line)}
+.strength-row:first-of-type{border-top:0}
+@media (max-width:820px){.strength-row{grid-template-columns:1fr;gap:24px}}
+
+/* events */
+.event{background:var(--paper);border-radius:28px;padding:36px 32px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px}
+@media (max-width:820px){.event{grid-template-columns:1fr}}
+.meta{display:grid;grid-template-columns:90px minmax(0,1fr);gap:10px 16px;font-size:15px;margin-top:20px}
+.meta dt{color:var(--grey)}
+.meta dd{margin:0;min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.grid3{grid-template-columns:1fr}}
+
+/* form */
+.form{display:grid;gap:14px;margin-top:8px}
+.form label{font-size:14px;font-weight:600;display:grid;gap:6px}
+.form input,.form select{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+.form .note{font-size:14px;color:var(--grey);min-height:1.4em}
+
+/* footer */
+footer{background:var(--mist);font-size:13px;color:var(--grey);padding-block:40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+
+/* floating guide toggle + mobile CTA */
+.guide{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;background:var(--todo-bg);color:var(--todo-ink);border:1px solid var(--todo-line);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.float-cta{display:none}
+@media (max-width:860px){.float-cta{display:inline-flex;position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;box-shadow:0 6px 24px rgba(0,0,0,.25)}}
+
+.page{display:none}
+.page.show{display:block}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#home">微见智金 <small>EXCELSIOR</small></a>
+    <nav class="links" id="links">
+      <a href="#home" data-p="home">首页</a>
+      <a href="#product" data-p="product">产品介绍</a>
+      <a href="#about" data-p="about">关于我们</a>
+      <a href="#events" data-p="events">沙龙与讲座</a>
+      <a href="#contact" data-p="contact">联系我们</a>
+    </nav>
+    <a class="btn btn-dark" href="#contact">预约咨询</a>
+    <button class="menu-btn" id="menuBtn" aria-label="打开菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ============ 首页 ============ -->
+<main class="page" id="p-home">
+  <section class="dark hero">
+    <div class="wrap">
+      <h1 class="display">用微见智金，<br>AI帮您管好珠宝店</h1>
+      <p class="lead">通过软硬件结合记录和整理门店数据，再用 AI 分析，帮您了解门店情况、发现问题、找到管理提升方向。</p>
+      <div class="ctas">
+        <a class="btn btn-light" href="#contact">预约咨询</a>
+        <a class="btn btn-ghost" href="#product" style="color:#fff">了解产品 ›</a>
+      </div>
+      <div class="flow" id="flow" aria-label="产品工作过程">
+        <div><b>01</b>门店数据采集</div>
+        <div><b>02</b>数据整理</div>
+        <div><b>03</b>AI 分析</div>
+        <div><b>04</b>管理建议</div>
+      </div>
+      <div style="max-width:900px;margin:24px auto 0"></div>
+    </div>
+  </section>
+
+  <section class="band mist">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">四个管理解决方案</p>
+          <h2 class="h2 split" style="margin-top:10px"><b>珠宝门店管理的四大痛点，</b><span>我们和 AI 一起，帮您一站式解决。</span></h2>
+        </div>
+        <a class="more" href="#product">查看全部产品介绍</a>
+      </div>
+      <div class="grid2">
+        <article class="card">
+          <p class="tag">经营分析</p>
+          <h3 class="h3 split"><b>一眼看懂，</b><span>门店正在发生什么</span></h3>
+          <p class="muted">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
+          <div class="carousel" data-set="analysis"></div>
+          <a class="more" href="#analysis">了解详情</a>
+        </article>
+        <article class="card">
+          <p class="tag">客流与进店</p>
+          <h3 class="h3 split"><b>看清客流量</b><span>与进店率</span></h3>
+          <p class="muted">全面掌握门口客流与进店情况，门店动态一目了然，并给出针对性的引流建议。</p>
+          <div class="carousel" data-set="traffic"></div>
+          <a class="more" href="#traffic">了解详情</a>
+        </article>
+        <article class="card">
+          <p class="tag">导购分析</p>
+          <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
+          <p class="muted">精准定位每位导购的薄弱环节，据此开展针对性培训，切实提升接待与成交能力。</p>
+          <div class="carousel" data-set="staff"></div>
+          <a class="more" href="#staff">了解详情</a>
+        </article>
+        <article class="card">
+          <p class="tag">排班考勤</p>
+          <h3 class="h3 split"><b>按客流排班，</b><span>考勤一目了然</span></h3>
+          <p class="muted">看清导购每天的忙闲，把人排在最需要的时段；人脸识别打卡，考勤自动记录。</p>
+          <div class="carousel" data-set="schedule"></div>
+          <a class="more" href="#schedule">了解详情</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">品牌与实力</p>
+          <h2 class="h2" style="margin-top:10px">真正懂零售门店运营的前沿科技团队</h2>
+        </div>
+        <a class="more" href="#about">了解我们</a>
+      </div>
+      <div class="grid2 brand">
+        <article class="card">
+          <p class="tag">懂行业</p>
+          <h3 class="h4">30年珠宝零售门店运营经验，超20家珠宝门店在营。</h3>
+          <p class="muted">与行业内多家知名企业深度合作，沉淀出自有的珠宝门店运营白皮书。真正有零售基因的科技团队。</p>
+          <div class="vis" data-vis="industry"></div>
+        </article>
+        <article class="card">
+          <p class="tag">懂技术</p>
+          <h3 class="h4">年轻的核心团队，连接全球的资源。</h3>
+          <p class="muted">核心团队高学历、有海外背景、年轻，负责本地落地；与美国硅谷等地深度链接，用全世界的资源和认知，帮您在本地实现降维打击。</p>
+          <div class="vis" data-vis="tech"></div>
+        </article>
+        <article class="card">
+          <p class="tag">有产品</p>
+          <h3 class="h4">软硬件结合，全链路打通。</h3>
+          <p class="muted">真正做到数据采集、数据整理、智能分析，一条线连起来。</p>
+          <div class="vis" data-vis="product"></div>
+        </article>
+        <article class="card">
+          <p class="tag">做服务</p>
+          <h3 class="h4">技术人员细致服务，确保使用顺畅。</h3>
+          <p class="muted">从安装调试到培训上手，再到定期回访，助力管理提升。</p>
+          <div class="vis" data-vis="service"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" data-contact="想了解产品，或参加沙龙与讲座？|欢迎联系微见智金。"></section>
+</main>
+
+<!-- ============ 产品介绍 ============ -->
+<main class="page" id="p-product">
+  <section class="band" style="padding-bottom:56px">
+    <div class="wrap" style="text-align:center">
+      <p class="eyebrow">产品介绍</p>
+      <h1 class="display" style="margin-top:12px">AI怎样帮您<br>管好珠宝店</h1>
+      <p class="lead muted" style="max-width:36em;margin:24px auto 0">从经营分析、客流进店，到导购提升与排班考勤，把门店数据转化为清晰的管理判断。帮助您把珠宝门店的日常管控做得更清楚，真正实现降本增效。</p>
+      <div class="vis wide" data-vis="chain" style="margin-top:48px;background:var(--mist)"></div>
+      
+    </div>
+  </section>
+  <nav class="pills" aria-label="产品功能">
+    <div class="wrap">
+      <a href="#analysis" data-s="analysis">经营分析</a>
+      <a href="#traffic" data-s="traffic">客流与进店</a>
+      <a href="#staff" data-s="staff">导购分析</a>
+      <a href="#schedule" data-s="schedule">排班考勤</a>
+    </div>
+  </nav>
+
+  <section class="band fblk anchor" id="s-analysis">
+    <div class="wrap">
+      <div class="f-panel">
+        <div class="f-left">
+          <p class="eyebrow">经营分析</p>
+          <h2 class="split"><b>一眼看懂，</b><span>门店正在发生什么</span></h2>
+          <p class="f-lead">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
+          <dl class="f-rows"><div><dt>痛点</dt><dd>门店经营状况模糊，数据分散，不知从何分析，问题往往发现得太晚。</dd></div><div><dt>我们做什么</dt><dd>AI 每周为门店做一次经营体检，自动生成经营周报：三项健康评分、一句话经营概况、销售漏斗，以及本周重点与改进建议。</dd></div></dl>
+          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>每周通过企业微信或 App 接收经营周报。</li><li>先看三项健康评分：绿色健康，黄色普通，红色危险。</li><li>再看经营概况与销售漏斗，找到问题出在哪个环节。</li><li>按 AI 给出的重点与建议，安排本周工作。</li></ol></div>
+        </div>
+        <div class="f-right">
+          <div class="carousel" data-set="analysis"></div>
+          <figure class="quote"><blockquote>“以前看个经营情况，得翻好几张表，还不一定看得明白。现在每周一份报告，三个分数一看，哪儿出了问题心里就有数了。”</blockquote><figcaption>—— 某珠宝零售店老板</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band fblk anchor" id="s-traffic">
+    <div class="wrap">
+      <div class="f-panel">
+        <div class="f-left">
+          <p class="eyebrow">客流与进店</p>
+          <h2 class="split"><b>看清客流量</b><span>与进店率</span></h2>
+          <p class="f-lead">全面掌握门口客流与进店情况，门店动态一目了然，并给出针对性的引流建议。</p>
+          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚门口每天有多少人经过、多少人进店，难以评估门头、橱窗与活动的引流效果。</dd></div><div><dt>我们做什么</dt><dd>客流计数器统计门口客流，智能轮号系统记录进店批次，系统自动计算进店率，并给出引流建议。</dd></div></dl>
+          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>客流计数器装在门口，自动计数，无需任何操作。</li><li>顾客进店后，导购在轮号屏上点"开始接待"，同行顾客计 1 批。</li><li>您在手机上随时查看每日客流、进店批次与进店率。</li></ol></div>
+        </div>
+        <div class="f-right">
+          <div class="carousel" data-set="traffic"></div>
+          <figure class="quote"><blockquote>“门口过了多少人、进来几批，以前全靠感觉。现在换个橱窗到底有没有用，一周就能看出来。”</blockquote><figcaption>—— 某珠宝零售店老板</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band fblk anchor" id="s-staff">
+    <div class="wrap">
+      <div class="f-panel">
+        <div class="f-left">
+          <p class="eyebrow">导购分析</p>
+          <h2 class="split"><b>看清每位导购，</b><span>针对性提升能力</span></h2>
+          <p class="f-lead">精准定位每位导购的薄弱环节，据此开展针对性培训，切实提升接待与成交能力。</p>
+          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚每位导购的真实销售能力：该重点培养谁、如何培养，招聘筛选与能力提升都缺少依据。</dd></div><div><dt>我们做什么</dt><dd>系统自动统计每位导购的接待批次、接待时长、成交与销售额，生成目标完成率排名与接待效率四象限。</dd></div></dl>
+          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>看排名：谁完成了目标，谁没有完成。</li><li>看四象限：左上角是标杆导购，右下角是重点辅导对象。</li><li>看建议：按 AI 给出的建议安排培训。</li></ol></div>
+        </div>
+        <div class="f-right">
+          <div class="carousel" data-set="staff"></div>
+          <figure class="quote"><blockquote>“谁接待了多少、卖了多少，系统都记着，挺公平的。店长看了分析，说我哪块弱就带我练哪块，进步挺快。”</blockquote><figcaption>—— 某珠宝零售店导购</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band fblk anchor" id="s-schedule">
+    <div class="wrap">
+      <div class="f-panel">
+        <div class="f-left">
+          <p class="eyebrow">排班考勤</p>
+          <h2 class="split"><b>按客流排班，</b><span>考勤一目了然</span></h2>
+          <p class="f-lead">看清导购每天的忙闲，把人排在最需要的时段；人脸识别打卡，考勤自动记录。</p>
+          <dl class="f-rows"><div><dt>痛点</dt><dd>排班依赖经验，高峰时段人手不足，平峰时段人力闲置；考勤记录不清晰，月底核对耗时。</dd></div><div><dt>我们做什么</dt><dd>周报自动计算每天的接待使用率，即接待时长占在岗时长的比例；系统据此按客流自动推荐班次，人脸识别打卡自动记录考勤。</dd></div></dl>
+          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>查看每日接待使用率，了解工作日与周末的忙闲。</li><li>按系统推荐的班次排班。</li><li>导购到店刷脸打卡。</li><li>随时查看考勤：正常、迟到、旷工。</li></ol></div>
+        </div>
+        <div class="f-right">
+          <div class="carousel" data-set="schedule"></div>
+          <figure class="quote"><blockquote>“周末人手不够、平时人又闲着，以前天天为这个头疼。现在照着系统排班就行，打卡也是刷脸自动记，月底不用一个个对了。”</blockquote><figcaption>—— 某珠宝零售店店长</figcaption></figure>
+        </div>
+      </div>
+      <p class="q-foot">注：客户反馈为示意内容，正式上线前将替换为真实客户反馈。</p>
+    </div>
+  </section>
+
+  <section class="band dark" data-contact="想了解产品怎样用到您的门店？|联系我们，进一步了解微见智金。"></section>
+</main>
+
+<!-- ============ 关于 ============ -->
+<main class="page" id="p-about">
+  <section class="ab-hero">
+    <div class="wrap ab-grid">
+      <div>
+        <p class="eyebrow">关于我们</p>
+        <h1 class="ab-h">用 AI 与数据，<br><span>帮助珠宝门店实现精细化经营。</span></h1>
+      </div>
+      <div class="ab-art" aria-hidden="true">
+        <div class="ab-dots"></div>
+        <div class="ab-core">微见<br>智金</div>
+        <div class="ab-chip c1"><b>30 年</b>珠宝零售经验</div>
+        <div class="ab-chip c2"><b>20+ 家</b>门店在营</div>
+        <div class="ab-chip c3"><b>每周</b>AI 经营体检</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:32px">
+    <div class="wrap">
+      <div class="story3">
+        <div>
+          <h2 class="h2 split"><b>从微见，</b><span>到智金。</span></h2>
+          <p class="lead" style="margin-top:20px;line-height:1.85">我们的故事，从一家珠宝门店的柜台开始。</p>
+          <p class="story-p">两个准备接班家族事业的年轻人，带着海外求学与大公司历练的视野回到门店，却发现：生意的好坏，依然藏在老板的经验和直觉里。</p>
+          <p class="story-p">于是我们从自家门店做起，把每一批进店、每一次接待、每一个时段都看清楚。和店长、导购一起试、一起改，把细微处的发现，变成看得见的业绩。</p>
+          <p class="story-p"><b>这就是“微见智金”。</b></p>
+          <div class="vis sie-mini" data-vis="sieMini"></div>
+        </div>
+        <div class="vis story-art" data-vis="storyArt"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band mist">
+    <div class="wrap">
+      <h2 class="h2 split" style="margin-bottom:40px"><b>核心团队。</b><span>有任何想聊的，直接找我们。</span></h2>
+      <div class="rail-wrap">
+        <div class="rail" id="rail"><article class="pc lead"><div class="pc-photo"><span>G</span><small>照片待放</small></div><div class="pc-body"><h3>Gavin Li</h3><p class="role">创始人 · 负责整体</p><p class="duty">海外留学，曾在多家大型企业工作，统筹产品方向与公司整体发展。</p><button class="ask-link ask" type="button" data-to="Gavin Li">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-0">留言给 Gavin Li<textarea id="pcm-0" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-0">您的手机号<input id="pcp-0" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article><article class="pc"><div class="pc-photo"><span>C</span><small>照片待放</small></div><div class="pc-body"><h3>Chloe Zhou</h3><p class="role">市场与落地</p><p class="duty">负责品牌市场与门店落地推进。</p><button class="ask-link ask" type="button" data-to="Chloe Zhou">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-1">留言给 Chloe Zhou<textarea id="pcm-1" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-1">您的手机号<input id="pcp-1" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article><article class="pc"><div class="pc-photo"><span>E</span><small>照片待放</small></div><div class="pc-body"><h3>Eric</h3><p class="role">技术</p><p class="duty">负责产品研发与系统搭建。</p><button class="ask-link ask" type="button" data-to="Eric">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-2">留言给 Eric<textarea id="pcm-2" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-2">您的手机号<input id="pcp-2" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article><article class="pc"><div class="pc-photo"><span>F</span><small>照片待放</small></div><div class="pc-body"><h3>Fiona</h3><p class="role">技术</p><p class="duty">负责软硬件对接与技术实施。</p><button class="ask-link ask" type="button" data-to="Fiona">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-3">留言给 Fiona<textarea id="pcm-3" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-3">您的手机号<input id="pcp-3" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article><article class="pc"><div class="pc-photo"><span>N</span><small>照片待放</small></div><div class="pc-body"><h3>Nancy</h3><p class="role">数据分析</p><p class="duty">负责经营数据分析与模型优化。</p><button class="ask-link ask" type="button" data-to="Nancy">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-4">留言给 Nancy<textarea id="pcm-4" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-4">您的手机号<input id="pcp-4" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article><article class="pc"><div class="pc-photo"><span>博</span><small>照片待放</small></div><div class="pc-body"><h3>博扬</h3><p class="role">角色待补</p><p class="duty">职责待补充。</p><button class="ask-link ask" type="button" data-to="博扬">给 Ta 留言 ›</button><form class="pc-form" hidden><label for="pcm-5">留言给 博扬<textarea id="pcm-5" rows="3" placeholder="您想聊的问题"></textarea></label><label for="pcp-5">您的手机号<input id="pcp-5" inputmode="tel" placeholder="11 位手机号"></label><div class="pc-fa"><button class="btn btn-dark" type="submit">发送</button><button class="ask-cancel" type="button">取消</button></div><p class="note"></p></form></div></article></div>
+        <div class="rail-ctl"><span class="muted" style="font-size:13px">左右拖动查看更多</span><div class="c-arrows"><button type="button" data-r="-1" aria-label="向左">‹</button><button type="button" data-r="1" aria-label="向右">›</button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark" data-contact="想认识我们的团队？|欢迎联系微见智金。"></section>
+</main>
+
+<!-- ============ 沙龙与讲座 ============ -->
+<main class="page" id="p-events">
+  <section class="band" style="padding-bottom:40px">
+    <div class="wrap">
+      <p class="eyebrow">沙龙与讲座</p>
+      <h1 class="ab-h" style="max-width:16em"><b style="font-weight:800">与同行交流，</b><br><span>共探门店经营之道。</span></h1>
+      <p class="lead muted" style="margin-top:20px;max-width:36em">我们坚持举办珠宝零售行业分享会，希望帮助更多珠宝零售商获取更多信息，把门店经营得更好。</p>
+      <div class="ev-info">
+        <div style="--tint:#e3f5ec;--icbg:#1f9d61"><span class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></span><h3>聊什么</h3><div class="chips"><span>AI 应用</span><span>经营管理</span><span>门店运营</span><span>电商</span><span>更多主题</span></div></div>
+        <div style="--tint:#fff4d1;--icbg:#e0a100"><span class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3>怎么聊</h3><p><b>线上分享</b>，随时随地参与；<br><b>线下闭门小会</b>，多在深圳水贝附近举办。</p></div>
+        <div style="--tint:#f2f2f7;--icbg:#1d1d1f"><span class="ev-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c0-3 2.5-5 5-5s5 2 5 5M11 19c0-3 2.5-5 5-5s5 2 5 5"/></svg></span><h3>能收获什么</h3><p>每一次都能碰撞出新的想法，结识同行人脉，并与专家老师深度交流。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band mist" style="padding-top:56px">
+    <div class="wrap">
+      <div class="ev-tabs" role="tablist">
+        <button type="button" role="tab" class="on" data-tab="up">近期活动</button>
+        <button type="button" role="tab" data-tab="past">精彩回顾</button>
+      </div>
+      <div class="ev-panel" data-panel="up">
+        <h3 class="month">2026 年 12 月</h3>
+        <article class="ev"><div class="ev-date"><b>12月</b><span>日期待定</span></div><div class="ev-main"><div class="ev-tags"><span class="tg off">线下 · 闭门小会</span><span class="tg">AI 应用</span></div><h3>AI 如何帮珠宝门店看清经营</h3><p class="muted">深圳水贝附近</p></div><a class="btn btn-dark ev-btn" href="#events-signup">报名咨询</a></article>
+        <article class="ev"><div class="ev-date"><b>12月</b><span>日期待定</span></div><div class="ev-main"><div class="ev-tags"><span class="tg on">线上分享</span><span class="tg">经营管理</span></div><h3>导购能力提升：从数据找到培训重点</h3><p class="muted">线上直播</p></div><a class="btn btn-dark ev-btn" href="#events-signup">报名咨询</a></article>
+        <h3 class="month">2027 年 1 月</h3>
+        <article class="ev"><div class="ev-date"><b>1月</b><span>日期待定</span></div><div class="ev-main"><div class="ev-tags"><span class="tg off">线下 · 闭门小会</span><span class="tg">门店运营</span></div><h3>年货季门店运营与客流提升</h3><p class="muted">深圳水贝附近</p></div><a class="btn btn-dark ev-btn" href="#events-signup">报名咨询</a></article>
+        <p class="ev-note">具体时间与报名方式以通知为准，欢迎扫码或致电咨询。</p>
+      </div>
+      <div class="ev-panel" data-panel="past" hidden>
+        <div class="rc-grid"><details class="rc"><summary><div class="rc-photo">现场照片</div><div class="rc-hd"><p class="muted">2026 年 · 线下闭门小会</p><h3>往期活动名称</h3><span class="rc-more">查看精彩内容</span></div></summary><div class="rc-body"><p class="rc-k">本场聊了什么</p><ul><li>讨论要点一（待补充）</li><li>讨论要点二（待补充）</li><li>讨论要点三（待补充）</li></ul></div></details><details class="rc"><summary><div class="rc-photo">现场照片</div><div class="rc-hd"><p class="muted">2026 年 · 线上分享</p><h3>往期活动名称</h3><span class="rc-more">查看精彩内容</span></div></summary><div class="rc-body"><p class="rc-k">本场聊了什么</p><ul><li>讨论要点一（待补充）</li><li>讨论要点二（待补充）</li><li>讨论要点三（待补充）</li></ul></div></details><details class="rc"><summary><div class="rc-photo">现场照片</div><div class="rc-hd"><p class="muted">2026 年 · 线下闭门小会</p><h3>往期活动名称</h3><span class="rc-more">查看精彩内容</span></div></summary><div class="rc-body"><p class="rc-k">本场聊了什么</p><ul><li>讨论要点一（待补充）</li><li>讨论要点二（待补充）</li><li>讨论要点三（待补充）</li></ul></div></details></div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="band dark anchor" id="s-events-signup" data-contact="咨询与报名|扫码或致电，咨询活动并报名。"></section>
+</main>
+
+<!-- ============ 联系我们 ============ -->
+<main class="page" id="p-contact">
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">联系我们</p>
+      <h1 class="display" style="margin-top:12px">欢迎预约咨询。</h1>
+      <p class="lead muted" style="margin-top:20px;max-width:30em">想了解产品，或参加沙龙与讲座？欢迎联系微见智金。</p>
+      <div class="grid3 light-ways" style="margin-top:48px">
+        <div class="way">
+          <p class="k" style="font-weight:700">公司微信</p>
+          <div class="qr" role="img" aria-label="微见智金企业微信二维码"></div>
+          <p class="muted">扫码咨询产品与活动。</p>
+        </div>
+        <div class="way">
+          <p class="k" style="font-weight:700">电话咨询</p>
+          <p class="phone">400-000-0000</p>
+          <button class="copy" type="button" data-copy="400-000-0000">复制号码</button>
+          
+        </div>
+        <div class="way">
+          <p class="k" style="font-weight:700">留下联系方式，我们将尽快联系您</p>
+          <form class="form" id="leadForm">
+            <label for="f-name">您的称呼<input id="f-name" name="name" placeholder="例如：王总" autocomplete="name"></label>
+            <label for="f-phone">手机号<input id="f-phone" name="phone" inputmode="tel" placeholder="11 位手机号" required></label>
+            <label for="f-shops">门店数量
+              <select id="f-shops" name="shops"><option>1 家</option><option>2 到 5 家</option><option>6 家以上</option></select>
+            </label>
+            <button class="btn btn-dark" type="submit">提交</button>
+            <p class="note" id="formNote"></p>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p style="font-weight:700;color:var(--ink)">微见智金 Excelsior</p>
+      <p>专注珠宝零售的 AI 科技品牌</p>
+      <p>微见智金：见微知著，以智生金。</p>
+      <p style="margin-top:8px">© 2026 微见智金 </p>
+    </div>
+    <nav>
+      <a href="#home">首页</a><a href="#product">产品介绍</a><a href="#about">关于我们</a><a href="#events">沙龙与讲座</a><a href="#contact">联系我们</a>
+    </nav>
+  </div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wob"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter></svg>
+<a class="btn btn-dark float-cta" href="#contact">预约咨询</a>
+
+<script>
+(function(){
+  // shared contact band
+  document.querySelectorAll('[data-contact]').forEach(function(el){
+    var t = el.getAttribute('data-contact').split('|');
+    el.innerHTML =
+      '<div class="wrap contact">' +
+        '<div style="min-width:0"><p class="eyebrow" style="color:#86868b">联系我们</p>' +
+        '<h2 class="h2" style="margin-top:10px">' + t[0] + '</h2>' +
+        '<p class="lead muted" style="margin-top:16px">' + t[1] + '</p>' +
+        '<a class="btn btn-light" href="#contact" style="margin-top:32px">预约咨询</a></div>' +
+        '<div class="ways">' +
+          '<div class="way"><div class="qr" role="img" aria-label="微见智金企业微信二维码"></div><p class="muted">扫码咨询产品与活动。</p></div>' +
+          '<div class="way"><p class="muted">电话咨询</p><p class="phone">400-000-0000</p>' +
+          '<button class="copy" type="button" data-copy="400-000-0000">复制号码</button></div>' +
+        '</div>' +
+      '</div>';
+  });
+
+  // line-sketch placeholders: label says what real photo/screenshot goes here
+  function man(x,y,s,cls){ s=s||1; cls=cls?' class="'+cls+'"':'';
+    return '<g'+cls+'><circle cx="'+x+'" cy="'+y+'" r="'+(9*s)+'"/><path d="M'+x+' '+(y+9*s)+' V'+(y+40*s)+' M'+(x-14*s)+' '+(y+22*s)+' L'+x+' '+(y+16*s)+' L'+(x+14*s)+' '+(y+22*s)+' M'+(x-11*s)+' '+(y+62*s)+' L'+x+' '+(y+40*s)+' L'+(x+11*s)+' '+(y+62*s)+'"/></g>'; }
+  function t(x,y,s,cls,anchor){ return '<text x="'+x+'" y="'+y+'"'+(cls?' class="'+cls+'"':'')+(anchor?' text-anchor="'+anchor+'"':'')+'>'+s+'</text>'; }
+  var SK = {
+    door: function(){ return {g:
+      '<path d="M0 225 H400"/><rect x="150" y="60" width="110" height="165" rx="4"/><rect class="hl" x="178" y="38" width="54" height="14" rx="4"/>'+
+      '<path d="M190 52 L170 215 M220 52 L240 215" stroke-dasharray="4 7"/>'+man(55,140)+man(100,150,.9)+
+      '<path d="M40 214 Q110 200 160 212" marker-end="url(#ar)"/><rect x="300" y="80" width="78" height="110" rx="8"/><path d="M339 190 V225"/>',
+      txt: t(238,49,'客流计数器','hl')+t(339,128,'A12','hl','middle')+t(339,152,'轮号屏',null,'middle')+t(20,30,'门口经过客流 → 计数')+t(300,72,'接待批次',null)}; },
+    report: function(){ var r='<rect x="30" y="20" width="300" height="205" rx="10"/><path d="M30 50 H330"/>';
+      for(var y=80;y<=200;y+=30) r+='<path d="M50 '+y+' H310"/>';
+      r+='<path d="M140 60 V210 M225 60 V210"/><ellipse class="hl" cx="268" cy="125" rx="40" ry="18"/><path class="hl" d="M308 125 L360 100"/>';
+      return {g:r, txt:t(45,40,'门店经营分析表')+t(362,95,'重点','hl')+t(362,113,'标注','hl')}; },
+    staff: function(){ var h=[110,70,135,40], r='<path d="M30 200 H370"/>';
+      h.forEach(function(v,i){ var x=60+i*80; r+='<rect'+(i==3?' class="hl"':'')+' x="'+x+'" y="'+(200-v)+'" width="44" height="'+v+'" rx="4"/><circle cx="'+(x+22)+'" cy="218" r="9"/>'; });
+      r+='<circle class="hl" cx="322" cy="140" r="28"/>';
+      return {g:r, txt:t(30,30,'每位员工：接待 / 成交')+t(300,100,'需要培训','hl')}; },
+    schedule: function(){ var r='<rect x="25" y="30" width="215" height="185" rx="8"/><path d="M25 60 H240"/>';
+      for(var c=1;c<7;c++) r+='<path d="M'+(25+c*30.7)+' 60 V215"/>';
+      for(var rr=1;rr<4;rr++) r+='<path d="M25 '+(60+rr*38.75)+' H240"/>';
+      r+='<rect class="hl" x="60" y="70" width="55" height="20" rx="4"/><rect class="hl" x="125" y="148" width="55" height="20" rx="4"/>';
+      r+='<rect x="275" y="40" width="100" height="160" rx="12"/><circle class="hl" cx="325" cy="105" r="24"/><path d="M290 70 h12 M290 70 v12 M360 70 h-12 M360 70 v12 M290 140 h12 M290 140 v-12 M360 140 h-12 M360 140 v-12"/>';
+      return {g:r, txt:t(35,52,'排班表')+t(325,180,'刷脸打卡','hl','middle')}; },
+    products: function(){ return {g:
+      '<rect class="hl" x="30" y="60" width="70" height="18" rx="4"/><rect x="125" y="50" width="80" height="120" rx="10"/><rect x="230" y="40" width="70" height="130" rx="12"/><circle cx="265" cy="90" r="16"/>'+
+      '<rect x="320" y="80" width="50" height="95" rx="10"/><path d="M20 200 H380"/><path d="M65 95 C 90 150 110 150 125 120" stroke-dasharray="4 6"/>',
+      txt: t(65,110,'计数器',null,'middle')+t(165,115,'轮号屏',null,'middle')+t(265,150,'打卡机',null,'middle')+t(345,130,'手机',null,'middle')+t(200,228,'采集 → 整理 → AI 分析','hl','middle')}; },
+    store: function(){ return {g:
+      '<path d="M0 225 H400"/><rect x="60" y="130" width="280" height="95" rx="4"/><path d="M60 150 H340"/>'+
+      '<path d="M110 140 l8 -8 l8 8 l-8 8 z M190 140 l8 -8 l8 8 l-8 8 z M270 140 l8 -8 l8 8 l-8 8 z"/><path d="M120 20 V40 M200 20 V40 M280 20 V40"/>'+
+      '<path d="M108 40 h24 M188 40 h24 M268 40 h24"/>'+man(170,60,.9)+man(320,90,1),
+      txt: t(20,30,'珠宝门店')}; },
+    team: function(){ return {g:
+      '<path d="M40 170 H360"/><path d="M60 170 V225 M340 170 V225"/>'+man(110,80)+man(200,70)+man(290,80)+
+      '<path d="M90 170 l10 -25 h40 l-6 25 M260 170 l10 -25 h40 l-6 25"/><rect class="hl" x="150" y="20" width="100" height="30" rx="6"/>',
+      txt: t(200,41,'研发 / 讨论','hl','middle')}; },
+    service: function(){ return {g:
+      '<path d="M0 225 H400"/><rect x="40" y="150" width="240" height="75" rx="4"/><rect x="180" y="95" width="60" height="55" rx="6"/>'+man(110,80)+man(320,90,1,'hl')+
+      '<path class="hl" d="M300 40 h80 a8 8 0 0 1 8 8 v24 a8 8 0 0 1 -8 8 h-60 l-12 12 v-12 h-8 a8 8 0 0 1 -8 -8 v-24 a8 8 0 0 1 8 -8 z"/>',
+      txt: t(340,66,'这样用','hl','middle')+t(210,128,'设备',null,'middle')+t(20,30,'技术人员到店')}; },
+    queue: function(){ return {g:
+      '<path d="M0 250 H400"/><rect x="20" y="160" width="190" height="90" rx="4"/><path d="M20 180 H210"/>'+
+      '<path d="M140 160 V130"/><rect class="hl" x="105" y="62" width="80" height="68" rx="8"/><rect class="hl" x="118" y="102" width="54" height="18" rx="9"/>'+
+      man(60,95,1)+'<path d="M74 117 L118 108"/>'+
+      man(270,110,1)+man(310,118,.9)+man(350,110,1)+
+      '<path class="hl" d="M248 182 v10 h124 v-10"/><path class="hl" d="M224 120 C 210 110 200 100 192 96" marker-end="url(#ar)"/>',
+      txt: t(145,88,'A12','hl','middle')+t(145,116,'开始接待',null,'middle')+t(310,214,'一起进店 = 1 个批次','hl','middle')+t(30,30,'员工在轮号屏上点一下')+t(30,50,'系统自动记下一批接待')+t(60,232,'员工',null,'middle')+t(310,70,'顾客',null,'middle')}; },
+    dash: function(){ var r='<rect x="20" y="15" width="360" height="240" rx="14"/><path d="M20 45 H380"/>';
+      [30,145,260].forEach(function(x,i){ r+='<rect'+(i==2?' class="hl"':'')+' x="'+x+'" y="58" width="105" height="70" rx="10"/>'; });
+      r+='<path d="M40 235 H360"/>';
+      [40,60,48,80,72,95,88].forEach(function(v,i){ r+='<rect x="'+(55+i*44)+'" y="'+(235-v)+'" width="22" height="'+v+'" rx="3"/>'; });
+      r+='<path class="hl" d="M66 '+(235-40-14)+' L110 '+(235-60-14)+' L154 '+(235-48-14)+' L198 '+(235-80-14)+' L242 '+(235-72-14)+' L286 '+(235-95-14)+' L330 '+(235-88-14)+'"/>';
+      return {g:r, txt:t(34,36,'今日门店数据')+t(42,80,'客流量')+t(42,115,'1,286','num')+t(157,80,'进店批次')+t(157,115,'214','num')+t(272,80,'进店率','hl')+t(272,115,'16.6%','hl num')+t(300,36,'近 7 天',null)}; },
+    portrait: function(){ return {g:'<circle cx="200" cy="95" r="45"/><path d="M110 230 Q115 150 200 148 Q285 150 290 230"/>', txt:''}; },
+    event: function(){ var r='<rect class="hl" x="30" y="25" width="150" height="90" rx="6"/>'+man(215,70,1,'hl');
+      for(var i=0;i<5;i++){ r+='<circle cx="'+(60+i*70)+'" cy="175" r="12"/><path d="M'+(42+i*70)+' 215 q18 -26 36 0"/>'; }
+      return {g:r, txt:t(105,75,'分享主题','hl','middle')}; }
+  };
+  var RULES = [['软硬件','products'],['技术人员','service'],['报表','report'],['排班','schedule'],['员工','staff'],['客流','door'],['团队','team'],['门店','store'],['活动','event'],['现场','event'],['照片','portrait']];
+  var n = 0;
+  document.querySelectorAll('.ph').forEach(function(el){
+    var label = el.textContent.trim(), type = 'store';
+    for (var k=0;k<RULES.length;k++){ if (label.indexOf(RULES[k][0]) > -1){ type = RULES[k][1]; break; } }
+    var s = SK[type](); n++;
+    el.innerHTML = '<p class="sk-label"><b>图'+(n<10?'0':'')+n+'</b>'+label+'</p>'+
+      '<svg viewBox="0 0 400 240" role="img" aria-label="'+label+'"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="currentColor" stroke-width="2"/></marker></defs>'+
+      '<g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#wob)">'+s.g+'</g>'+s.txt+'</svg>';
+  });
+
+  // carousels (real photos/screenshots replace the .c-img boxes later)
+  // clean product-style visuals (example numbers from the real weekly report)
+  var C = {ok:'#1f9d61', mid:'#f2a900', midText:'#a87400', bad:'#e0453a', ink:'#1d1d1f', grey:'#48484f', track:'#e1e1e8', soft:'#f2f2f7'};
+  var P = {ind:'#3a3a3c', indSoft:'#f2f2f7', grnSoft:'#e3f5ec', ambSoft:'#fff4d1', redSoft:'#fde8e5', skin:'#f3c9a3', bg:'#f7f7fb'};
+  function pill(x,y,w,t,bg,fg){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="24" rx="12" fill="'+bg+'"/>'+T(x+w/2,y+16,t,{s:12,w:700,a:'middle',c:fg}); }
+  function ring(cx, cy, r, v, label, col){
+    var len = 2*Math.PI*r, on = len*v/100;
+    return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+C.track+'" stroke-width="13"/>'+
+      '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="13" stroke-linecap="round" stroke-dasharray="'+on+' '+len+'" transform="rotate(-90 '+cx+' '+cy+')"/>'+
+      '<text x="'+cx+'" y="'+(cy+10)+'" text-anchor="middle" fill="'+C.ink+'" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800">'+v+'</text>'+
+      '<text x="'+cx+'" y="'+(cy+r+28)+'" text-anchor="middle" fill="'+C.ink+'" style="font-size:14px;font-weight:700">'+label+'</text>';
+  }
+  function T(x,y,s,o){ o=o||{}; return '<text x="'+x+'" y="'+y+'"'+(o.a?' text-anchor="'+o.a+'"':'')+' fill="'+(o.c||C.ink)+'" style="font-size:'+(o.s||14)+'px;font-weight:'+(o.w||600)+(o.n?';font-family:Inter,sans-serif':'')+'">'+s+'</text>'; }
+  var VIS = {
+    rings: function(){ return '<svg viewBox="0 0 400 290" role="img" aria-label="门店健康度示例" style="width:100%;height:auto">'+
+      ring(70,78,44,74,'门店健康度',C.mid)+ring(200,78,44,72,'销售健康',C.mid)+ring(330,78,44,78,'导购健康',C.ok)+
+      '<circle cx="128" cy="168" r="5" fill="'+C.ok+'"/>'+T(138,173,'健康',{c:C.grey,s:12})+'<circle cx="180" cy="168" r="5" fill="'+C.mid+'"/>'+T(190,173,'普通',{c:C.grey,s:12})+'<circle cx="232" cy="168" r="5" fill="'+C.bad+'"/>'+T(242,173,'危险',{c:C.grey,s:12})+
+      '<path d="M20 194 H380" stroke="'+C.track+'"/>'+T(20,220,'本周经营概况',{c:C.grey,s:12})+
+      T(20,248,'销售较上周下降 11.1%，',{s:18,w:800})+T(20,274,'进店减少，成交率持平。',{s:18,w:800})+'</svg>'; },
+    funnel: function(){
+      var st=[['门口客流','12,000 人次'],['进店批次','400 批'],['成交批次','160 批'],['销售额','67.2 万元']];
+      var fills=['#d9f0e3','#a8dcbf','#5fbf8b','#1f9d61'], ink=[C.ink,C.ink,'#fff','#fff'], sub=['#157a4a','#157a4a','#fff','#fff'];
+      var cx=128, W=[232,192,152,112,80], H=46, G=6, Y=14;
+      var s='<svg viewBox="0 0 400 290" role="img" aria-label="销售漏斗示例">';
+      st.forEach(function(r,i){ var y=Y+i*(H+G), w1=W[i]/2, w2=W[i+1]/2;
+        s+='<path d="M'+(cx-w1)+' '+y+' H'+(cx+w1)+' L'+(cx+w2)+' '+(y+H)+' H'+(cx-w2)+' Z" fill="'+fills[i]+'"/>'+
+          T(cx,y+19,r[0],{s:12,w:600,a:'middle',c:sub[i]})+T(cx,y+38,r[1],{s:16,w:800,a:'middle',n:1,c:ink[i]}); });
+      var rates=[['进店率','3.33%','↓',P.redSoft,C.bad],['成交率','40.0%','',C.soft,C.ink],['平均单价','¥4,000','',C.soft,C.ink]];
+      rates.forEach(function(r,i){ var y=Y+(i+1)*(H+G)-G/2;
+        s+='<path d="M'+(cx+W[i+1]/2+6)+' '+y+' H256" stroke="#c7c7cc" stroke-width="1.5"/>'+
+          '<rect x="258" y="'+(y-15)+'" width="132" height="30" rx="15" fill="'+r[3]+'"/>'+
+          T(270,y+5,r[0],{s:12,w:600,c:C.ink})+T(378,y+5,r[1]+r[2],{s:13,w:800,n:1,a:'end',c:r[4]}); });
+      s+='<rect x="14" y="226" width="372" height="56" rx="14" fill="'+P.redSoft+'"/>'+
+        pill(26,236,52,'AI 解读',C.ink,'#fff')+
+        T(88,252,'成交率持平，主要问题在进店环节。',{s:13,w:700,c:C.ink})+T(88,272,'建议优先核查门前客流、活动展示与迎宾安排。',{s:12,w:500,c:C.ink});
+      return s+'</svg>'; },
+    insight: function(){
+      var items=['进店较上周少 50 批','周末 14–17 点接待集中','导购接待表现存在差异'];
+      var s='<svg viewBox="0 0 400 290" role="img" aria-label="三个重点关注示例" style="width:100%;height:auto">'+T(20,28,'三个重点关注',{s:15,w:800});
+      items.forEach(function(t,i){ var y=66+i*42; s+='<circle cx="34" cy="'+(y-5)+'" r="13" fill="'+C.soft+'"/>'+T(34,y,String(i+1),{a:'middle',s:13,w:700,n:1})+T(60,y,t,{s:15,w:600,c:i===0?C.bad:C.ink}); });
+      s+='<rect x="20" y="186" width="360" height="92" rx="12" fill="'+C.soft+'"/>'+T(36,212,'AI 建议',{s:13,w:800,c:C.ok})+
+        T(36,240,'成交率持平，问题主要在进店。',{s:14,w:500})+T(36,264,'先核对门前客流、活动表达和迎宾安排。',{s:14,w:500});
+      return s+'</svg>'; }
+  };
+  VIS.queueScene = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="门店里的客流计数器和智能轮号系统">'+
+      '<rect x="0" y="0" width="400" height="290" rx="16" fill="'+P.bg+'"/><path d="M0 252 H400" stroke="#d1d1d6" stroke-width="2"/>';
+    // door + counter sensor
+    s+='<polygon points="40,46 70,46 92,252 18,252" fill="'+P.ind+'" opacity=".12"/>'+
+      '<rect x="14" y="40" width="82" height="212" rx="4" fill="none" stroke="'+C.ink+'" stroke-width="3"/>'+
+      '<rect x="32" y="32" width="46" height="14" rx="5" fill="'+P.ind+'"/><circle cx="44" cy="39" r="2.5" fill="#fff"/><circle cx="66" cy="39" r="2.5" fill="#fff"/>'+
+      pill(14,6,96,'客流计数器','#fff',P.ind);
+    // staff behind counter
+    s+='<rect x="158" y="150" width="36" height="46" rx="14" fill="'+P.ind+'"/><circle cx="176" cy="134" r="14" fill="'+P.skin+'"/>'+
+      '<path d="M162 130 a14 14 0 0 1 28 0 z" fill="'+C.ink+'"/><path d="M190 162 L214 152" stroke="'+P.skin+'" stroke-width="6" stroke-linecap="round"/>';
+    // counter
+    s+='<rect x="140" y="188" width="150" height="8" rx="3" fill="#c9cbd6"/><rect x="140" y="196" width="150" height="56" rx="4" fill="'+C.ink+'"/>'+
+      '<path d="M170 222 l7 -7 l7 7 l-7 7 z M210 222 l7 -7 l7 7 l-7 7 z M250 222 l7 -7 l7 7 l-7 7 z" fill="#f6dc8a"/>';
+    // tablet
+    s+='<path d="M246 176 V188" stroke="'+C.ink+'" stroke-width="4"/><rect x="212" y="116" width="70" height="60" rx="8" fill="#fff" stroke="'+C.ink+'" stroke-width="2.5"/>'+
+      T(247,140,'A12',{s:17,w:800,n:1,a:'middle',c:P.ind})+'<rect x="220" y="150" width="54" height="18" rx="9" fill="'+C.ok+'"/>'+T(247,163,'开始接待',{s:10,w:700,a:'middle',c:'#fff'})+
+      pill(180,86,100,'智能轮号屏','#fff',P.ind);
+    // customers (one batch)
+    [[318,'#8e8ea0'],[346,'#5c5c66'],[372,'#b0b0ba']].forEach(function(p){ var x=p[0];
+      s+='<path d="M'+(x-6)+' 204 V250 M'+(x+6)+' 204 V250" stroke="'+C.ink+'" stroke-width="5" stroke-linecap="round"/>'+
+        '<rect x="'+(x-13)+'" y="160" width="26" height="48" rx="11" fill="'+p[1]+'"/><circle cx="'+x+'" cy="146" r="12" fill="'+P.skin+'"/>'; });
+    s+='<path d="M302 124 v-8 h86 v8" fill="none" stroke="'+C.ink+'" stroke-width="2.5"/>'+pill(286,88,108,'同行顾客计 1 批',C.soft,C.ink);
+    return s+'</svg>'; };
+  VIS.dashColor = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="客流统计界面示例">'+
+      '<rect x="0" y="0" width="400" height="290" rx="16" fill="#fff"/>'+T(18,28,'本周客流概况',{s:15,w:800,c:C.ink})+T(382,28,'近 7 天',{s:12,w:600,c:C.grey,a:'end'});
+    [['门口客流','12,000','',P.grnSoft,'#157a4a'],['进店批次','400','',C.soft,C.ink],['进店率','3.33%','较上周 ↓0.27%',P.ambSoft,C.midText]].forEach(function(t,i){ var x=18+i*124;
+      s+='<rect x="'+x+'" y="42" width="116" height="72" rx="12" fill="'+t[3]+'"/>'+T(x+12,62,t[0],{s:12,w:600,c:C.ink})+T(x+12,94,t[1],{s:24,w:800,n:1,c:t[4]})+
+        (t[2]?T(x+12,108,t[2],{s:10,w:600,c:C.midText}):''); });
+    var flow=[1300,1250,1400,1450,1800,2300,2500], bat=[42,40,45,48,60,80,85], days=['一','二','三','四','五','六','日'];
+    var X0=40, bw=26, gap=24, B=250, Hm=104;
+    s+='<path d="M24 '+B+' H386" stroke="'+C.track+'"/>';
+    var pts=[];
+    flow.forEach(function(v,i){ var x=X0+i*(bw+gap), h=v/2500*Hm;
+      s+='<rect x="'+x+'" y="'+(B-h)+'" width="'+bw+'" height="'+h+'" rx="5" fill="'+(i>=5?'#1f9d61':'#a8dcbf')+'"/>'+T(x+bw/2,B+18,'周'+days[i],{s:12,w:600,c:C.ink,a:'middle'});
+      pts.push([x+bw/2, B-bat[i]/85*Hm+12]); });
+    s+='<polyline fill="none" stroke="'+C.ink+'" stroke-width="2" points="'+pts.map(function(p){return p.join(',');}).join(' ')+'"/>';
+    pts.forEach(function(p){ s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2.5"/>'; });
+    s+='<rect x="236" y="124" width="10" height="10" rx="2" fill="#1f9d61"/>'+T(250,133,'门口客流',{s:12,w:600,c:C.ink})+
+      '<circle cx="318" cy="129" r="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2.5"/>'+T(328,133,'进店批次',{s:12,w:600,c:C.ink});
+    return s+'</svg>'; };
+  // staff visuals (example data from the real weekly report; x = avg minutes per batch, y = avg sales per batch)
+  var STAFF = [['A',21.6,2000,127.9],['B',29.3,1897,113.3],['C',19.2,1745,101.2],['D',28.8,1615,97.9],['E',32.3,1551,88.6],['F',23.2,1511,83.7],['G',41,1500,75.9],['H',25,1333,64.4]];
+  VIS.quad = function(){
+    var X0=58,X1=385,Y0=22,Y1=232, px=function(x){return X0+(x-10)/40*(X1-X0);}, py=function(y){return Y1-(y-1200)/1000*(Y1-Y0);};
+    var ax=px(27), ay=py(1680);
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="接待效率四象限示例" style="width:100%;height:auto">'+
+      '<rect x="'+X0+'" y="'+Y0+'" width="'+(ax-X0)+'" height="'+(ay-Y0)+'" fill="#e3f5ec"/>'+
+      '<rect x="'+ax+'" y="'+ay+'" width="'+(X1-ax)+'" height="'+(Y1-ay)+'" fill="#fbeae6"/>'+
+      '<rect x="'+X0+'" y="'+Y0+'" width="'+(X1-X0)+'" height="'+(Y1-Y0)+'" fill="none" stroke="'+C.track+'"/>'+
+      '<path d="M'+ax+' '+Y0+' V'+Y1+' M'+X0+' '+ay+' H'+X1+'" stroke="#aeaeb2" stroke-dasharray="4 4"/>'+
+      T(X0+8,Y0+18,'高效率 · 高产出',{s:12,w:700,c:C.ok})+T(X1-8,Y1-10,'低效率 · 低产出',{s:12,w:700,c:C.bad,a:'end'})+
+      T(X1-8,Y0+18,'低效率 · 高产出',{s:12,c:C.grey,a:'end'})+T(X0+8,Y1-10,'高效率 · 低产出',{s:12,c:C.grey})+
+      T(X1-4,ay-6,'店均',{s:11,c:C.grey,a:'end'});
+    STAFF.forEach(function(d){ var x=px(d[1]), y=py(d[2]), col = d[0]==='A' ? C.ok : d[0]==='G' ? C.bad : '#8e8e93';
+      s+='<circle cx="'+x+'" cy="'+y+'" r="'+(d[0]==='A'||d[0]==='G'?8:6)+'" fill="'+col+'" stroke="#fff" stroke-width="2"/>'+T(x+10,y+4,d[0],{s:12,w:700,n:1,c:col==='#8e8e93'?C.grey:col}); });
+    s+=pill(X0+10,py(2000)+14,76,'标杆导购',P.grnSoft,C.ok)+pill(px(41)-100,py(1500)+14,92,'重点辅导对象',P.redSoft,C.bad);
+    s+=T((X0+X1)/2,258,'平均每批接待时长 →',{s:12,c:C.grey,a:'middle'})+
+      '<text transform="translate(22 '+((Y0+Y1)/2)+') rotate(-90)" text-anchor="middle" fill="'+C.grey+'" style="font-size:12px;font-weight:600">平均每批销售额 →</text>'+
+      T(X0,282,'每个点是一位导购',{s:11,c:C.grey})+'</svg>';
+    return s; };
+  VIS.rank = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="导购目标完成率排名示例" style="width:100%;height:auto">'+T(20,22,'目标完成率排名',{s:15,w:800});
+    var bx=70, bw=240, x100=bx+bw*100/130;
+    STAFF.slice().sort(function(a,b){return b[3]-a[3];}).forEach(function(d,i){ var y=44+i*30, w=bw*d[3]/130, col=d[3]>=100?C.ok:(d[3]<70?C.bad:C.mid);
+      s+=T(20,y+15,'导购 '+d[0],{s:13,w:600})+'<rect x="'+bx+'" y="'+(y+4)+'" width="'+bw+'" height="14" rx="7" fill="'+C.soft+'"/>'+
+        '<rect x="'+bx+'" y="'+(y+4)+'" width="'+w+'" height="14" rx="7" fill="'+col+'"/>'+T(380,y+16,d[3].toFixed(1)+'%',{s:13,w:700,n:1,a:'end',c:d[3]>=100?C.ok:C.ink}); });
+    s+='<path d="M'+x100+' 40 V286" stroke="'+C.ink+'" stroke-dasharray="3 3"/>'+T(x100,36,'目标 100%',{s:11,c:C.grey,a:'middle'});
+    return s+'</svg>'; };
+  VIS.spot = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="本周重点导购示例" style="width:100%;height:auto">'+T(20,26,'本周重点导购',{s:15,w:800});
+    s+='<rect x="20" y="44" width="360" height="108" rx="12" fill="#e8eefc"/>'+T(36,72,'导购 A · 可复盘的亮点',{s:14,w:800,c:C.ok})+
+      T(36,100,'完成率 127.9%，每批卖 2,000 元，高于店均。',{s:13,w:500})+T(36,124,'平均接待 21.6 分钟。复盘成交案例，',{s:13,w:500})+T(36,144,'提炼可以借鉴的做法。',{s:13,w:500});
+    s+='<rect x="20" y="166" width="360" height="108" rx="12" fill="#fbeae6"/>'+T(36,194,'导购 G · 需要帮一把',{s:14,w:800,c:C.bad})+
+      T(36,222,'完成率 75.9%，接待最久，约 41 分钟，',{s:13,w:500})+T(36,246,'每批卖 1,500 元，低于店均。建议培训',{s:13,w:500})+T(36,266,'推荐和促成环节。',{s:13,w:500});
+    return s+'</svg>'; };
+  // schedule visuals (usage figures from the real weekly report)
+  VIS.usage = function(){
+    var d=[['周一',48],['周二',45],['周三',48],['周四',48],['周五',55],['周六',72],['周日',73]];
+    var X0=40,X1=380,Y0=60,Y1=230, px=function(i){return X0+i*(X1-X0)/6;}, py=function(v){return Y1-v/100*(Y1-Y0);};
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="每日接待使用率示例" style="width:100%;height:auto">'+
+      T(20,24,'每日接待使用率',{s:15,w:800})+T(20,44,'接待时长 ÷ 在岗时长 · 本周 56.1%',{s:12,c:C.grey})+pill(244,10,140,'系统推荐：周末多排人手',C.soft,C.ink)+
+      '<rect x="'+(px(5)-20)+'" y="'+Y0+'" width="'+(px(6)-px(5)+40)+'" height="'+(Y1-Y0)+'" rx="8" fill="#e5e5ea"/>'+
+      '<rect x="'+(px(0)-20)+'" y="'+Y0+'" width="'+(px(3)-px(0)+40)+'" height="'+(Y1-Y0)+'" rx="8" fill="'+C.soft+'"/>';
+    [0,50,100].forEach(function(v){ s+='<path d="M'+X0+' '+py(v)+' H'+X1+'" stroke="'+C.track+'"/>'; });
+    s+='<polyline fill="none" stroke="'+C.ink+'" stroke-width="2.5" points="'+d.map(function(p,i){return px(i)+','+py(p[1]);}).join(' ')+'"/>';
+    d.forEach(function(p,i){ var hot=i>=5; s+='<circle cx="'+px(i)+'" cy="'+py(p[1])+'" r="4.5" fill="'+C.ink+'"/>'+T(px(i),py(p[1])-10,p[1]+'%',{s:12,w:700,n:1,a:'middle',c:C.ink})+T(px(i),Y1+20,p[0],{s:12,c:C.grey,a:'middle'}); });
+    s+=T((px(0)+px(3))/2,Y1+44,'工作日使用率偏低',{s:12,w:700,a:'middle',c:C.grey})+T((px(5)+px(6))/2,Y1+44,'周末使用率偏高',{s:12,w:700,a:'middle',c:C.ink});
+    return s+'</svg>'; };
+  VIS.roster = function(){
+    var days=['一','二','三','四','五','六','日'], ppl=['A','B','C','D','E','F'];
+    var on=[[1,1,0,1,1,1,1],[1,0,1,1,0,1,1],[0,1,1,0,1,1,1],[1,1,1,0,0,1,1],[0,0,1,1,1,1,1],[1,1,0,1,1,0,1]];
+    var X0=70, cw=44, Y0=56, rh=30;
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="排班表示例" style="width:100%;height:auto">'+T(20,24,'本周排班',{s:15,w:800})+T(380,24,'系统按客流推荐',{s:12,w:700,c:C.ok,a:'end'});
+    days.forEach(function(d,j){ s+=T(X0+j*cw+cw/2,Y0-8,'周'+d,{s:12,c:j>=5?C.ok:C.grey,a:'middle',w:j>=5?700:600}); });
+    ppl.forEach(function(p,i){ var y=Y0+i*rh; s+=T(20,y+19,'导购 '+p,{s:12});
+      on[i].forEach(function(v,j){ s+='<rect x="'+(X0+j*cw+3)+'" y="'+(y+4)+'" width="'+(cw-6)+'" height="'+(rh-8)+'" rx="5" fill="'+(v?(j>=5?C.ok:'#c7c7cc'):C.soft)+'"/>'; }); });
+    var cnt=days.map(function(_,j){ return on.reduce(function(a,r){return a+r[j];},0); });
+    s+=T(20,Y0+6*rh+22,'在岗',{s:12,c:C.grey});
+    cnt.forEach(function(c,j){ s+=T(X0+j*cw+cw/2,Y0+6*rh+22,c+' 人',{s:12,w:700,a:'middle',c:j>=5?C.ok:C.ink}); });
+    return s+'</svg>'; };
+  VIS.clock = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="人脸识别打卡与考勤记录示例" style="width:100%;height:auto">'+
+      '<rect x="20" y="30" width="120" height="200" rx="16" fill="'+C.soft+'" stroke="'+C.track+'"/>'+
+      '<circle cx="80" cy="105" r="30" fill="none" stroke="'+C.ink+'" stroke-width="2.5"/>'+
+      '<path d="M45 65 h14 M45 65 v14 M115 65 h-14 M115 65 v14 M45 145 h14 M45 145 v-14 M115 145 h-14 M115 145 v-14" stroke="'+C.ok+'" stroke-width="3" stroke-linecap="round" fill="none"/>'+
+      T(80,180,'打卡成功',{s:13,w:700,c:C.ok,a:'middle'})+T(80,202,'09:28',{s:13,n:1,a:'middle',c:C.grey})+T(80,256,'人脸识别打卡',{s:12,c:C.grey,a:'middle'})+
+      T(160,48,'今日考勤',{s:15,w:800});
+    var rows=[['导购 A','09:28','正常',C.ok],['导购 B','09:31','正常',C.ok],['导购 C','09:42','迟到',C.midText],['导购 D','—','旷工',C.bad],['导购 E','09:25','正常',C.ok]];
+    rows.forEach(function(r,i){ var y=82+i*38; s+='<path d="M160 '+(y+14)+' H380" stroke="'+C.track+'"/>'+T(160,y,r[0],{s:13})+T(250,y,r[1],{s:13,n:1,c:C.grey})+T(380,y,r[2],{s:13,w:700,c:r[3],a:'end'}); });
+    return s+'</svg>'; };
+  // brand visuals
+  VIS.industry = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="行业积累：30年经验、20家门店在营、运营白皮书、行业合作">'+
+      T(20,78,'30',{s:64,w:800,n:1})+T(116,78,'年',{s:18,w:700})+T(20,104,'珠宝零售门店运营经验',{s:12,c:C.grey})+
+      '<path d="M196 30 V108" stroke="'+C.track+'" stroke-width="1.5"/>'+
+      T(218,78,'20+',{s:64,w:800,n:1})+T(352,78,'家',{s:18,w:700})+T(218,104,'珠宝门店在营',{s:12,c:C.grey})+
+      '<path d="M20 134 H380" stroke="'+C.track+'" stroke-width="1.5"/>'+
+      '<rect x="26" y="158" width="74" height="104" rx="5" fill="#d1d1d6"/><rect x="20" y="152" width="74" height="104" rx="5" fill="'+C.ink+'"/>'+
+      '<path d="M30 152 V256" stroke="#3a3a3c" stroke-width="2"/>'+T(40,190,'运营',{s:14,w:800,c:'#fff'})+T(40,210,'白皮书',{s:14,w:800,c:'#fff'})+
+      '<path d="M40 222 H76" stroke="#a1a1a6" stroke-width="2"/>'+
+      T(116,174,'自有《珠宝门店运营白皮书》',{s:15,w:800})+T(116,196,'多年门店经验，沉淀成可复制的方法',{s:12,c:C.grey})+
+      '<rect x="116" y="220" width="264" height="36" rx="18" fill="'+C.soft+'"/>'+T(248,243,'与行业知名企业深度合作',{s:14,w:800,a:'middle'});
+    return s+'</svg>'; };
+  VIS.tech = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="核心团队在深圳，资深顾问在美国硅谷、澳洲墨尔本、中国北京、中国杭州">';
+    for(var y=30;y<=226;y+=13){ for(var x=22;x<=378;x+=13){ var dx=(x-200)/188, dy=(y-128)/100; if(dx*dx+dy*dy<1) s+='<circle cx="'+x+'" cy="'+y+'" r="1.2" fill="#e5e5ea"/>'; } }
+    var core=[200,112];
+    var adv=[[58,66,'美国','硅谷',-1],[342,66,'中国','北京',-1],[58,176,'澳洲','墨尔本',1],[342,176,'中国','杭州',1]];
+    adv.forEach(function(a){ s+='<path d="M'+a[0]+' '+a[1]+' L'+core[0]+' '+core[1]+'" stroke="#aeaeb2" stroke-width="1.5" stroke-dasharray="3 5"/>'; });
+    adv.forEach(function(a){ s+='<circle cx="'+a[0]+'" cy="'+a[1]+'" r="7" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>';
+      if(a[4]<0) s+=T(a[0],a[1]-30,a[2],{s:11,c:C.grey,a:'middle'})+T(a[0],a[1]-14,a[3],{s:14,w:700,a:'middle'});
+      else s+=T(a[0],a[1]+26,a[3],{s:14,w:700,a:'middle'})+T(a[0],a[1]+42,a[2],{s:11,c:C.grey,a:'middle'}); });
+    s+='<circle cx="'+core[0]+'" cy="'+core[1]+'" r="54" fill="'+C.ink+'" opacity=".08"/>'+
+      '<circle cx="'+core[0]+'" cy="'+core[1]+'" r="42" fill="'+C.ink+'"/>'+
+      T(core[0],core[1]-2,'核心团队',{s:15,w:800,a:'middle',c:'#fff'})+T(core[0],core[1]+18,'中国深圳',{s:11,a:'middle',c:'#a1a1a6'})+
+      T(core[0],core[1]+76,'负责本地化与实际落地',{s:13,w:800,a:'middle'});
+    s+=T(20,16,'○ 资深顾问',{s:11,c:C.grey})+T(100,16,'● 核心团队',{s:11,c:C.grey});
+    ['高学历','海外背景','年轻化'].forEach(function(t,i){ var x=74+i*88; s+='<rect x="'+x+'" y="246" width="80" height="28" rx="14" fill="'+C.ink+'"/>'+T(x+40,265,t,{s:12,w:700,a:'middle',c:'#fff'}); });
+    return s+'</svg>'; };
+  VIS.product = function(){
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件产品：计数器、轮号屏、打卡机连到 AI，再到手机周报">';
+    var dev=[[30,'客流计数器'],[110,'智能轮号屏'],[190,'人脸打卡机']];
+    // devices
+    s+='<rect x="34" y="40" width="72" height="16" rx="5" fill="'+C.ink+'"/><circle cx="52" cy="48" r="3" fill="#a1a1a6"/><circle cx="88" cy="48" r="3" fill="#a1a1a6"/>'+
+      '<rect x="40" y="96" width="60" height="44" rx="6" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><path d="M70 140 V156 M58 156 H82" stroke="'+C.ink+'" stroke-width="2"/>'+T(70,124,'A12',{s:13,w:800,n:1,a:'middle'})+
+      '<rect x="46" y="186" width="48" height="64" rx="8" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><circle cx="70" cy="210" r="10" fill="none" stroke="'+C.ok+'" stroke-width="2"/>';
+    s+=T(120,52,'客流计数器',{s:12})+T(120,124,'智能轮号屏',{s:12})+T(120,222,'人脸打卡机',{s:12});
+    // flow to AI
+    [48,118,218].forEach(function(y){ s+='<path d="M190 '+(y)+' C 215 '+y+' 215 145 238 145" fill="none" stroke="'+C.grey+'" stroke-width="1.6" stroke-dasharray="4 4"/>'; });
+    s+='<circle cx="262" cy="145" r="26" fill="'+C.ink+'"/>'+T(262,151,'AI',{s:16,w:800,n:1,a:'middle',c:'#fff'})+
+      '<path d="M288 145 H310" stroke="'+C.ink+'" stroke-width="2"/>';
+    // phone
+    s+='<rect x="312" y="70" width="74" height="150" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
+      '<circle cx="349" cy="122" r="22" fill="none" stroke="'+C.track+'" stroke-width="6"/>'+
+      '<circle cx="349" cy="122" r="22" fill="none" stroke="'+C.mid+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+(2*Math.PI*22*.74)+' 200" transform="rotate(-90 349 122)"/>'+
+      T(349,128,'74',{s:14,w:800,n:1,a:'middle'})+'<rect x="324" y="160" width="50" height="6" rx="3" fill="'+C.track+'"/><rect x="324" y="174" width="36" height="6" rx="3" fill="'+C.track+'"/>'+
+      T(349,240,'经营周报',{s:12,a:'middle'});
+    s+=T(20,276,'采集 → 整理 → 智能分析 → 周报到手机',{s:12,w:700,c:C.grey});
+    return s+'</svg>'; };
+  VIS.service = function(){
+    var steps=[['安装调试','技术人员上门安装'],['培训上手','导购与店长培训'],['定期回访','跟进使用，持续优化']];
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="服务流程：安装调试、培训上手、定期回访">'+
+      '<path d="M60 70 H340" stroke="'+C.track+'" stroke-width="3"/>';
+    steps.forEach(function(st,i){ var x=60+i*140;
+      s+='<circle cx="'+x+'" cy="70" r="26" fill="'+(i===0?C.ink:'#fff')+'" stroke="'+C.ink+'" stroke-width="2"/>';
+      if(i===0) s+='<path d="M'+(x-9)+' 79 L'+(x+5)+' 65 M'+(x+3)+' 59 a7 7 0 1 0 8 8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>';
+      if(i===1) s+='<rect x="'+(x-12)+'" y="60" width="24" height="16" rx="3" fill="none" stroke="'+C.ink+'" stroke-width="2"/><path d="M'+(x-6)+' 82 H'+(x+6)+'" stroke="'+C.ink+'" stroke-width="2"/>';
+      if(i===2) s+='<path d="M'+(x-11)+' 60 h22 a3 3 0 0 1 3 3 v10 a3 3 0 0 1 -3 3 h-12 l-6 6 v-6 h-4 a3 3 0 0 1 -3 -3 v-10 a3 3 0 0 1 3 -3 z" fill="none" stroke="'+C.ink+'" stroke-width="2"/>';
+      s+=T(x,124,st[0],{s:15,w:800,a:'middle'})+T(x,146,st[1],{s:11,c:C.grey,a:'middle'}); });
+    s+='<rect x="20" y="180" width="360" height="90" rx="14" fill="'+C.soft+'"/>'+
+      '<circle cx="62" cy="212" r="12" fill="none" stroke="'+C.ink+'" stroke-width="2"/><path d="M42 246 q20 -26 40 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+      T(98,214,'专属技术支持',{s:14,w:700})+T(98,240,'专属技术人员对接门店，确保使用顺畅',{s:12,c:C.grey});
+    return s+'</svg>'; };
+  VIS.chain = function(){
+    var cards=[['门店设备','数据自动采集'],['数据平台','数据整理归集'],['AI 分析','发现问题与原因'],['经营周报','企业微信 / App 推送'],['门店执行','改进落地']];
+    var W=170, G=32, X=11, Y=34, H=196;
+    var s='<svg viewBox="0 0 1000 330" role="img" aria-label="软硬件全链路：门店设备采集数据，数据平台整理，AI 分析，经营周报推送，门店执行改进，每周循环">';
+    cards.forEach(function(c,i){ var x=X+i*(W+G), cx=x+W/2;
+      s+='<rect x="'+x+'" y="'+Y+'" width="'+W+'" height="'+H+'" rx="20" fill="'+(i===2?C.ink:'#fff')+'" stroke="'+(i===2?C.ink:'#d1d1d6')+'" stroke-width="1.5"/>';
+      var tc=i===2?'#fff':C.ink, sc=i===2?'#c7c7cc':C.grey;
+      s+=T(cx,Y+150,c[0],{s:20,w:800,a:'middle',c:tc})+T(cx,Y+176,c[1],{s:13,w:600,a:'middle',c:sc});
+      if(i<4) s+='<path d="M'+(x+W+6)+' '+(Y+H/2)+' H'+(x+W+G-8)+'" stroke="'+C.ink+'" stroke-width="2.5"/><path d="M'+(x+W+G-14)+' '+(Y+H/2-6)+' L'+(x+W+G-6)+' '+(Y+H/2)+' L'+(x+W+G-14)+' '+(Y+H/2+6)+'" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linejoin="round"/>';
+      var iy=Y+70;
+      if(i===0){ s+='<rect x="'+(cx-62)+'" y="'+(iy-30)+'" width="38" height="10" rx="3" fill="'+C.ink+'"/>'+
+        '<rect x="'+(cx-18)+'" y="'+(iy-28)+'" width="36" height="28" rx="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+T(cx,iy-9,'A12',{s:10,w:800,n:1,a:'middle'})+'<path d="M'+cx+' '+iy+' V'+(iy+14)+'" stroke="'+C.ink+'" stroke-width="2"/>'+
+        '<rect x="'+(cx+26)+'" y="'+(iy-30)+'" width="30" height="44" rx="6" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/><circle cx="'+(cx+41)+'" cy="'+(iy-14)+'" r="7" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+        T(cx-43,iy+30,'计数器',{s:11,a:'middle',c:C.grey})+T(cx,iy+30,'轮号屏',{s:11,a:'middle',c:C.grey})+T(cx+41,iy+30,'打卡机',{s:11,a:'middle',c:C.grey}); }
+      if(i===1){ s+='<ellipse cx="'+cx+'" cy="'+(iy-24)+'" rx="34" ry="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
+        '<path d="M'+(cx-34)+' '+(iy-24)+' V'+(iy+20)+' a34 10 0 0 0 68 0 V'+(iy-24)+'" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+        '<path d="M'+(cx-34)+' '+(iy-2)+' a34 10 0 0 0 68 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'; }
+      if(i===2){ s+='<circle cx="'+cx+'" cy="'+iy+'" r="36" fill="none" stroke="#fff" stroke-width="2.5"/>'+T(cx,iy+9,'AI',{s:26,w:800,n:1,a:'middle',c:'#fff'}); }
+      if(i===3){ s+='<rect x="'+(cx-26)+'" y="'+(iy-40)+'" width="52" height="86" rx="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
+        '<circle cx="'+cx+'" cy="'+(iy-8)+'" r="14" fill="none" stroke="'+C.track+'" stroke-width="5"/>'+
+        '<circle cx="'+cx+'" cy="'+(iy-8)+'" r="14" fill="none" stroke="'+C.ok+'" stroke-width="5" stroke-linecap="round" stroke-dasharray="'+(2*Math.PI*14*.78)+' 200" transform="rotate(-90 '+cx+' '+(iy-8)+')"/>'+
+        '<rect x="'+(cx-16)+'" y="'+(iy+16)+'" width="32" height="4" rx="2" fill="'+C.track+'"/><rect x="'+(cx-16)+'" y="'+(iy+25)+'" width="22" height="4" rx="2" fill="'+C.track+'"/>'; }
+      if(i===4){ s+='<path d="M'+(cx-40)+' '+(iy-14)+' L'+(cx-30)+' '+(iy-34)+' H'+(cx+30)+' L'+(cx+40)+' '+(iy-14)+' Z" fill="'+C.ink+'"/>'+
+        '<rect x="'+(cx-34)+'" y="'+(iy-14)+'" width="68" height="46" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/><rect x="'+(cx-10)+'" y="'+(iy+8)+'" width="20" height="24" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+        '<path d="M'+(cx+48)+' '+(iy+20)+' V'+(iy-22)+' M'+(cx+40)+' '+(iy-12)+' L'+(cx+48)+' '+(iy-22)+' L'+(cx+56)+' '+(iy-12)+'" fill="none" stroke="'+C.ok+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'; }
+    });
+    var x1=X+4*(W+G)+W/2, x0=X+W/2;
+    s+='<path d="M'+x1+' '+(Y+H+6)+' C '+x1+' 312 '+x0+' 312 '+x0+' '+(Y+H+12)+'" fill="none" stroke="'+C.ok+'" stroke-width="2" stroke-dasharray="6 6"/>'+
+      '<path d="M'+(x0-7)+' '+(Y+H+22)+' L'+x0+' '+(Y+H+10)+' L'+(x0+7)+' '+(Y+H+22)+'" fill="none" stroke="'+C.ok+'" stroke-width="2"/>'+
+      '<rect x="420" y="284" width="160" height="30" rx="15" fill="'+P.grnSoft+'"/>'+T(500,304,'每周循环，持续改进',{s:13,w:700,a:'middle',c:'#157a4a'})+
+      T(X,22,'软硬件全链路打通',{s:15,w:800});
+    return s+'</svg>'; };
+  VIS.storyArt = function(){
+    var s='<svg viewBox="0 0 520 380" role="img" aria-label="珠宝门店插画">'+
+      '<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5f5f7"/><stop offset="1" stop-color="#e8e8ed"/></linearGradient></defs>'+
+      '<rect x="0" y="0" width="520" height="380" rx="24" fill="url(#sky)"/>'+
+      '<rect x="60" y="92" width="400" height="250" rx="6" fill="#fff" stroke="#1d1d1f" stroke-width="3"/>';
+    for(var i=0;i<10;i++) s+='<path d="M'+(60+i*40)+' 92 h40 v34 a20 20 0 0 1 -40 0 z" fill="'+(i%2?'#fff':'#1d1d1f')+'" stroke="#1d1d1f" stroke-width="2"/>';
+    s+='<rect x="190" y="60" width="140" height="30" rx="6" fill="#1d1d1f"/>'+T(260,81,'JEWELRY',{s:14,w:800,n:1,a:'middle',c:'#fff'});
+    s+='<rect x="84" y="160" width="150" height="150" rx="6" fill="#f2f2f7" stroke="#1d1d1f" stroke-width="2"/>'+
+      '<rect x="286" y="160" width="150" height="150" rx="6" fill="#f2f2f7" stroke="#1d1d1f" stroke-width="2"/>';
+    [[120,250],[159,232],[198,250],[322,250],[361,232],[400,250]].forEach(function(p){ s+='<path d="M'+p[0]+' '+(p[1]+30)+' V'+(p[1]+8)+'" stroke="#1d1d1f" stroke-width="2"/><path d="M'+(p[0]-10)+' '+p[1]+' l10 -12 l10 12 l-10 12 z" fill="#fff" stroke="#1d1d1f" stroke-width="2"/>'; });
+    [[140,190],[380,190]].forEach(function(p){ s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="12" fill="none" stroke="#1d1d1f" stroke-width="2.5"/>'; });
+    s+='<path d="M60 342 H460" stroke="#1d1d1f" stroke-width="3"/>';
+    s+='<g transform="translate(330 22)"><rect width="170" height="64" rx="16" fill="#fff" stroke="#e1e1e8"/>'+T(16,26,'导购健康分',{s:12,c:'#48484f'})+T(16,50,'78',{s:20,w:800,n:1,c:'#1d1d1f'})+'<rect x="104" y="34" width="52" height="20" rx="10" fill="#e3f5ec"/>'+T(130,48,'健康',{s:11,w:700,a:'middle',c:'#1f9d61'})+'</g>';
+    s+='<g transform="translate(18 300)"><rect width="150" height="58" rx="16" fill="#fff" stroke="#e1e1e8"/><circle cx="28" cy="29" r="13" fill="#1d1d1f"/>'+T(28,34,'AI',{s:11,w:800,n:1,a:'middle',c:'#fff'})+T(50,25,'本周建议',{s:11,c:'#48484f'})+T(50,43,'优化迎宾安排',{s:13,w:700,c:'#1d1d1f'})+'</g>';
+    return s+'</svg>'; };
+  VIS.sieSee = function(){ return '<svg viewBox="0 0 240 130" aria-hidden="true">'+
+    '<rect x="40" y="34" width="160" height="80" rx="4" fill="#fff" stroke="#1d1d1f" stroke-width="2.5"/><path d="M40 34 h160 v14 h-160 z" fill="#1d1d1f"/>'+
+    '<rect x="60" y="62" width="40" height="52" fill="none" stroke="#1d1d1f" stroke-width="2"/><rect x="120" y="62" width="62" height="34" rx="3" fill="#f2f2f7" stroke="#1d1d1f" stroke-width="2"/>'+
+    '<circle cx="190" cy="34" r="22" fill="#1d1d1f"/><path d="M176 34 s6 -9 14 -9 14 9 14 9 -6 9 -14 9 -14 -9 -14 -9z" fill="none" stroke="#fff" stroke-width="2"/><circle cx="190" cy="34" r="3.5" fill="#fff"/></svg>'; };
+  VIS.sieFind = function(){ var s='<svg viewBox="0 0 240 130" aria-hidden="true"><path d="M40 112 H200" stroke="#c7c7cc" stroke-width="2"/>';
+    [[56,40],[86,62],[116,50],[146,28],[176,70]].forEach(function(b,i){ s+='<rect x="'+b[0]+'" y="'+(112-b[1])+'" width="20" height="'+b[1]+'" rx="4" fill="'+(i===3?'#e0453a':'#c7c7cc')+'"/>'; });
+    return s+'<circle cx="160" cy="58" r="24" fill="rgba(255,255,255,.6)" stroke="#1d1d1f" stroke-width="3"/><path d="M177 75 L196 94" stroke="#1d1d1f" stroke-width="5" stroke-linecap="round"/></svg>'; };
+  VIS.sieDo = function(){ var s='<svg viewBox="0 0 240 130" aria-hidden="true"><rect x="52" y="18" width="110" height="100" rx="10" fill="#fff" stroke="#1d1d1f" stroke-width="2.5"/>';
+    [40,66,92].forEach(function(y,i){ s+='<rect x="66" y="'+(y-8)+'" width="16" height="16" rx="4" fill="'+(i<2?'#1d1d1f':'#fff')+'" stroke="#1d1d1f" stroke-width="2"/>'+(i<2?'<path d="M70 '+y+' l3 3 l6 -6" stroke="#fff" stroke-width="2" fill="none"/>':'')+'<rect x="90" y="'+(y-3)+'" width="'+(i===2?40:58)+'" height="6" rx="3" fill="#d1d1d6"/>'; });
+    return s+'<path d="M178 104 L200 76 L214 88 L232 56" fill="none" stroke="#1f9d61" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M220 54 h13 v13" fill="none" stroke="#1f9d61" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'; };
+  VIS.sieMini = function(){
+    var st=[['看见','懂门店','<path d="M-11 0 s5-8 11-8 11 8 11 8-5 8-11 8-11-8-11-8z"/><circle r="3"/>'],
+            ['识别','懂技术与数据','<circle cx="-2" cy="-2" r="7"/><path d="M3 3 l7 7"/>'],
+            ['落地','能落地','<path d="M-8 0 l5 6 l11-12"/>']];
+    var s='<svg viewBox="0 0 480 150" role="img" aria-label="看见、识别、落地">'+
+      '<rect width="480" height="150" rx="20" fill="#f5f5f7"/>';
+    st.forEach(function(d,i){ var cx=80+i*160;
+      if(i<2) s+='<path d="M'+(cx+34)+' 56 H'+(cx+126)+'" stroke="#c7c7cc" stroke-width="2" stroke-dasharray="4 5"/><path d="M'+(cx+120)+' 51 l7 5 -7 5" fill="none" stroke="#c7c7cc" stroke-width="2"/>';
+      s+='<circle cx="'+cx+'" cy="56" r="28" fill="'+(i===2?'#1f9d61':'#1d1d1f')+'"/>'+
+        '<g transform="translate('+cx+' 56)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'+d[2]+'</g>'+
+        T(cx,106,d[0],{s:16,w:800,a:'middle',c:'#1d1d1f'})+T(cx,128,d[1],{s:12,w:600,a:'middle',c:'#48484f'}); });
+    return s+'</svg>'; };
+  document.querySelectorAll('[data-vis]').forEach(function(el){ var f=VIS[el.dataset.vis]; if(f) el.innerHTML=f(); });
+
+  var SETS = {
+    schedule: [
+      {img:'每日接待使用率截图', vis:'usage', t:'按客流推荐班次', d:'接待时长占在岗时长的比例。工作日偏低、周末偏高，系统据此自动推荐班次。'},
+      {img:'人脸识别打卡场景 + 考勤记录截图', vis:'clock', t:'刷脸打卡，自动考勤', d:'导购到店刷脸打卡，系统自动记录正常、迟到、旷工状态。'}
+    ],
+    staff: [
+      {img:'接待效率四象限截图', vis:'quad', t:'接待效率四象限', d:'每个点代表一位导购。左上象限为标杆导购，右下象限为重点辅导对象。'},
+      {img:'导购目标完成率排名截图', vis:'rank', t:'目标完成率排名', d:'按目标完成率排序，超额与落后情况清晰可见。'}
+    ],
+    analysis: [
+      {img:'健康度界面截图', vis:'rings', t:'三个健康分', d:'门店、销售、导购三项健康评分，优势与风险一目了然。'},
+      {img:'销售漏斗截图', vis:'funnel', t:'销售漏斗 + AI 解读', d:'从门口客流到成交逐层呈现转化，AI 指出问题环节与改进优先级。'}
+    ],
+    traffic: [
+      {img:'智能轮号系统 · 门店使用场景', vis:'queueScene', t:'智能轮号系统', d:'导购接待顾客时在此排号，系统自动记录每一接待批次。'},
+      {img:'统计界面截图', vis:'dashColor', t:'统计界面', d:'每日门口客流、进店批次与进店率，随时可查。'}
+    ]
+  };
+  document.querySelectorAll('.carousel').forEach(function(c){
+    var set = SETS[c.dataset.set]; if (!set) return;
+    c.innerHTML = '<div class="c-track">' + set.map(function(s,i){
+      var art = '';
+      if (s.sk && SK[s.sk]) { var k = SK[s.sk]();
+        art = '<svg viewBox="0 0 400 270" role="img" aria-label="' + s.img + '" style="width:100%;height:auto;flex:1;min-height:0"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#wob)">' + k.g + '</g>' + k.txt + '</svg>'; }
+      else if (s.vis && VIS[s.vis]) art = VIS[s.vis]();
+      return '<figure class="c-slide" style="margin:0"><div class="c-img' + (art ? ' has-sk' : '') + '">' + art + '</div>' +
+             '<figcaption class="c-cap"><strong>' + s.t + '</strong><span>' + s.d + '</span></figcaption></figure>';
+    }).join('') + '</div>' +
+    '<div class="c-ctl"><div class="c-dots">' + set.map(function(_,i){ return '<button type="button" aria-label="第 '+(i+1)+' 张"></button>'; }).join('') + '</div>' +
+    '<div class="c-arrows"><button type="button" data-d="-1" aria-label="上一张">‹</button><button type="button" data-d="1" aria-label="下一张">›</button></div></div>';
+    var track = c.querySelector('.c-track'), dots = c.querySelectorAll('.c-dots button'), cur = 0, paused = false;
+    function go(i){ cur = (i + set.length) % set.length; track.scrollTo({left: cur * track.clientWidth}); mark(); }
+    function mark(){ dots.forEach(function(d,j){ d.classList.toggle('on', j === cur); }); }
+    track.addEventListener('scroll', function(){ var i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); if (i !== cur){ cur = i; mark(); } }, {passive:true});
+    dots.forEach(function(d,j){ d.addEventListener('click', function(){ go(j); }); });
+    c.querySelectorAll('.c-arrows button').forEach(function(b){ b.addEventListener('click', function(){ go(cur + Number(b.dataset.d)); }); });
+    ['pointerenter','touchstart','focusin'].forEach(function(ev){ c.addEventListener(ev, function(){ paused = true; }, {passive:true}); });
+    ['pointerleave','focusout'].forEach(function(ev){ c.addEventListener(ev, function(){ paused = false; }); });
+    c.addEventListener('touchend', function(){ setTimeout(function(){ paused = false; }, 4000); });
+    mark();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+      setInterval(function(){ if (!paused && c.offsetParent) go(cur + 1); }, 4000);
+  });
+
+  // router
+  var pages = ['home','product','about','events','contact'];
+  var subs = {traffic:'product',analysis:'product',staff:'product',schedule:'product','events-signup':'events'};
+  function route(){
+    var h = (location.hash || '#home').slice(1);
+    var page = subs[h] || (pages.indexOf(h) > -1 ? h : 'home');
+    pages.forEach(function(p){ document.getElementById('p-'+p).classList.toggle('show', p === page); });
+    document.querySelectorAll('.links a').forEach(function(a){ a.classList.toggle('on', a.dataset.p === page); });
+    document.getElementById('links').classList.remove('open');
+    if (subs[h]) {
+      var t = document.getElementById('s-'+h);
+      requestAnimationFrame(function(){ t && t.scrollIntoView(); });
+    } else {
+      window.scrollTo(0,0);
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  // product pills highlight
+  var pills = document.querySelectorAll('.pills a');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) {
+          var id = e.target.id.replace('s-','');
+          pills.forEach(function(a){ a.classList.toggle('on', a.dataset.s === id); });
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    ['traffic','analysis','staff','schedule'].forEach(function(s){ io.observe(document.getElementById('s-'+s)); });
+  }
+
+  // hero flow animation (stand-in for video)
+  var steps = document.querySelectorAll('#flow div'), i = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { steps.forEach(function(s){ s.classList.add('on'); }); }
+  else {
+    steps[0].classList.add('on');
+    setInterval(function(){
+      i = (i + 1) % (steps.length + 1);
+      if (i === 0) steps.forEach(function(s){ s.classList.remove('on'); });
+      else steps[i-1].classList.add('on');
+    }, 1400);
+  }
+
+  // mobile menu
+  var mb = document.getElementById('menuBtn'), links = document.getElementById('links');
+  mb.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open);
+  });
+
+  // writing-guide toggle
+  document.body.classList.add('clean');
+
+  // copy phone
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-copy]'); if (!b) return;
+    var txt = b.getAttribute('data-copy');
+    var done = function(){ b.textContent = '已复制'; setTimeout(function(){ b.textContent = '复制号码'; }, 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function(){ b.textContent = txt; });
+    else b.textContent = txt;
+  });
+
+  // team rail: drag with mouse, arrows step one card
+  (function(){ var r=document.getElementById('rail'); if(!r) return; var down=false,x0=0,s0=0,moved=false;
+    r.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse') return; down=true; moved=false; x0=e.clientX; s0=r.scrollLeft; r.classList.add('drag'); });
+    window.addEventListener('pointermove',function(e){ if(!down) return; var dx=e.clientX-x0; if(Math.abs(dx)>4) moved=true; r.scrollLeft=s0-dx; });
+    window.addEventListener('pointerup',function(){ if(!down) return; down=false; r.classList.remove('drag'); });
+    r.addEventListener('click',function(e){ if(moved){ e.stopPropagation(); e.preventDefault(); moved=false; } },true);
+    document.querySelectorAll('[data-r]').forEach(function(b){ b.addEventListener('click',function(){ r.scrollBy({left:Number(b.dataset.r)*(r.querySelector('.pc').offsetWidth+16),behavior:'smooth'}); }); });
+  })();
+
+  // events tabs
+  document.querySelectorAll('.ev-tabs button').forEach(function(b){ b.addEventListener('click',function(){
+    document.querySelectorAll('.ev-tabs button').forEach(function(x){ x.classList.toggle('on',x===b); });
+    document.querySelectorAll('.ev-panel').forEach(function(pn){ pn.hidden = pn.dataset.panel!==b.dataset.tab; }); }); });
+
+  // team cards: message form opens inside the card
+  document.querySelectorAll('.pc').forEach(function(card){
+    var btn=card.querySelector('.ask'), f=card.querySelector('.pc-form'); if(!btn||!f) return;
+    btn.addEventListener('click',function(){ f.hidden=false; btn.hidden=true; card.classList.add('open'); f.querySelector('textarea').focus(); });
+    f.querySelector('.ask-cancel').addEventListener('click',function(){ f.hidden=true; btn.hidden=false; card.classList.remove('open'); });
+    f.addEventListener('submit',function(e){ e.preventDefault(); var ph=f.querySelector('input').value.replace(/\s/g,''), n=f.querySelector('.note');
+      if(!/^1\d{10}$/.test(ph)){ n.textContent='请填写 11 位手机号。'; return; } n.textContent='演示版：留言还没接后台，未真正发送。'; });
+  });
+
+  // lead form (demo only)
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var p = document.getElementById('f-phone').value.replace(/\s/g,'');
+    var note = document.getElementById('formNote');
+    if (!/^1\d{10}$/.test(p)) { note.textContent = '请填写 11 位手机号。'; return; }
+    note.textContent = '演示版：表单还没接后台，这条信息没有真正提交。';
+  });
+})();
+</script>
+
+</body>
+</html>
