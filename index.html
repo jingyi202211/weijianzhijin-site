@@ -393,6 +393,15 @@ body.clean .todo{display:none!important}
 .bs-list li{background:var(--paper);border-radius:14px;padding:12px 16px;font-size:14.5px;line-height:1.6;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
 .bs-art{padding:0;background:transparent}
 @media (max-width:860px){.badge-strip{grid-template-columns:1fr;padding:22px 18px;gap:20px}.bs-list li{grid-template-columns:1fr;gap:2px}}
+.hw-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.hw{background:var(--mist);border-radius:24px;padding:14px 14px 20px;display:flex;flex-direction:column;gap:6px;min-width:0;transition:transform .2s}
+.hw:hover{transform:translateY(-3px)}
+.hw-art svg{display:block;width:100%;height:auto;border-radius:16px}
+.hw h3{font-size:18px;font-weight:800;margin:10px 4px 0}
+.hw p{margin:0 4px;font-size:14px;line-height:1.6;color:var(--grey)}
+.hw-for{margin:6px 4px 0;font-size:12.5px;font-weight:700;color:#157a4a}
+@media (max-width:900px){.hw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.hw-grid{gap:10px}.hw{padding:10px 10px 14px}.hw h3{font-size:16px}.hw p{font-size:13px}}
 .nowbar{background:var(--ink);color:var(--paper);font-size:13px}
 .nowbar .wrap{height:34px;display:flex;align-items:center;gap:10px}
 .nowbar b{background:var(--paper);color:var(--ink);border-radius:999px;padding:1px 10px;font-size:12px}
@@ -569,6 +578,19 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
           <a class="more" href="#schedule">了解详情</a>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-bottom:32px">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:32px">
+        <div>
+          <p class="eyebrow">智能硬件</p>
+          <h2 class="h2 split" style="margin-top:10px"><b>四款门店硬件，</b><span>数据自动采集。</span></h2>
+        </div>
+        <a class="more" href="#product">了解软硬件如何协同</a>
+      </div>
+      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-art" data-vis="hwCounter"></div><h3>客流计数器</h3><p>装在门口，自动统计经过客流。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-art" data-vis="hwQueue"></div><h3>智能轮号屏</h3><p>导购接待时点一下，自动记录进店批次。</p><span class="hw-for">用于：客流与进店 · 导购分析</span></a><a class="hw" href="#schedule"><div class="hw-art" data-vis="hwFace"></div><h3>人脸识别打卡机</h3><p>导购到店刷脸打卡，考勤自动记录。</p><span class="hw-for">用于：排班考勤</span></a><a class="hw" href="#staff"><div class="hw-art" data-vis="hwBadge"></div><h3>智能工牌</h3><p>卡片式佩戴，记录接待对话，AI 提炼关键词。</p><span class="hw-for">用于：导购分析</span></a></div>
     </div>
   </section>
 
@@ -1131,24 +1153,20 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     ['高学历','海外背景','年轻化'].forEach(function(t,i){ var x=74+i*88; s+='<rect x="'+x+'" y="246" width="80" height="28" rx="14" fill="'+C.ink+'"/>'+T(x+40,265,t,{s:12,w:700,a:'middle',c:'#fff'}); });
     return s+'</svg>'; };
   VIS.product = function(){
-    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件产品：计数器、轮号屏、打卡机连到 AI，再到手机周报">';
-    var dev=[[30,'客流计数器'],[110,'智能轮号屏'],[190,'人脸打卡机']];
-    // devices
-    s+='<rect x="34" y="40" width="72" height="16" rx="5" fill="'+C.ink+'"/><circle cx="52" cy="48" r="3" fill="#a1a1a6"/><circle cx="88" cy="48" r="3" fill="#a1a1a6"/>'+
-      '<rect x="40" y="96" width="60" height="44" rx="6" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><path d="M70 140 V156 M58 156 H82" stroke="'+C.ink+'" stroke-width="2"/>'+T(70,124,'A12',{s:13,w:800,n:1,a:'middle'})+
-      '<rect x="46" y="186" width="48" height="64" rx="8" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><circle cx="70" cy="210" r="10" fill="none" stroke="'+C.ok+'" stroke-width="2"/>';
-    s+=T(120,52,'客流计数器',{s:12})+T(120,124,'智能轮号屏',{s:12})+T(120,222,'人脸打卡机',{s:12});
-    // flow to AI
-    [48,118,218].forEach(function(y){ s+='<path d="M190 '+(y)+' C 215 '+y+' 215 145 238 145" fill="none" stroke="'+C.grey+'" stroke-width="1.6" stroke-dasharray="4 4"/>'; });
-    s+='<circle cx="262" cy="145" r="26" fill="'+C.ink+'"/>'+T(262,151,'AI',{s:16,w:800,n:1,a:'middle',c:'#fff'})+
-      '<path d="M288 145 H310" stroke="'+C.ink+'" stroke-width="2"/>';
-    // phone
-    s+='<rect x="312" y="70" width="74" height="150" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
-      '<circle cx="349" cy="122" r="22" fill="none" stroke="'+C.track+'" stroke-width="6"/>'+
-      '<circle cx="349" cy="122" r="22" fill="none" stroke="'+C.mid+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+(2*Math.PI*22*.74)+' 200" transform="rotate(-90 349 122)"/>'+
-      T(349,128,'74',{s:14,w:800,n:1,a:'middle'})+'<rect x="324" y="160" width="50" height="6" rx="3" fill="'+C.track+'"/><rect x="324" y="174" width="36" height="6" rx="3" fill="'+C.track+'"/>'+
-      T(349,240,'经营周报',{s:12,a:'middle'});
-    s+=T(20,276,'采集 → 整理 → 智能分析 → 周报到手机',{s:12,w:700,c:C.grey});
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件产品：计数器、轮号屏、打卡机、工牌连到 AI，再到手机周报">';
+    var rows=[38,96,154,212];
+    s+='<rect x="34" y="'+(rows[0]-6)+'" width="56" height="13" rx="4" fill="'+C.ink+'"/>'+
+      '<rect x="42" y="'+(rows[1]-16)+'" width="40" height="30" rx="5" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/>'+T(62,rows[1]+4,'A12',{s:10,w:800,n:1,a:'middle'})+
+      '<rect x="48" y="'+(rows[2]-22)+'" width="28" height="42" rx="6" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><circle cx="62" cy="'+(rows[2]-6)+'" r="7" fill="none" stroke="'+C.ok+'" stroke-width="2"/>'+
+      '<rect x="50" y="'+(rows[3]-20)+'" width="24" height="38" rx="6" fill="'+C.ink+'"/><circle cx="62" cy="'+(rows[3]-6)+'" r="5" fill="none" stroke="#fff" stroke-width="1.5"/>';
+    ['客流计数器','智能轮号屏','人脸打卡机','智能工牌'].forEach(function(t,j){ var y=rows[j];
+      s+=T(102,y+5,t,{s:12.5,w:600})+'<path d="M180 '+y+' C 210 '+y+' 212 128 236 128" fill="none" stroke="'+C.grey+'" stroke-width="1.5" stroke-dasharray="4 4"/>'; });
+    s+='<circle cx="260" cy="128" r="24" fill="'+C.ink+'"/>'+T(260,134,'AI',{s:15,w:800,n:1,a:'middle',c:'#fff'})+'<path d="M284 128 H306" stroke="'+C.ink+'" stroke-width="2"/>'+
+      '<rect x="308" y="58" width="74" height="140" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
+      '<circle cx="345" cy="104" r="20" fill="none" stroke="'+C.track+'" stroke-width="6"/>'+
+      '<circle cx="345" cy="104" r="20" fill="none" stroke="'+C.mid+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+(2*Math.PI*20*.74)+' 200" transform="rotate(-90 345 104)"/>'+
+      T(345,110,'74',{s:13,w:800,n:1,a:'middle'})+'<rect x="322" y="140" width="46" height="6" rx="3" fill="'+C.track+'"/><rect x="322" y="154" width="32" height="6" rx="3" fill="'+C.track+'"/>'+
+      T(345,218,'经营周报',{s:12,a:'middle'})+T(20,276,'采集 → 整理 → 智能分析 → 周报到手机',{s:12,w:700,c:C.grey});
     return s+'</svg>'; };
   VIS.service = function(){
     var steps=[['安装调试','技术人员上门安装'],['培训上手','导购与店长培训'],['定期回访','跟进使用，持续优化']];
@@ -1174,10 +1192,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       s+=T(cx,Y+150,c[0],{s:20,w:800,a:'middle',c:tc})+T(cx,Y+176,c[1],{s:13,w:600,a:'middle',c:sc});
       if(i<4) s+='<path d="M'+(x+W+6)+' '+(Y+H/2)+' H'+(x+W+G-8)+'" stroke="'+C.ink+'" stroke-width="2.5"/><path d="M'+(x+W+G-14)+' '+(Y+H/2-6)+' L'+(x+W+G-6)+' '+(Y+H/2)+' L'+(x+W+G-14)+' '+(Y+H/2+6)+'" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linejoin="round"/>';
       var iy=Y+70;
-      if(i===0){ s+='<rect x="'+(cx-62)+'" y="'+(iy-30)+'" width="38" height="10" rx="3" fill="'+C.ink+'"/>'+
-        '<rect x="'+(cx-18)+'" y="'+(iy-28)+'" width="36" height="28" rx="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+T(cx,iy-9,'A12',{s:10,w:800,n:1,a:'middle'})+'<path d="M'+cx+' '+iy+' V'+(iy+14)+'" stroke="'+C.ink+'" stroke-width="2"/>'+
-        '<rect x="'+(cx+26)+'" y="'+(iy-30)+'" width="30" height="44" rx="6" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/><circle cx="'+(cx+41)+'" cy="'+(iy-14)+'" r="7" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
-        T(cx-43,iy+30,'计数器',{s:11,a:'middle',c:C.grey})+T(cx,iy+30,'轮号屏',{s:11,a:'middle',c:C.grey})+T(cx+41,iy+30,'打卡机',{s:11,a:'middle',c:C.grey}); }
+      if(i===0){ var dx=[-60,-21,18,56];
+        s+='<rect x="'+(cx-74)+'" y="'+(iy-30)+'" width="28" height="9" rx="3" fill="'+C.ink+'"/>'+
+          '<rect x="'+(cx-36)+'" y="'+(iy-30)+'" width="30" height="24" rx="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+T(cx-21,iy-14,'A12',{s:8,w:800,n:1,a:'middle'})+'<path d="M'+(cx-21)+' '+(iy-6)+' V'+(iy+6)+'" stroke="'+C.ink+'" stroke-width="2"/>'+
+          '<rect x="'+(cx+6)+'" y="'+(iy-32)+'" width="24" height="38" rx="5" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/><circle cx="'+(cx+18)+'" cy="'+(iy-18)+'" r="6" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+          '<path d="M'+(cx+50)+' '+(iy-40)+' l6 10 M'+(cx+62)+' '+(iy-40)+' l-6 10" stroke="'+C.ink+'" stroke-width="1.8"/><rect x="'+(cx+45)+'" y="'+(iy-30)+'" width="22" height="34" rx="5" fill="'+C.ink+'"/><circle cx="'+(cx+56)+'" cy="'+(iy-18)+'" r="4" fill="none" stroke="#fff" stroke-width="1.5"/>';
+        ['计数器','轮号屏','打卡机','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
       if(i===1){ s+='<ellipse cx="'+cx+'" cy="'+(iy-24)+'" rx="34" ry="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-24)+' V'+(iy+20)+' a34 10 0 0 0 68 0 V'+(iy-24)+'" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-2)+' a34 10 0 0 0 68 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'; }
@@ -1255,6 +1275,32 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       s+='<rect x="'+k[1]+'" y="'+k[2]+'" width="'+k[3]+'" height="26" rx="13" fill="'+(i<2?'#1d1d1f':'#fff')+'"/>'+T(k[1]+k[3]/2,k[2]+17,k[0],{s:12,w:700,a:'middle',c:i<2?'#fff':'#1d1d1f'}); });
     s+=T(240,272,'AI：顾客最在意克重，可主动推荐轻量款',{s:10.5,c:'#1f9d61',w:700});
     return s+'</svg>'; };
+  function hwBase(inner){ return '<svg viewBox="0 0 240 180" aria-hidden="true"><defs><linearGradient id="hwbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fafafc"/><stop offset="1" stop-color="#ececf0"/></linearGradient></defs><rect width="240" height="180" rx="18" fill="url(#hwbg)"/><ellipse cx="120" cy="160" rx="70" ry="7" fill="#000" opacity=".07"/>'+inner+'</svg>'; }
+  VIS.hwCounter = function(){ return hwBase(
+    '<path d="M50 30 H190" stroke="#c7c7cc" stroke-width="6" stroke-linecap="round"/>'+
+    '<rect x="78" y="34" width="84" height="26" rx="9" fill="#1d1d1f"/><rect x="82" y="38" width="76" height="6" rx="3" fill="#3a3a3c"/>'+
+    '<circle cx="104" cy="50" r="5" fill="#2c2c30" stroke="#6e6e73" stroke-width="2"/><circle cx="136" cy="50" r="5" fill="#2c2c30" stroke="#6e6e73" stroke-width="2"/><circle cx="120" cy="50" r="2" fill="#1f9d61"/>'+
+    '<path d="M98 62 L70 150 H170 L142 62 Z" fill="#1d1d1f" opacity=".06"/>'+
+    '<path d="M98 62 L70 150 M142 62 L170 150" stroke="#aeaeb2" stroke-width="1.5" stroke-dasharray="4 5"/>'); };
+  VIS.hwQueue = function(){ return hwBase(
+    '<path d="M112 128 h16 l6 30 h-28z" fill="#3a3a3c"/><rect x="92" y="154" width="56" height="8" rx="4" fill="#1d1d1f"/>'+
+    '<rect x="66" y="34" width="108" height="96" rx="12" fill="#1d1d1f"/><rect x="73" y="41" width="94" height="82" rx="7" fill="#fff"/>'+
+    T(120,74,'A12',{s:24,w:800,n:1,a:'middle',c:'#1d1d1f'})+T(120,90,'当前接待',{s:9,a:'middle',c:'#6e6e73'})+
+    '<rect x="88" y="98" width="64" height="18" rx="9" fill="#1f9d61"/>'+T(120,111,'开始接待',{s:9.5,w:700,a:'middle',c:'#fff'})); };
+  VIS.hwFace = function(){ return hwBase(
+    '<rect x="112" y="128" width="16" height="28" fill="#3a3a3c"/><rect x="94" y="152" width="52" height="8" rx="4" fill="#1d1d1f"/>'+
+    '<rect x="84" y="20" width="72" height="112" rx="14" fill="#1d1d1f"/><rect x="91" y="34" width="58" height="80" rx="8" fill="#2c2c30"/>'+
+    '<circle cx="120" cy="27" r="2.5" fill="#6e6e73"/>'+
+    '<circle cx="120" cy="64" r="15" fill="none" stroke="#fff" stroke-width="2"/><path d="M106 92 q14 -14 28 0" fill="none" stroke="#fff" stroke-width="2"/>'+
+    '<path d="M98 44 h8 M98 44 v8 M142 44 h-8 M142 44 v8 M98 106 h8 M98 106 v-8 M142 106 h-8 M142 106 v-8" stroke="#1f9d61" stroke-width="2.5" stroke-linecap="round"/>'+
+    T(120,126,'打卡成功',{s:8.5,w:700,a:'middle',c:'#1f9d61'})); };
+  VIS.hwBadge = function(){ return hwBase(
+    '<path d="M96 6 L112 46 M144 6 L128 46" stroke="#1d1d1f" stroke-width="4.5" stroke-linecap="round"/>'+
+    '<rect x="112" y="40" width="16" height="16" rx="4" fill="#8e8e93"/>'+
+    '<rect x="88" y="52" width="64" height="100" rx="12" fill="#1d1d1f"/><rect x="96" y="60" width="48" height="34" rx="7" fill="#2c2c30"/>'+
+    '<circle cx="120" cy="77" r="9" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M117 73 h6 v6 a3 3 0 0 1 -6 0z" fill="#fff"/>'+
+    T(120,114,'微见智金',{s:9.5,w:800,a:'middle',c:'#fff'})+'<circle cx="106" cy="136" r="3" fill="#1f9d61"/>'+T(112,139,'记录中',{s:8,c:'#d1d1d6'})+
+    '<path d="M162 80 q7 16 0 32 M172 74 q11 22 0 44" fill="none" stroke="#c7c7cc" stroke-width="2.2" stroke-linecap="round"/>'); };
   document.querySelectorAll('[data-vis]').forEach(function(el){ var f=VIS[el.dataset.vis]; if(f) el.innerHTML=f(); });
 
   var SETS = {
