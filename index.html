@@ -1141,7 +1141,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     var s='<svg viewBox="0 0 400 290" role="img" aria-label="核心团队在深圳，资深顾问在美国硅谷、澳洲墨尔本、中国北京、中国杭州">';
     for(var y=30;y<=226;y+=13){ for(var x=22;x<=378;x+=13){ var dx=(x-200)/188, dy=(y-128)/100; if(dx*dx+dy*dy<1) s+='<circle cx="'+x+'" cy="'+y+'" r="1.2" fill="#e5e5ea"/>'; } }
     var core=[200,112];
-    var adv=[[58,66,'美国','硅谷',-1],[342,66,'中国','北京',-1],[58,176,'澳洲','墨尔本',1],[342,176,'中国','杭州',1]];
+    var adv=[[58,66,'美国','硅谷',-1],[342,66,'中国','哈尔滨',-1],[58,176,'澳洲','墨尔本',1],[342,176,'中国','杭州',1]];
     adv.forEach(function(a){ s+='<path d="M'+a[0]+' '+a[1]+' L'+core[0]+' '+core[1]+'" stroke="#aeaeb2" stroke-width="1.5" stroke-dasharray="3 5"/>'; });
     adv.forEach(function(a){ s+='<circle cx="'+a[0]+'" cy="'+a[1]+'" r="7" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>';
       if(a[4]<0) s+=T(a[0],a[1]-30,a[2],{s:11,c:C.grey,a:'middle'})+T(a[0],a[1]-14,a[3],{s:14,w:700,a:'middle'});
