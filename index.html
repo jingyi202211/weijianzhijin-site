@@ -385,6 +385,14 @@ body.clean .todo{display:none!important}
   .lead{font-size:17px}
   .ab-h{font-size:27px}
 }
+.badge-strip{margin-top:14px;background:var(--mist);border-radius:28px;padding:32px 36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center}
+.bs-tag{display:inline-block;background:var(--ink);color:var(--paper);font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 12px}
+.bs-text h3{font-size:clamp(22px,2.4vw,28px);font-weight:800;margin:12px 0 0}
+.bs-lead{margin:10px 0 0;font-size:15.5px;line-height:1.75;color:var(--grey)}
+.bs-list{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.bs-list li{background:var(--paper);border-radius:14px;padding:12px 16px;font-size:14.5px;line-height:1.6;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
+.bs-art{padding:0;background:transparent}
+@media (max-width:860px){.badge-strip{grid-template-columns:1fr;padding:22px 18px;gap:20px}.bs-list li{grid-template-columns:1fr;gap:2px}}
 .nowbar{background:var(--ink);color:var(--paper);font-size:13px}
 .nowbar .wrap{height:34px;display:flex;align-items:center;gap:10px}
 .nowbar b{background:var(--paper);color:var(--ink);border-radius:999px;padding:1px 10px;font-size:12px}
@@ -549,7 +557,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <article class="card">
           <p class="tag">导购分析</p>
           <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
-          <p class="muted">精准定位每位导购的薄弱环节，据此开展针对性培训，切实提升接待与成交能力。</p>
+          <p class="muted">精准定位每位导购的薄弱环节，搭配智能工牌分析接待对话，据此开展针对性培训，切实提升接待与成交能力。</p>
           <div class="carousel" data-set="staff"></div>
           <a class="more" href="#staff">了解详情</a>
         </article>
@@ -665,12 +673,25 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
           <p class="eyebrow">导购分析</p>
           <h2 class="split"><b>看清每位导购，</b><span>针对性提升能力</span></h2>
           <p class="f-lead">精准定位每位导购的薄弱环节，据此开展针对性培训，切实提升接待与成交能力。</p>
-          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚每位导购的真实销售能力：该重点培养谁、如何培养，招聘筛选与能力提升都缺少依据。</dd></div><div><dt>我们做什么</dt><dd>系统自动统计每位导购的接待批次、接待时长、成交与销售额，生成目标完成率排名与接待效率四象限。</dd></div></dl>
+          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚每位导购的真实销售能力：该重点培养谁、如何培养，招聘筛选与能力提升都缺少依据。</dd></div><div><dt>我们做什么</dt><dd>系统自动统计每位导购的接待批次、接待时长、成交与销售额，生成目标完成率排名与接待效率四象限；搭配智能工牌，还能分析接待对话本身。</dd></div></dl>
           <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>看排名：谁完成了目标，谁没有完成。</li><li>看四象限：左上角是标杆导购，右下角是重点辅导对象。</li><li>看建议：按 AI 给出的建议安排培训。</li></ol></div>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="staff"></div>
         </div>
+      </div>
+      <div class="badge-strip">
+        <div class="bs-text">
+          <span class="bs-tag">智能硬件 · 智能工牌</span>
+          <h3>一张工牌，听懂每一次接待。</h3>
+          <p class="bs-lead">导购佩戴卡片式智能工牌，接待时自动记录与顾客的对话。AI 对对话内容做文本分析、提炼关键词，帮助导购知道顾客关心什么、怎样服务得更好。</p>
+          <ul class="bs-list">
+            <li><b>自动记录</b>佩戴即用，导购无需额外操作。</li>
+            <li><b>提炼关键词</b>顾客常问什么、在意什么，一目了然。</li>
+            <li><b>改进服务</b>结合成交结果，找出有效话术，用于培训。</li>
+          </ul>
+        </div>
+        <div class="vis bs-art" data-vis="badge"></div>
       </div>
     </div>
   </section>
@@ -1211,6 +1232,28 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       s+='<circle cx="'+cx+'" cy="56" r="28" fill="'+(i===2?'#1f9d61':'#1d1d1f')+'"/>'+
         '<g transform="translate('+cx+' 56)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'+d[2]+'</g>'+
         T(cx,106,d[0],{s:16,w:800,a:'middle',c:'#1d1d1f'})+T(cx,128,d[1],{s:12,w:600,a:'middle',c:'#48484f'}); });
+    return s+'</svg>'; };
+  VIS.badge = function(){
+    var s='<svg viewBox="0 0 460 300" role="img" aria-label="智能工牌记录对话并提炼关键词">'+
+      '<rect width="460" height="300" rx="20" fill="#fff"/>'+
+      '<path d="M78 18 L98 72 M138 18 L118 72" stroke="#1d1d1f" stroke-width="5" stroke-linecap="round"/>'+
+      '<rect x="100" y="62" width="16" height="20" rx="4" fill="#8e8e93"/>'+
+      '<rect x="52" y="78" width="112" height="168" rx="16" fill="#1d1d1f"/>'+
+      '<rect x="64" y="92" width="88" height="56" rx="10" fill="#2c2c30"/>'+
+      '<circle cx="108" cy="120" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M104 114 h8 v8 a4 4 0 0 1 -8 0z" fill="#fff"/>'+
+      T(108,176,'微见智金',{s:13,w:800,a:'middle',c:'#fff'})+T(108,196,'智能工牌',{s:11,a:'middle',c:'#a1a1a6'})+
+      '<circle cx="80" cy="226" r="4" fill="#1f9d61"/>'+T(90,230,'记录中',{s:10,c:'#d1d1d6'});
+    // sound waves
+    [0,1,2].forEach(function(i){ s+='<path d="M'+(180+i*12)+' '+(140-i*10)+' q8 22 0 44" fill="none" stroke="#c7c7cc" stroke-width="2.5" stroke-linecap="round" transform="translate(0 '+(i*0)+')"/>'; });
+    // chat bubbles
+    s+='<rect x="226" y="30" width="206" height="40" rx="14" fill="#f2f2f7"/>'+T(240,55,'顾客：婚戒有没有更轻一点的？',{s:12,c:'#1d1d1f'})+
+      '<rect x="246" y="78" width="186" height="40" rx="14" fill="#1d1d1f"/>'+T(260,103,'导购：可以看看这款 3 克的。',{s:12,c:'#fff'});
+    s+='<path d="M330 128 v14" stroke="#c7c7cc" stroke-width="2"/><path d="M324 136 l6 8 6 -8" fill="none" stroke="#c7c7cc" stroke-width="2"/>';
+    // keywords
+    s+='<rect x="226" y="152" width="206" height="128" rx="16" fill="#f5f5f7"/>'+T(242,176,'本周高频关键词',{s:12,w:700,c:'#48484f'});
+    [['婚戒',242,192,62],['克重',312,192,58],['预算',378,192,44],['款式',242,226,58],['保值',308,226,58],['售后',374,226,48]].forEach(function(k,i){
+      s+='<rect x="'+k[1]+'" y="'+k[2]+'" width="'+k[3]+'" height="26" rx="13" fill="'+(i<2?'#1d1d1f':'#fff')+'"/>'+T(k[1]+k[3]/2,k[2]+17,k[0],{s:12,w:700,a:'middle',c:i<2?'#fff':'#1d1d1f'}); });
+    s+=T(240,272,'AI：顾客最在意克重，可主动推荐轻量款',{s:10.5,c:'#1f9d61',w:700});
     return s+'</svg>'; };
   document.querySelectorAll('[data-vis]').forEach(function(el){ var f=VIS[el.dataset.vis]; if(f) el.innerHTML=f(); });
 
