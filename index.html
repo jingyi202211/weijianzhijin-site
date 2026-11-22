@@ -395,6 +395,10 @@ body.clean .todo{display:none!important}
 .bs-list{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
 .bs-list li{background:var(--paper);border-radius:14px;padding:12px 16px;font-size:14.5px;line-height:1.6;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
 .bs-art{padding:0;background:transparent}
+.bs-art2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:stretch}
+.bs-art2 .hw-photo{aspect-ratio:auto;height:100%;min-height:220px}
+.bs-talk{padding:0;background:#fff;border-radius:16px;overflow:hidden}
+@media (max-width:560px){.bs-art2{grid-template-columns:1fr}.bs-art2 .hw-photo{min-height:180px}}
 @media (max-width:860px){.badge-strip{grid-template-columns:1fr;padding:22px 18px;gap:20px}.bs-list li{grid-template-columns:1fr;gap:2px}}
 .hw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .hw-photo{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#fafafc,#ececf0)}
@@ -726,7 +730,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
             <li><b>改进服务</b>结合成交结果，找出有效话术，用于培训。</li>
           </ul>
         </div>
-        <div class="vis bs-art" data-vis="badge"></div>
+        <div class="bs-art2"><div class="hw-photo white"><img src="img/badge-front.jpg" alt="智能工牌实拍" loading="lazy"></div><div class="vis bs-talk" data-vis="badgeTalk"></div></div>
       </div>
     </div>
   </section>
@@ -1312,6 +1316,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     '<circle cx="120" cy="77" r="9" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M117 73 h6 v6 a3 3 0 0 1 -6 0z" fill="#fff"/>'+
     T(120,114,'有数金启',{s:9.5,w:800,a:'middle',c:'#fff'})+'<circle cx="106" cy="136" r="3" fill="#1f9d61"/>'+T(112,139,'记录中',{s:8,c:'#d1d1d6'})+
     '<path d="M162 80 q7 16 0 32 M172 74 q11 22 0 44" fill="none" stroke="#c7c7cc" stroke-width="2.2" stroke-linecap="round"/>'); };
+  VIS.badgeTalk = function(){ return VIS.badge().replace('viewBox="0 0 460 300"','viewBox="214 18 232 272"'); };
   document.querySelectorAll('[data-vis]').forEach(function(el){ var f=VIS[el.dataset.vis]; if(f) el.innerHTML=f(); });
 
   var SETS = {
