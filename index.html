@@ -396,14 +396,18 @@ body.clean .todo{display:none!important}
 .bs-list li{background:var(--paper);border-radius:14px;padding:12px 16px;font-size:14.5px;line-height:1.6;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px}
 .bs-art{padding:0;background:transparent}
 @media (max-width:860px){.badge-strip{grid-template-columns:1fr;padding:22px 18px;gap:20px}.bs-list li{grid-template-columns:1fr;gap:2px}}
-.hw-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.hw-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hw-photo{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#fafafc,#ececf0)}
+.hw-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.hw-photo.white{background:#fff}
+.hw-photo.white img{object-fit:contain;padding:8%}
 .hw{background:var(--mist);border-radius:24px;padding:14px 14px 20px;display:flex;flex-direction:column;gap:6px;min-width:0;transition:transform .2s}
 .hw:hover{transform:translateY(-3px)}
 .hw-art svg{display:block;width:100%;height:auto;border-radius:16px}
 .hw h3{font-size:18px;font-weight:800;margin:10px 4px 0}
 .hw p{margin:0 4px;font-size:14px;line-height:1.6;color:var(--grey)}
 .hw-for{margin:6px 4px 0;font-size:12.5px;font-weight:700;color:#157a4a}
-@media (max-width:900px){.hw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.hw-grid{grid-template-columns:1fr}}
 @media (max-width:480px){.hw-grid{gap:10px}.hw{padding:10px 10px 14px}.hw h3{font-size:16px}.hw p{font-size:13px}}
 @media (max-width:420px){.logo small{display:none}}
 .pc-photo.has-img,.pc.lead .pc-photo.has-img{background:linear-gradient(160deg,#f2eeee,#e3dcdc)}
@@ -595,11 +599,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="sec-head" style="margin-bottom:32px">
         <div>
           <p class="eyebrow">智能硬件</p>
-          <h2 class="h2 split" style="margin-top:10px"><b>四款门店硬件，</b><span>数据自动采集。</span></h2>
+          <h2 class="h2 split" style="margin-top:10px"><b>三款门店硬件，</b><span>数据自动采集。</span></h2>
         </div>
         <a class="more" href="#product">了解软硬件如何协同</a>
       </div>
-      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-art" data-vis="hwCounter"></div><h3>客流计数器</h3><p>装在门口，自动统计经过客流。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-art" data-vis="hwQueue"></div><h3>智能轮号屏</h3><p>导购接待时点一下，自动记录进店批次。</p><span class="hw-for">用于：客流与进店 · 导购分析</span></a><a class="hw" href="#schedule"><div class="hw-art" data-vis="hwFace"></div><h3>人脸识别打卡机</h3><p>导购到店刷脸打卡，考勤自动记录。</p><span class="hw-for">用于：排班考勤</span></a><a class="hw" href="#staff"><div class="hw-art" data-vis="hwBadge"></div><h3>智能工牌</h3><p>卡片式佩戴，记录接待对话，AI 提炼关键词。</p><span class="hw-for">用于：导购分析</span></a></div>
+      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-art" data-vis="hwCounter"></div><h3>客流计数器</h3><p>装在门口，自动统计经过客流。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/queue-screen.jpg" alt="智能轮号屏实拍" loading="lazy"></div><h3>智能轮号屏 · 人脸打卡一体</h3><p>导购接待时点一下，自动记录进店批次；同一块屏还能刷脸打卡、记录考勤。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw" href="#staff"><div class="hw-photo white"><img src="img/badge-front.jpg" alt="智能工牌实拍" loading="lazy"></div><h3>智能工牌</h3><p>卡片式佩戴，记录接待对话，AI 提炼关键词。</p><span class="hw-for">用于：导购分析</span></a></div>
     </div>
   </section>
 
@@ -1163,13 +1167,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     return s+'</svg>'; };
   VIS.product = function(){
     var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件产品：计数器、轮号屏、打卡机、工牌连到 AI，再到手机周报">';
-    var rows=[38,96,154,212];
+    var rows=[52,128,204];
     s+='<rect x="34" y="'+(rows[0]-6)+'" width="56" height="13" rx="4" fill="'+C.ink+'"/>'+
-      '<rect x="42" y="'+(rows[1]-16)+'" width="40" height="30" rx="5" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/>'+T(62,rows[1]+4,'A12',{s:10,w:800,n:1,a:'middle'})+
-      '<rect x="48" y="'+(rows[2]-22)+'" width="28" height="42" rx="6" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/><circle cx="62" cy="'+(rows[2]-6)+'" r="7" fill="none" stroke="'+C.ok+'" stroke-width="2"/>'+
-      '<rect x="50" y="'+(rows[3]-20)+'" width="24" height="38" rx="6" fill="'+C.ink+'"/><circle cx="62" cy="'+(rows[3]-6)+'" r="5" fill="none" stroke="#fff" stroke-width="1.5"/>';
-    ['客流计数器','智能轮号屏','人脸打卡机','智能工牌'].forEach(function(t,j){ var y=rows[j];
-      s+=T(102,y+5,t,{s:12.5,w:600})+'<path d="M180 '+y+' C 210 '+y+' 212 128 236 128" fill="none" stroke="'+C.grey+'" stroke-width="1.5" stroke-dasharray="4 4"/>'; });
+      '<rect x="44" y="'+(rows[1]-22)+'" width="36" height="44" rx="5" fill="'+C.soft+'" stroke="'+C.ink+'" stroke-width="2"/>'+T(62,rows[1]-2,'A12',{s:9,w:800,n:1,a:'middle'})+'<circle cx="62" cy="'+(rows[1]+12)+'" r="4" fill="none" stroke="'+C.ok+'" stroke-width="1.8"/>'+
+      '<rect x="50" y="'+(rows[2]-20)+'" width="24" height="38" rx="6" fill="'+C.ink+'"/><circle cx="62" cy="'+(rows[2]-6)+'" r="5" fill="none" stroke="#fff" stroke-width="1.5"/>';
+    ['客流计数器','轮号屏 · 人脸打卡','智能工牌'].forEach(function(t,j){ var y=rows[j];
+      s+=T(98,y+5,t,{s:12.5,w:600})+'<path d="M206 '+y+' C 222 '+y+' 222 128 236 128" fill="none" stroke="'+C.grey+'" stroke-width="1.5" stroke-dasharray="4 4"/>'; });
     s+='<circle cx="260" cy="128" r="24" fill="'+C.ink+'"/>'+T(260,134,'AI',{s:15,w:800,n:1,a:'middle',c:'#fff'})+'<path d="M284 128 H306" stroke="'+C.ink+'" stroke-width="2"/>'+
       '<rect x="308" y="58" width="74" height="140" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
       '<circle cx="345" cy="104" r="20" fill="none" stroke="'+C.track+'" stroke-width="6"/>'+
@@ -1201,12 +1204,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       s+=T(cx,Y+150,c[0],{s:20,w:800,a:'middle',c:tc})+T(cx,Y+176,c[1],{s:13,w:600,a:'middle',c:sc});
       if(i<4) s+='<path d="M'+(x+W+6)+' '+(Y+H/2)+' H'+(x+W+G-8)+'" stroke="'+C.ink+'" stroke-width="2.5"/><path d="M'+(x+W+G-14)+' '+(Y+H/2-6)+' L'+(x+W+G-6)+' '+(Y+H/2)+' L'+(x+W+G-14)+' '+(Y+H/2+6)+'" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linejoin="round"/>';
       var iy=Y+70;
-      if(i===0){ var dx=[-60,-21,18,56];
-        s+='<rect x="'+(cx-74)+'" y="'+(iy-30)+'" width="28" height="9" rx="3" fill="'+C.ink+'"/>'+
-          '<rect x="'+(cx-36)+'" y="'+(iy-30)+'" width="30" height="24" rx="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+T(cx-21,iy-14,'A12',{s:8,w:800,n:1,a:'middle'})+'<path d="M'+(cx-21)+' '+(iy-6)+' V'+(iy+6)+'" stroke="'+C.ink+'" stroke-width="2"/>'+
-          '<rect x="'+(cx+6)+'" y="'+(iy-32)+'" width="24" height="38" rx="5" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/><circle cx="'+(cx+18)+'" cy="'+(iy-18)+'" r="6" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
-          '<path d="M'+(cx+50)+' '+(iy-40)+' l6 10 M'+(cx+62)+' '+(iy-40)+' l-6 10" stroke="'+C.ink+'" stroke-width="1.8"/><rect x="'+(cx+45)+'" y="'+(iy-30)+'" width="22" height="34" rx="5" fill="'+C.ink+'"/><circle cx="'+(cx+56)+'" cy="'+(iy-18)+'" r="4" fill="none" stroke="#fff" stroke-width="1.5"/>';
-        ['计数器','轮号屏','打卡机','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
+      if(i===0){ var dx=[-50,0,50];
+        s+='<rect x="'+(cx-64)+'" y="'+(iy-30)+'" width="28" height="9" rx="3" fill="'+C.ink+'"/>'+
+          '<rect x="'+(cx-15)+'" y="'+(iy-34)+'" width="30" height="40" rx="4" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+T(cx,iy-18,'A12',{s:8,w:800,n:1,a:'middle'})+'<circle cx="'+cx+'" cy="'+(iy-4)+'" r="3.5" fill="none" stroke="'+C.ink+'" stroke-width="1.5"/>'+
+          '<path d="M'+(cx+44)+' '+(iy-40)+' l6 10 M'+(cx+56)+' '+(iy-40)+' l-6 10" stroke="'+C.ink+'" stroke-width="1.8"/><rect x="'+(cx+39)+'" y="'+(iy-30)+'" width="22" height="34" rx="5" fill="'+C.ink+'"/><circle cx="'+(cx+50)+'" cy="'+(iy-18)+'" r="4" fill="none" stroke="#fff" stroke-width="1.5"/>';
+        ['计数器','轮号屏','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
       if(i===1){ s+='<ellipse cx="'+cx+'" cy="'+(iy-24)+'" rx="34" ry="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-24)+' V'+(iy+20)+' a34 10 0 0 0 68 0 V'+(iy-24)+'" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-2)+' a34 10 0 0 0 68 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'; }
