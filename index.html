@@ -1394,7 +1394,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
   (function(){
     var v=document.querySelector('.hero-video'); var steps=document.querySelectorAll('#flow div'); if(!v) return;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var CUT=[0,8,13,19]; // seconds where each stage starts in the 30s film
+    var CUT=[0,5.5,8.5,12]; // seconds where each stage starts in the 15s film
     v.src = window.innerWidth<700 ? 'hero-sm.mp4' : 'hero.mp4';
     function mark(k){ steps.forEach(function(s,j){ s.classList.toggle('on', j<=k); }); }
     if(reduce){ v.removeAttribute('autoplay'); mark(3); return; }
