@@ -76,7 +76,8 @@ section.band{padding-block:clamp(72px,10vw,128px)}
 
 /* hero */
 .hero{text-align:center;padding-block:clamp(88px,12vw,150px) clamp(56px,8vw,96px);position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 34%,rgba(0,0,0,.74) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.35) 100%),linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.75) 100%)}
 .hero > .wrap{position:relative;z-index:1}
 .hero .display{max-width:13em;margin:0 auto}
 .hero .lead{max-width:34em;margin:28px auto 0;color:#a1a1a6}
@@ -528,6 +529,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
 <!-- ============ 首页 ============ -->
 <main class="page" id="p-home">
   <section class="dark hero">
+    <video class="hero-video" muted loop playsinline autoplay preload="metadata" poster="hero-poster.jpg" aria-hidden="true"></video>
+    <div class="hero-shade" aria-hidden="true"></div>
     <div class="wrap">
       <h1 class="display">用有数金启，<br>AI帮您管好珠宝店</h1>
       <p class="lead">通过软硬件结合记录和整理门店数据，再用 AI 分析，帮您了解门店情况、发现问题、找到管理提升方向。</p>
@@ -1387,98 +1390,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
   }
 
   // hero flow animation (stand-in for video)
-  // hero: animated store-to-insight scene, synced with the four steps
+  // hero: background video, the four steps light up with its stages
   (function(){
-    var hero=document.querySelector('.hero'); if(!hero) return;
-    var steps=document.querySelectorAll('#flow div');
+    var v=document.querySelector('.hero-video'); var steps=document.querySelectorAll('#flow div'); if(!v) return;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var cv=document.createElement('canvas'); cv.className='hero-bg'; cv.setAttribute('aria-hidden','true'); hero.insertBefore(cv,hero.firstChild);
-    var ctx=cv.getContext('2d'), W=0, H=0, dpr=1;
-    function size(){ dpr=Math.min(2,window.devicePixelRatio||1); W=hero.clientWidth; H=hero.clientHeight; cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); }
-    size(); window.addEventListener('resize',size);
-    var G='214,178,94', FONT='"PingFang SC","Noto Sans SC",system-ui,sans-serif';
-    var N=W<700?80:150, P=[];
-    for(var i=0;i<N;i++) P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.8+1.2,ph:Math.random()*6.28,sp:0.4+Math.random()*0.8,seed:Math.random()});
-    var PH=3.4, phase=-1, T0=performance.now();
-    var narrow=function(){ return W<700; };
-    // layout zones (normalized); on phones keep scenes in the lower band
-    function Z(){ return narrow()? {top:.50,bot:.74} : {top:.30,bot:.80}; }
-    function curveY(x){ var z=Z(); var base=z.bot-.04, amp=(z.bot-z.top)*.6; var v=Math.sin((x-.06)/.88*3.0)*.25+ (x-.06)/.88*.8; if(x>.62&&x<.78) v-=.22*Math.sin((x-.62)/.16*Math.PI); return base-amp*Math.max(0,Math.min(1,v)); }
-    function target(p,i,k,t){
-      var z=Z(), h=z.bot-z.top;
-      if(k===0){
-        if(i%3===0){ var x=((p.seed+t*.04*p.sp)%1.15)-.07; return [x, z.bot+.04+Math.sin(p.ph+t)*.004]; }
-        if(i%3===1){ return [.10+.18*p.seed, z.top+.25*h+ .6*h*((p.seed*7)%1)]; }
-        return [.70+.22*((p.seed*13)%1), z.top+.35*h+.45*h*((p.seed*5)%1)];
-      }
-      if(k===1){ var cols=narrow()?8:14, rows=5, side=i%2, c=(i>>1)%cols, r=((i>>1)/cols|0)%rows;
-        var x0=side? .60:.06, w=.34; return [x0+w*(c+.5)/cols, z.top+.15*h+.7*h*(r+.5)/rows]; }
-      if(k===2){ var x=.06+.88*(i/N); return [x, curveY(x)+Math.sin(p.ph+t*2)*.003]; }
-      var ang=p.seed*6.283+t*.3*p.sp, cx=narrow()?.5:.18, cy=z.top+.5*h, rx=narrow()?.12:.07;
-      if(i%2===0) return [cx+Math.cos(ang)*rx*(1+.15*Math.sin(p.ph+t)), cy+Math.sin(ang)*rx*W/H*(1+.15*Math.sin(p.ph+t))];
-      return [.60+.32*p.seed, z.top+.2*h+.6*h*((p.seed*11)%1)];
-    }
-    function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
-    function txt(s,x,y,size,a,align,col){ size=size+1; ctx.font='600 '+size+'px '+FONT; ctx.textAlign=align||'left'; ctx.fillStyle=col||('rgba('+G+','+a+')'); ctx.fillText(s,x,y); }
-    function scene(k,a,t,lp){
-      if(a<=0) return; var z=Z(), top=z.top*H, bot=z.bot*H, h=bot-top; ctx.save(); ctx.lineWidth=1.6; ctx.strokeStyle='rgba('+G+','+(.85*a)+')';
-      if(k===0){
-        if(!narrow()){ var sx=.08*W, sw=.22*W, sy=top+.15*h, sh=.85*h;
-          ctx.strokeRect(sx,sy,sw,sh);
-          for(var j=0;j<6;j++){ ctx.beginPath(); ctx.arc(sx+sw*(j+.5)/6,sy,sw/12,0,Math.PI); ctx.stroke(); }
-          ctx.strokeRect(sx+sw*.38,sy+sh*.35,sw*.24,sh*.65);
-          ctx.fillStyle='rgba('+G+','+(.8*a)+')'; ctx.fillRect(sx+sw*.40,sy+sh*.28,sw*.2,4);
-          var pulse=(t*1.2)%1; ctx.fillStyle='rgba('+G+','+(.12*a*(1-pulse))+')'; ctx.beginPath(); ctx.moveTo(sx+sw*.42,sy+sh*.3); ctx.lineTo(sx+sw*.34,sy+sh); ctx.lineTo(sx+sw*.66,sy+sh); ctx.lineTo(sx+sw*.58,sy+sh*.3); ctx.fill();
-          txt('客流计数器',sx+sw*.5,sy+sh*.24,12,.85*a,'center');
-          var cx0=.70*W, cw=.22*W, cy0=top+.55*h; ctx.strokeRect(cx0,cy0,cw,.35*h); ctx.beginPath(); ctx.moveTo(cx0,cy0+.08*h); ctx.lineTo(cx0+cw,cy0+.08*h); ctx.stroke();
-          for(var d=0;d<4;d++){ var dx=cx0+cw*(d+.5)/4, dy=cy0+.03*h; ctx.beginPath(); ctx.moveTo(dx,dy-8); ctx.lineTo(dx+7,dy); ctx.lineTo(dx,dy+8); ctx.lineTo(dx-7,dy); ctx.closePath(); ctx.stroke(); }
-          txt('导购接待 · 智能轮号 · 智能工牌',cx0+cw/2,cy0+.27*h,12,.8*a,'center');
-          var fl=(t*.7)%1; txt('进店 +1',sx+sw*.5,sy+sh*(.75-.2*fl),12,a*(1-fl),'center');
-        } else { txt('门店数据实时采集',W/2,top+.2*h,13,.9*a,'center'); }
-      }
-      if(k===1){
-        [[.06,.34],[.60,.34]].forEach(function(b,ix){ if(narrow()&&ix===0) return; var x0=(narrow()?.08:b[0])*W, w=(narrow()?.84:b[1])*W, y0=top+.12*h, hh=.76*h;
-          ctx.strokeRect(x0,y0,w,hh); for(var r=1;r<5;r++){ ctx.beginPath(); ctx.moveTo(x0,y0+hh*r/5); ctx.lineTo(x0+w,y0+hh*r/5); ctx.stroke(); } });
-        if(!narrow()){ var lab=[['门口客流','12,000'],['进店批次','400'],['成交批次','160'],['销售额','67.2 万']];
-          lab.forEach(function(l,j){ txt(l[0]+'  '+l[1], .07*W, top+.12*h+.76*h*(j+.6)/5+4, 12, .85*a); }); txt('数据整理中…',.94*W,top+.06*h,12,.8*a,'right'); }
-      }
-      if(k===2){
-        ctx.beginPath(); for(var x=.06;x<=.94;x+=.01){ var yy=curveY(x)*H; if(x===.06) ctx.moveTo(x*W,yy); else ctx.lineTo(x*W,yy); } ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(.06*W,bot); ctx.lineTo(.94*W,bot); ctx.strokeStyle='rgba('+G+','+(.25*a)+')'; ctx.stroke();
-        var sxp=.06+.88*Math.min(1,lp*1.25), syp=curveY(sxp)*H; ctx.strokeStyle='rgba(255,255,255,'+(.6*a)+')'; ctx.beginPath(); ctx.arc(sxp*W,syp,14,0,6.283); ctx.stroke();
-        if(lp>.55){ var px=.70*W, py=curveY(.70)*H, aa=a*Math.min(1,(lp-.55)*4); ctx.fillStyle='rgba(224,69,58,'+aa+')'; ctx.beginPath(); ctx.arc(px,py,6,0,6.283); ctx.fill();
-          txt('AI 发现：周末进店率下降', px, py-18, 13, 0, 'center', 'rgba(255,255,255,'+aa+')'); }
-      }
-      if(k===3){
-        var cx=(narrow()?.5:.18)*W, cy=top+.5*h, R=Math.min(.07*W,.3*h); var sc=Math.round(74+8*Math.min(1,lp*1.6));
-        ctx.lineWidth=5; ctx.strokeStyle='rgba(255,255,255,'+(.12*a)+')'; ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.stroke();
-        ctx.strokeStyle='rgba(31,157,97,'+(.9*a)+')'; ctx.beginPath(); ctx.arc(cx,cy,R,-1.571,-1.571+6.283*sc/100); ctx.stroke();
-        txt(String(sc),cx,cy+8,Math.round(R*.55),0,'center','rgba(255,255,255,'+a+')'); txt('门店健康度',cx,cy+R+20,12,.85*a,'center');
-        if(!narrow()){ var cards=['建议 1：周末增加 1 名导购','建议 2：优化橱窗陈列与迎宾','建议 3：复盘标杆导购成交话术'];
-          cards.forEach(function(c,j){ var ap=a*Math.max(0,Math.min(1,(lp-j*.18)*4)); if(ap<=0) return; var x0=.62*W, y0=top+.14*h+j*.28*h, w=.30*W, hh=.2*h;
-            ctx.fillStyle='rgba(255,255,255,'+(.07*ap)+')'; rr(x0,y0,w,hh,12); ctx.fill(); ctx.lineWidth=1; ctx.strokeStyle='rgba('+G+','+(.5*ap)+')'; ctx.stroke();
-            txt(c,x0+16,y0+hh/2+5,13,0,'left','rgba(255,255,255,'+(.9*ap)+')'); }); }
-      }
-      ctx.restore();
-    }
-    function frame(now){
-      var t=(now-T0)/1000, k=Math.floor(t/PH)%4, lp=(t%PH)/PH;
-      if(k!==phase){ phase=k; steps.forEach(function(s,j){ s.classList.toggle('on', j<=k); }); }
-      ctx.clearRect(0,0,W,H);
-      var a=Math.min(1,lp*4)*Math.min(1,(1-lp)*5);
-      // no text or outlines over the headline: particles only
-      P.forEach(function(p,i){ var tg=target(p,i,k,t); p.x+=(tg[0]-p.x)*.06; p.y+=(tg[1]-p.y)*.06;
-        var tw=.55+.45*Math.sin(p.ph+t*2.2); ctx.fillStyle='rgba('+G+','+(.5*tw)+')'; ctx.shadowColor='rgba('+G+',.6)'; ctx.shadowBlur=4; ctx.beginPath(); ctx.arc(p.x*W,p.y*H,p.r,0,6.283); ctx.fill(); }); ctx.shadowBlur=0;
-      var g=ctx.createRadialGradient(W/2,H*.3,0,W/2,H*.3,Math.max(W*.30,220)); g.addColorStop(0,'rgba(0,0,0,.72)'); g.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
-      if(!reduce) raf=requestAnimationFrame(frame);
-    }
-    var raf=0, running=false;
-    function start(){ if(running||reduce) return; running=true; T0=performance.now()-(phase<0?0:phase*PH*1000); raf=requestAnimationFrame(frame); }
-    function stop(){ running=false; cancelAnimationFrame(raf); }
-    if(reduce){ phase=-1; frame(performance.now()+PH*3.5*1000); steps.forEach(function(s){ s.classList.add('on'); }); return; }
-    if('IntersectionObserver' in window) new IntersectionObserver(function(es){ es[0].isIntersecting&&!document.hidden?start():stop(); }).observe(hero); else start();
-    document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
-    start();
+    var CUT=[0,8,13,19]; // seconds where each stage starts in the 30s film
+    v.src = window.innerWidth<700 ? 'hero-sm.mp4' : 'hero.mp4';
+    function mark(k){ steps.forEach(function(s,j){ s.classList.toggle('on', j<=k); }); }
+    if(reduce){ v.removeAttribute('autoplay'); mark(3); return; }
+    mark(0);
+    v.addEventListener('timeupdate',function(){ var t=v.currentTime,k=0; for(var j=0;j<CUT.length;j++) if(t>=CUT[j]) k=j; mark(k); });
+    var p=v.play(); if(p&&p.catch) p.catch(function(){ mark(3); });
   })();
 
   // mobile menu
