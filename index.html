@@ -1432,8 +1432,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
   (function(){
     var v=document.querySelector('.hero-video'); var steps=document.querySelectorAll('#flow div'); if(!v) return;
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var CUT=[0,8,10.5,12.5]; // seconds where each stage starts in the 15s film (version 4)
-    v.src = window.innerWidth<700 ? 'hero-sm.mp4' : 'hero.mp4';
+    var phone = window.innerWidth<700;
+    // seconds where each stage starts: desktop film (version 4) vs phone film (vertical)
+    var CUT = phone ? [0,7.5,9,11.5] : [0,8,10.5,12.5];
+    v.src = phone ? 'hero-m.mp4' : 'hero.mp4';
+    if(phone) v.poster='hero-poster-m.jpg';
     function mark(k){ steps.forEach(function(s,j){ s.classList.toggle('on', j<=k); }); }
     if(reduce){ v.removeAttribute('autoplay'); mark(3); return; }
     mark(0);
