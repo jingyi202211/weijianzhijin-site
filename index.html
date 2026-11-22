@@ -1234,19 +1234,47 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       T(X,22,'软硬件全链路打通',{s:15,w:800});
     return s+'</svg>'; };
   VIS.storyArt = function(){
-    var s='<svg viewBox="0 0 520 380" role="img" aria-label="珠宝门店插画">'+
-      '<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5f5f7"/><stop offset="1" stop-color="#e8e8ed"/></linearGradient></defs>'+
-      '<rect x="0" y="0" width="520" height="380" rx="24" fill="url(#sky)"/>'+
-      '<rect x="60" y="92" width="400" height="250" rx="6" fill="#fff" stroke="#1d1d1f" stroke-width="3"/>';
-    for(var i=0;i<10;i++) s+='<path d="M'+(60+i*40)+' 92 h40 v34 a20 20 0 0 1 -40 0 z" fill="'+(i%2?'#fff':'#1d1d1f')+'" stroke="#1d1d1f" stroke-width="2"/>';
-    s+='<rect x="190" y="60" width="140" height="30" rx="6" fill="#1d1d1f"/>'+T(260,81,'JEWELRY',{s:14,w:800,n:1,a:'middle',c:'#fff'});
-    s+='<rect x="84" y="160" width="150" height="150" rx="6" fill="#f2f2f7" stroke="#1d1d1f" stroke-width="2"/>'+
-      '<rect x="286" y="160" width="150" height="150" rx="6" fill="#f2f2f7" stroke="#1d1d1f" stroke-width="2"/>';
-    [[120,250],[159,232],[198,250],[322,250],[361,232],[400,250]].forEach(function(p){ s+='<path d="M'+p[0]+' '+(p[1]+30)+' V'+(p[1]+8)+'" stroke="#1d1d1f" stroke-width="2"/><path d="M'+(p[0]-10)+' '+p[1]+' l10 -12 l10 12 l-10 12 z" fill="#fff" stroke="#1d1d1f" stroke-width="2"/>'; });
-    [[140,190],[380,190]].forEach(function(p){ s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="12" fill="none" stroke="#1d1d1f" stroke-width="2.5"/>'; });
-    s+='<path d="M60 342 H460" stroke="#1d1d1f" stroke-width="3"/>';
-    s+='<g transform="translate(330 22)"><rect width="170" height="64" rx="16" fill="#fff" stroke="#e1e1e8"/>'+T(16,26,'导购健康分',{s:12,c:'#48484f'})+T(16,50,'78',{s:20,w:800,n:1,c:'#1d1d1f'})+'<rect x="104" y="34" width="52" height="20" rx="10" fill="#e3f5ec"/>'+T(130,48,'健康',{s:11,w:700,a:'middle',c:'#1f9d61'})+'</g>';
-    s+='<g transform="translate(18 300)"><rect width="150" height="58" rx="16" fill="#fff" stroke="#e1e1e8"/><circle cx="28" cy="29" r="13" fill="#1d1d1f"/>'+T(28,34,'AI',{s:11,w:800,n:1,a:'middle',c:'#fff'})+T(50,25,'本周建议',{s:11,c:'#48484f'})+T(50,43,'优化迎宾安排',{s:13,w:700,c:'#1d1d1f'})+'</g>';
+    function star(x,y,r,o){ return '<path d="M'+x+' '+(y-r)+' Q'+(x+r*.18)+' '+(y-r*.18)+' '+(x+r)+' '+y+' Q'+(x+r*.18)+' '+(y+r*.18)+' '+x+' '+(y+r)+' Q'+(x-r*.18)+' '+(y+r*.18)+' '+(x-r)+' '+y+' Q'+(x-r*.18)+' '+(y-r*.18)+' '+x+' '+(y-r)+'Z" fill="#f6dc98" opacity="'+o+'"/>'; }
+    function bust(x,y){ return '<path d="M'+(x-16)+' '+(y+34)+' Q'+(x-18)+' '+(y+6)+' '+x+' '+(y-6)+' Q'+(x+18)+' '+(y+6)+' '+(x+16)+' '+(y+34)+'Z" fill="url(#sa-velvet)"/><ellipse cx="'+x+'" cy="'+(y-12)+'" rx="7" ry="8" fill="url(#sa-velvet)"/>'+
+      '<path d="M'+(x-11)+' '+(y+2)+' Q'+x+' '+(y+20)+' '+(x+11)+' '+(y+2)+'" fill="none" stroke="#e8c36d" stroke-width="2.2"/><circle cx="'+x+'" cy="'+(y+12)+'" r="3.2" fill="#f6dc98" stroke="#b88a35" stroke-width="1"/>'+
+      '<rect x="'+(x-20)+'" y="'+(y+34)+'" width="40" height="5" rx="2" fill="#c9a15a"/>'; }
+    function ring(x,y){ return '<rect x="'+(x-6)+'" y="'+(y+6)+'" width="12" height="14" rx="3" fill="#7a2e3b"/><circle cx="'+x+'" cy="'+y+'" r="6" fill="none" stroke="#e8c36d" stroke-width="2.4"/><path d="M'+(x-3)+' '+(y-7)+' l3 -4 l3 4z" fill="#fff8e6" stroke="#e8c36d" stroke-width=".8"/>'; }
+    function win(x,y,w,h){ var r=w/2; return '<path d="M'+x+' '+(y+r)+' A'+r+' '+r+' 0 0 1 '+(x+w)+' '+(y+r)+' V'+(y+h)+' H'+x+'Z" fill="url(#sa-glow)" stroke="#c9a15a" stroke-width="4"/>'+
+      '<path d="M'+(x+6)+' '+(y+r)+' A'+(r-6)+' '+(r-6)+' 0 0 1 '+(x+w-6)+' '+(y+r)+'" fill="none" stroke="#f6dc98" stroke-width="1.2" opacity=".8"/>'+
+      '<rect x="'+(x+6)+'" y="'+(y+h-26)+'" width="'+(w-12)+'" height="20" rx="3" fill="#fbf1de" stroke="#d9b977" stroke-width="1"/>'+
+      bust(x+w*.32,y+h-68)+ring(x+w*.7,y+h-40)+star(x+w*.72,y+r+4,5,.9)+star(x+w*.22,y+h-90,3.5,.8); }
+    var s='<svg viewBox="0 0 520 380" role="img" aria-label="华丽的珠宝门店插画">'+
+      '<defs><linearGradient id="sa-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbeee3"/><stop offset="1" stop-color="#f4dfcf"/></linearGradient>'+
+      '<linearGradient id="sa-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2526"/><stop offset="1" stop-color="#151213"/></linearGradient>'+
+      '<radialGradient id="sa-glow" cx=".5" cy=".55" r=".7"><stop offset="0" stop-color="#fff4d8"/><stop offset=".7" stop-color="#f6dfae"/><stop offset="1" stop-color="#e3bf7c"/></radialGradient>'+
+      '<linearGradient id="sa-velvet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8e3445"/><stop offset="1" stop-color="#5e1f2c"/></linearGradient>'+
+      '<linearGradient id="sa-gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8893a"/><stop offset=".5" stop-color="#f3d68f"/><stop offset="1" stop-color="#b8893a"/></linearGradient>'+
+      '<linearGradient id="sa-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3d6"/><stop offset="1" stop-color="#e2d2c2"/></linearGradient></defs>'+
+      '<rect width="520" height="380" rx="24" fill="url(#sa-sky)"/>'+
+      '<circle cx="260" cy="70" r="120" fill="#fff6e8" opacity=".6"/>'+
+      '<rect x="0" y="336" width="520" height="44" fill="url(#sa-floor)"/>'+
+      // building
+      '<rect x="62" y="108" width="396" height="232" rx="6" fill="url(#sa-wall)"/>'+
+      '<rect x="54" y="96" width="412" height="16" rx="4" fill="url(#sa-gold)"/>'+
+      '<rect x="62" y="112" width="396" height="6" fill="#3a3233"/>';
+    for(var i=0;i<12;i++){ var x=62+i*33; s+='<path d="M'+x+' 118 q16.5 22 33 0" fill="'+(i%2?'#7a2e3b':'#8e3445')+'" stroke="#c9a15a" stroke-width="1.5"/>'; }
+    s+='<rect x="212" y="66" width="96" height="34" rx="6" fill="#1d1d1f" stroke="url(#sa-gold)" stroke-width="3"/>'+
+      '<path d="M260 72 l10 11 -10 11 -10 -11z" fill="none" stroke="#f3d68f" stroke-width="2.2"/><path d="M250 83 h20" stroke="#f3d68f" stroke-width="1.4"/>'+
+      win(86,160,118,170)+win(316,160,118,170)+
+      // door
+      '<path d="M226 340 V214 A34 34 0 0 1 294 214 V340Z" fill="#fbe9c4" stroke="url(#sa-gold)" stroke-width="5"/>'+
+      '<path d="M260 182 V340" stroke="#d9b977" stroke-width="2"/><circle cx="252" cy="282" r="3" fill="#b8893a"/><circle cx="268" cy="282" r="3" fill="#b8893a"/>'+
+      // lanterns
+      '<path d="M214 196 h-8 v-10" stroke="#c9a15a" stroke-width="2" fill="none"/><rect x="200" y="196" width="12" height="18" rx="3" fill="#f6dc98" stroke="#b88a35"/>'+
+      '<path d="M306 196 h8 v-10" stroke="#c9a15a" stroke-width="2" fill="none"/><rect x="308" y="196" width="12" height="18" rx="3" fill="#f6dc98" stroke="#b88a35"/>'+
+      // topiaries
+      '<rect x="36" y="314" width="22" height="24" rx="3" fill="#c9a15a"/><circle cx="47" cy="300" r="18" fill="#3f6b4f"/><circle cx="47" cy="300" r="18" fill="none" stroke="#2f5540" stroke-width="2"/>'+
+      '<rect x="462" y="314" width="22" height="24" rx="3" fill="#c9a15a"/><circle cx="473" cy="300" r="18" fill="#3f6b4f"/>'+
+      // carpet + steps
+      '<path d="M236 340 h48 l14 40 h-76z" fill="#8e3445" opacity=".9"/><rect x="214" y="336" width="92" height="6" rx="2" fill="#d9b977"/>'+
+      star(150,60,7,.9)+star(392,48,9,.95)+star(470,120,5,.8)+star(36,150,6,.8)+star(120,30,4,.7);
+    s+='<g transform="translate(340 18)"><rect width="164" height="60" rx="16" fill="#fff" stroke="#efe2cf"/>'+T(16,25,'导购健康分',{s:12,c:'#48484f'})+T(16,49,'78',{s:20,w:800,n:1,c:'#1d1d1f'})+'<rect x="102" y="32" width="48" height="20" rx="10" fill="#e3f5ec"/>'+T(126,46,'健康',{s:11,w:700,a:'middle',c:'#1f9d61'})+'</g>';
+    s+='<g transform="translate(70 314)"><rect width="156" height="56" rx="16" fill="#fff" stroke="#efe2cf"/><circle cx="28" cy="28" r="13" fill="#1d1d1f"/>'+T(28,33,'AI',{s:11,w:800,n:1,a:'middle',c:'#f3d68f'})+T(50,24,'本周建议',{s:11,c:'#48484f'})+T(50,42,'优化迎宾安排',{s:13,w:700,c:'#1d1d1f'})+'</g>';
     return s+'</svg>'; };
   VIS.sieSee = function(){ return '<svg viewBox="0 0 240 130" aria-hidden="true">'+
     '<rect x="40" y="34" width="160" height="80" rx="4" fill="#fff" stroke="#1d1d1f" stroke-width="2.5"/><path d="M40 34 h160 v14 h-160 z" fill="#1d1d1f"/>'+
