@@ -822,7 +822,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     </div>
   </section>
 
-  <section class="band mist" style="padding-top:56px">
+  <section class="band mist" style="padding-block:56px">
+    <div class="wrap">
+      <div style="background:var(--paper);border-radius:24px;padding:28px 32px;max-width:40em">
+        <p style="font-size:19px;font-weight:700;margin:0">近期活动正在筹备中。</p>
+        <p class="muted" style="margin:10px 0 0">活动时间确定后，我们将通过企业微信第一时间通知。欢迎扫码添加，留意最新安排。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- placeholder event list hidden until real events are confirmed -->
+  <section class="band mist" style="padding-top:56px" hidden>
     <div class="wrap">
       <div class="ev-tabs" role="tablist">
         <button type="button" role="tab" class="on" data-tab="up">近期活动</button>
