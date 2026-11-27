@@ -507,6 +507,7 @@ body.clean .todo{display:none!important}
 .form label{font-size:14px;font-weight:600;display:grid;gap:6px}
 .form input,.form select{font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
 .form .note{font-size:14px;color:var(--grey);min-height:1.4em}
+@media (min-width:821px){.ways2 .form{grid-template-columns:1fr 1fr;column-gap:16px;align-self:stretch}.ways2 .form button,.ways2 .form .note{grid-column:1/-1;justify-self:start}}
 
 /* footer */
 footer{background:var(--mist);font-size:13px;color:var(--grey);padding-block:40px}
@@ -572,13 +573,6 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       </div>
       <div class="grid2">
         <article class="card">
-          <p class="tag">经营分析</p>
-          <h3 class="h3 split"><b>一眼看懂，</b><span>门店正在发生什么</span></h3>
-          <p class="muted">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
-          <div class="carousel" data-set="analysis"></div>
-          <a class="more" href="#analysis">了解详情</a>
-        </article>
-        <article class="card">
           <p class="tag">客流与进店</p>
           <h3 class="h3 split"><b>看清客流量</b><span>与进店率</span></h3>
           <p class="muted">全面掌握门口客流与进店情况，门店动态一目了然，并给出针对性的引流建议。</p>
@@ -586,18 +580,25 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
           <a class="more" href="#traffic">了解详情</a>
         </article>
         <article class="card">
-          <p class="tag">导购分析</p>
-          <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
-          <p class="muted">精准定位每位导购的薄弱环节，搭配智能工牌分析接待对话，据此开展针对性培训，切实提升接待与成交能力。</p>
-          <div class="carousel" data-set="staff"></div>
-          <a class="more" href="#staff">了解详情</a>
-        </article>
-        <article class="card">
           <p class="tag">排班考勤</p>
           <h3 class="h3 split"><b>按客流排班，</b><span>考勤一目了然</span></h3>
           <p class="muted">看清导购每天的忙闲，把人排在最需要的时段；人脸识别打卡，考勤自动记录。</p>
           <div class="carousel" data-set="schedule"></div>
           <a class="more" href="#schedule">了解详情</a>
+        </article>
+        <article class="card">
+          <p class="tag">经营分析</p>
+          <h3 class="h3 split"><b>一眼看懂，</b><span>门店正在发生什么</span></h3>
+          <p class="muted">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
+          <div class="carousel" data-set="analysis"></div>
+          <a class="more" href="#analysis">了解详情</a>
+        </article>
+        <article class="card">
+          <p class="tag">导购分析</p>
+          <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
+          <p class="muted">精准定位每位导购的薄弱环节，搭配智能工牌分析接待对话，据此开展针对性培训，切实提升接待与成交能力。</p>
+          <div class="carousel" data-set="staff"></div>
+          <a class="more" href="#staff">了解详情</a>
         </article>
       </div>
     </div>
@@ -612,7 +613,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         </div>
         <a class="more" href="#product">了解软硬件如何协同</a>
       </div>
-      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_counter.png" alt="客流计数器" loading="lazy"></div><h3>客流计数器</h3><p>装在门口，自动统计经过客流。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_screen.png" alt="智能轮号屏" loading="lazy"></div><h3>智能轮号屏 · 人脸打卡一体</h3><p>导购接待时点一下，自动记录进店批次；同一块屏还能刷脸打卡、记录考勤。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw" href="#staff"><div class="hw-photo"><img src="img/p_badge.png" alt="智能工牌" loading="lazy"></div><h3>智能工牌</h3><p>卡片式佩戴，记录接待对话，AI 提炼关键词。</p><span class="hw-for">用于：导购分析</span></a></div>
+      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_counter.png" alt="客流计数器" loading="lazy"></div><h3>客流计数器</h3><p>自研模型自动统计门店经过客流、进入客流和离开客流，并可按性别和年龄组聚类，帮助门店了解客流情况。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_screen.png" alt="智能门店管理终端" loading="lazy"></div><h3>智能门店管理终端</h3><p>一体式门店管理工具，兼备人脸打卡、门店排班和轮号装置，无感统计门店管理数据。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw" href="#staff"><div class="hw-photo"><img src="img/p_badge.png" alt="智能工牌" loading="lazy"></div><h3>智能工牌</h3><p>小巧精致，胸卡式佩戴，无感记录员工与顾客的沟通录音，通过 AI 分析帮助导购提升销售能力。</p><span class="hw-for">用于：导购分析</span></a></div>
     </div>
   </section>
 
@@ -872,7 +873,10 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="way">
           <p class="k" style="font-weight:700">留下联系方式，我们将尽快联系您</p>
           <form class="form" id="leadForm">
-            <label for="f-name">您的称呼<input id="f-name" name="name" placeholder="例如：王总" autocomplete="name"></label>
+            <label for="f-company">公司名称<input id="f-company" name="company" placeholder="例如：某某珠宝" autocomplete="organization"></label>
+            <label for="f-region">所在地区<input id="f-region" name="region" placeholder="例如：广东深圳" autocomplete="address-level2"></label>
+            <label for="f-name">称呼<input id="f-name" name="name" placeholder="例如：王总" autocomplete="name"></label>
+            <label for="f-title">职位<input id="f-title" name="title" placeholder="例如：店长、老板" autocomplete="organization-title"></label>
             <label for="f-phone">手机号<input id="f-phone" name="phone" inputmode="tel" placeholder="11 位手机号" required></label>
             <label for="f-shops">门店数量
               <select id="f-shops" name="shops"><option>1 家</option><option>2 到 5 家</option><option>6 家以上</option></select>
@@ -948,7 +952,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     products: function(){ return {g:
       '<rect class="hl" x="30" y="60" width="70" height="18" rx="4"/><rect x="125" y="50" width="80" height="120" rx="10"/><rect x="230" y="40" width="70" height="130" rx="12"/><circle cx="265" cy="90" r="16"/>'+
       '<rect x="320" y="80" width="50" height="95" rx="10"/><path d="M20 200 H380"/><path d="M65 95 C 90 150 110 150 125 120" stroke-dasharray="4 6"/>',
-      txt: t(65,110,'计数器',null,'middle')+t(165,115,'轮号屏',null,'middle')+t(265,150,'打卡机',null,'middle')+t(345,130,'手机',null,'middle')+t(200,228,'采集 → 整理 → AI 分析','hl','middle')}; },
+      txt: t(65,110,'计数器',null,'middle')+t(165,115,'管理终端',null,'middle')+t(265,150,'打卡机',null,'middle')+t(345,130,'手机',null,'middle')+t(200,228,'采集 → 整理 → AI 分析','hl','middle')}; },
     store: function(){ return {g:
       '<path d="M0 225 H400"/><rect x="60" y="130" width="280" height="95" rx="4"/><path d="M60 150 H340"/>'+
       '<path d="M110 140 l8 -8 l8 8 l-8 8 z M190 140 l8 -8 l8 8 l-8 8 z M270 140 l8 -8 l8 8 l-8 8 z"/><path d="M120 20 V40 M200 20 V40 M280 20 V40"/>'+
@@ -1052,7 +1056,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     // tablet
     s+='<path d="M246 176 V188" stroke="'+C.ink+'" stroke-width="4"/><rect x="212" y="116" width="70" height="60" rx="8" fill="#fff" stroke="'+C.ink+'" stroke-width="2.5"/>'+
       T(247,140,'A12',{s:17,w:800,n:1,a:'middle',c:P.ind})+'<rect x="220" y="150" width="54" height="18" rx="9" fill="'+C.ok+'"/>'+T(247,163,'开始接待',{s:10,w:700,a:'middle',c:'#fff'})+
-      pill(180,86,100,'智能轮号屏','#fff',P.ind);
+      pill(180,86,100,'管理终端','#fff',P.ind);
     // customers (one batch)
     [[318,'#8e8ea0'],[346,'#5c5c66'],[372,'#b0b0ba']].forEach(function(p){ var x=p[0];
       s+='<path d="M'+(x-6)+' 204 V250 M'+(x+6)+' 204 V250" stroke="'+C.ink+'" stroke-width="5" stroke-linecap="round"/>'+
@@ -1182,7 +1186,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     s+='<image href="img/p_counter.png" x="24" y="'+(rows[0]-12)+'" width="64" height="26" preserveAspectRatio="xMidYMid meet"/>'+
       '<image href="img/p_screen.png" x="34" y="'+(rows[1]-30)+'" width="44" height="60" preserveAspectRatio="xMidYMid meet"/>'+
       '<image href="img/p_badge.png" x="26" y="'+(rows[2]-20)+'" width="60" height="40" preserveAspectRatio="xMidYMid meet"/>';
-    ['客流计数器','轮号屏 · 人脸打卡','智能工牌'].forEach(function(t,j){ var y=rows[j];
+    ['客流计数器','智能门店管理终端','智能工牌'].forEach(function(t,j){ var y=rows[j];
       s+=T(98,y+5,t,{s:12.5,w:600})+'<path d="M206 '+y+' C 222 '+y+' 222 128 236 128" fill="none" stroke="'+C.grey+'" stroke-width="1.5" stroke-dasharray="4 4"/>'; });
     s+='<circle cx="260" cy="128" r="24" fill="'+C.ink+'"/>'+T(260,134,'AI',{s:15,w:800,n:1,a:'middle',c:'#fff'})+'<path d="M284 128 H306" stroke="'+C.ink+'" stroke-width="2"/>'+
       '<rect x="308" y="58" width="74" height="140" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
@@ -1220,7 +1224,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         s+='<image href="img/p_counter.png" x="'+(cx-74)+'" y="'+(iy-12)+'" width="44" height="18" preserveAspectRatio="xMidYMid meet"/>'+
           '<image href="img/p_screen.png" x="'+(cx-20)+'" y="'+(iy-34)+'" width="40" height="42" preserveAspectRatio="xMidYMid meet"/>'+
           '<image href="img/p_badge.png" x="'+(cx+30)+'" y="'+(iy-14)+'" width="44" height="22" preserveAspectRatio="xMidYMid meet"/>';
-        ['计数器','轮号屏','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
+        ['计数器','管理终端','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
       if(i===1){ s+='<ellipse cx="'+cx+'" cy="'+(iy-24)+'" rx="34" ry="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-24)+' V'+(iy+20)+' a34 10 0 0 0 68 0 V'+(iy-24)+'" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-2)+' a34 10 0 0 0 68 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'; }
@@ -1396,7 +1400,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     c.addEventListener('touchend', function(){ setTimeout(function(){ paused = false; }, 4000); });
     mark();
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-      setInterval(function(){ if (!paused && c.offsetParent) go(cur + 1); }, 4000);
+      setInterval(function(){ if (!paused && c.offsetParent) go(cur + 1); }, 8000);
   });
 
   // router
