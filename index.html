@@ -184,6 +184,11 @@ section.band.fblk{padding-block:12px}
 .f-left,.f-right{display:flex;flex-direction:column;gap:14px;min-width:0}
 .f-left h2{font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.25;margin:0}
 .f-lead{font-size:16px;line-height:1.65;color:var(--grey);margin:0}
+.f-pain{font-size:20px;font-weight:700;line-height:1.5;margin:10px 0 0;color:var(--ink)}
+.fblk .f-left{justify-content:center}
+.fblk .f-left h2{font-size:clamp(26px,2.6vw,34px)}
+.fblk .f-pain{font-size:clamp(19px,1.7vw,22px)}
+.fblk .f-lead{font-size:16px}
 .f-rows{margin:4px 0 0;border-top:1px solid var(--line)}
 .f-rows div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.65}
 .f-rows dt{font-weight:700;font-size:13.5px}
@@ -618,29 +623,29 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="grid2">
         <article class="card">
           <p class="tag">客流与进店</p>
-          <h3 class="h3 split"><b>看清客流量</b><span>与进店率</span></h3>
-          <p class="muted">把门口的流量变成可衡量的指标，帮您判断引流是否有效，找到提升进店的方向。</p>
+          <h3 class="h3 split"><b>读懂门店客流，</b><span>找到进店增长点</span></h3>
+          <p class="muted">门口人不少，进店却不多？帮您找到提升进店的方向。</p>
           <div class="carousel" data-set="traffic"></div>
           <a class="more" href="#traffic">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">排班考勤</p>
-          <h3 class="h3 split"><b>按客流排班，</b><span>考勤一目了然</span></h3>
-          <p class="muted">让人手配置跟着客流走，减少忙闲不均，考勤管理更省心。</p>
+          <h3 class="h3 split"><b>让人力，</b><span>用在刀刃上</span></h3>
+          <p class="muted">高峰缺人、平峰闲着？让人手跟着客流走。</p>
           <div class="carousel" data-set="schedule"></div>
           <a class="more" href="#schedule">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">经营分析</p>
-          <h3 class="h3 split"><b>一眼看懂，</b><span>门店正在发生什么</span></h3>
-          <p class="muted">AI 定期为门店做经营体检，帮您及时发现问题，聚焦最该改进的地方。</p>
+          <h3 class="h3 split"><b>经营状况，</b><span>一目了然</span></h3>
+          <p class="muted">生意变了却说不清原因？AI 帮您找到关键问题。</p>
           <div class="carousel" data-set="analysis"></div>
           <a class="more" href="#analysis">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">导购分析</p>
-          <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
-          <p class="muted">用数据看见每位导购的长处与短板，让培训和激励更有依据。</p>
+          <h3 class="h3 split"><b>让每位导购，</b><span>都更会卖</span></h3>
+          <p class="muted">不知道该重点培养谁？让培训更有针对性。</p>
           <div class="carousel" data-set="staff"></div>
           <a class="more" href="#staff">了解详情</a>
         </article>
@@ -657,7 +662,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         </div>
         <a class="more" href="#product">了解软硬件如何协同</a>
       </div>
-      <div class="hw-grid"><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div><h3>客流计数器</h3><p>自研模型识别门店客流，帮助门店了解客流规模与结构。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>智能门店管理终端</h3><p>一体化的门店管理入口，打通考勤、排班与接待，让门店数据自动沉淀。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw hw-abs" href="#staff"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>智能工牌</h3><p>轻便佩戴，借助 AI 理解接待过程，帮助导购提升服务与销售能力。</p><span class="hw-for">用于：导购分析</span></a></div>
+      <div class="hw-grid"><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div><h3>客流计数器</h3><p>自动感知门店客流。</p></a><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>智能门店管理终端</h3><p>一体化的门店管理入口。</p></a><a class="hw hw-abs" href="#staff"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>智能工牌</h3><p>AI 助力导购成长。</p></a></div>
     </div>
   </section>
 
@@ -685,8 +690,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         </article>
         <article class="card">
           <p class="tag">有产品</p>
-          <h3 class="h4">软硬件结合，全链路打通。</h3>
-          <p class="muted">真正做到数据采集、数据整理、智能分析，一条线连起来。</p>
+          <h3 class="h4">软硬件一体，数据自动流转。</h3>
+          <p class="muted">从门店到决策，一站式完成。</p>
           <div class="vis" data-vis="product"></div>
         </article>
         <article class="card">
@@ -708,7 +713,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     <div class="wrap" style="text-align:center">
       <p class="eyebrow">产品介绍</p>
       <h1 class="display" style="margin-top:12px">AI怎样帮您<br>管好珠宝店</h1>
-      <p class="lead muted" style="max-width:36em;margin:24px auto 0">从经营分析、客流进店，到导购提升与排班考勤，把门店数据转化为清晰的管理判断。帮助您把珠宝门店的日常管控做得更清楚，真正实现降本增效。</p>
+      <p class="lead muted" style="max-width:36em;margin:24px auto 0">把门店数据变成清晰的管理判断，帮您降本增效。</p>
       <div class="vis wide" data-vis="chain" style="margin-top:48px;background:var(--mist)"></div>
     </div>
   </section>
@@ -726,10 +731,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="f-panel">
         <div class="f-left">
           <p class="eyebrow">经营分析</p>
-          <h2 class="split"><b>一眼看懂，</b><span>门店正在发生什么</span></h2>
-          <p class="f-lead">AI 定期为门店做经营体检，把分散的数据变成清晰的经营判断。</p>
-          <dl class="f-rows"><div><dt>挑战</dt><dd>经营状况不透明，数据分散，问题往往发现得太晚。</dd></div><div><dt>解决方案</dt><dd>AI 自动汇总门店数据，评估经营健康度，找出关键问题，并给出改进方向。</dd></div></dl>
-          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>及时发现经营风险。</li><li>聚焦最该改进的环节。</li><li>让经营决策更有依据。</li></ol></div>
+          <h2 class="split"><b>经营状况，</b><span>一目了然</span></h2>
+          <p class="f-pain">生意变了，却说不清原因？</p>
+          <p class="f-lead">AI 定期为门店做经营体检，告诉您问题出在哪、先改什么。</p>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="analysis"></div>
@@ -743,10 +747,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="f-panel">
         <div class="f-left">
           <p class="eyebrow">客流与进店</p>
-          <h2 class="split"><b>看清客流量</b><span>与进店率</span></h2>
-          <p class="f-lead">把门口的流量变成可衡量的指标，帮您找到提升进店的方向。</p>
-          <dl class="f-rows"><div><dt>挑战</dt><dd>不清楚门口有多少潜在顾客、有多少真正进店，引流效果难以评估。</dd></div><div><dt>解决方案</dt><dd>智能硬件自动采集客流与进店数据，系统分析转化情况，并给出引流建议。</dd></div></dl>
-          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>量化门头、橱窗与活动的引流效果。</li><li>发现进店转化的提升空间。</li><li>数据自动采集，无需额外人工。</li></ol></div>
+          <h2 class="split"><b>读懂门店客流，</b><span>找到进店增长点</span></h2>
+          <p class="f-pain">门口人不少，进店的却不多？</p>
+          <p class="f-lead">自动感知门店客流，帮您找到提升进店的方向。</p>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="traffic"></div>
@@ -760,10 +763,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="f-panel">
         <div class="f-left">
           <p class="eyebrow">导购分析</p>
-          <h2 class="split"><b>看清每位导购，</b><span>针对性提升能力</span></h2>
-          <p class="f-lead">用数据看见每位导购的长处与短板，让培训更有针对性。</p>
-          <dl class="f-rows"><div><dt>挑战</dt><dd>导购能力难以客观衡量，培养谁、怎么培养，缺少依据。</dd></div><div><dt>解决方案</dt><dd>系统多维度评估导购表现，结合智能工牌理解接待过程，找出每个人的提升方向。</dd></div></dl>
-          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>识别标杆，复制成功经验。</li><li>精准定位需要辅导的导购。</li><li>培训与激励更有依据。</li></ol></div>
+          <h2 class="split"><b>让每位导购，</b><span>都更会卖</span></h2>
+          <p class="f-pain">不知道该重点培养谁？</p>
+          <p class="f-lead">看清每位导购的长处与短板，培训更有针对性。</p>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="staff"></div>
@@ -773,12 +775,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="bs-text">
           <span class="bs-tag">智能硬件 · 智能工牌</span>
           <h3>一张工牌，听懂每一次接待。</h3>
-          <p class="bs-lead">借助 AI 理解接待过程，帮助导购把握顾客需求，持续提升服务与销售能力。</p>
-          <ul class="bs-list">
-            <li><b>无感佩戴</b>不打扰日常接待。</li>
-            <li><b>AI 理解</b>读懂顾客的关注点。</li>
-            <li><b>持续提升</b>沉淀有效经验，用于培训。</li>
-          </ul>
+          <p class="bs-lead">借助 AI 理解接待过程，帮助导购持续提升。</p>
         </div>
       </div>
     </div>
@@ -789,10 +786,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       <div class="f-panel">
         <div class="f-left">
           <p class="eyebrow">排班考勤</p>
-          <h2 class="split"><b>按客流排班，</b><span>考勤一目了然</span></h2>
-          <p class="f-lead">让人手配置跟着客流走，考勤管理更省心。</p>
-          <dl class="f-rows"><div><dt>挑战</dt><dd>排班依赖经验，忙闲不均；考勤记录分散，核对耗时。</dd></div><div><dt>解决方案</dt><dd>系统结合客流规律给出排班建议，考勤自动记录，管理数据自动汇总。</dd></div></dl>
-          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>减少高峰缺人、平峰闲置。</li><li>考勤准确，省去人工核对。</li><li>人力成本更可控。</li></ol></div>
+          <h2 class="split"><b>让人力，</b><span>用在刀刃上</span></h2>
+          <p class="f-pain">高峰缺人，平峰闲着？</p>
+          <p class="f-lead">让人手跟着客流走，考勤省心省力。</p>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="schedule"></div>
@@ -1224,19 +1220,14 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     ['高学历','海外背景','年轻化'].forEach(function(t,i){ var x=74+i*88; s+='<rect x="'+x+'" y="246" width="80" height="28" rx="14" fill="'+C.ink+'"/>'+T(x+40,265,t,{s:12,w:700,a:'middle',c:'#fff'}); });
     return s+'</svg>'; };
   VIS.product = function(){
-    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件产品：计数器、轮号屏、打卡机、工牌连到 AI，再到手机周报">';
-    var rows=[52,128,204];
-    s+='<image href="img/p_counter.png" x="24" y="'+(rows[0]-12)+'" width="64" height="26" preserveAspectRatio="xMidYMid meet"/>'+
-      '<image href="img/p_screen.png" x="34" y="'+(rows[1]-30)+'" width="44" height="60" preserveAspectRatio="xMidYMid meet"/>'+
-      '<image href="img/p_badge.png" x="26" y="'+(rows[2]-20)+'" width="60" height="40" preserveAspectRatio="xMidYMid meet"/>';
-    ['客流计数器','智能门店管理终端','智能工牌'].forEach(function(t,j){ var y=rows[j];
-      s+=T(98,y+5,t,{s:12.5,w:600})+'<path d="M206 '+y+' C 222 '+y+' 222 128 236 128" fill="none" stroke="'+C.grey+'" stroke-width="1.5" stroke-dasharray="4 4"/>'; });
-    s+='<circle cx="260" cy="128" r="24" fill="'+C.ink+'"/>'+T(260,134,'AI',{s:15,w:800,n:1,a:'middle',c:'#fff'})+'<path d="M284 128 H306" stroke="'+C.ink+'" stroke-width="2"/>'+
-      '<rect x="308" y="58" width="74" height="140" rx="14" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
-      '<circle cx="345" cy="104" r="20" fill="none" stroke="'+C.track+'" stroke-width="6"/>'+
-      '<circle cx="345" cy="104" r="20" fill="none" stroke="'+C.mid+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+(2*Math.PI*20*.74)+' 200" transform="rotate(-90 345 104)"/>'+
-      T(345,110,'74',{s:13,w:800,n:1,a:'middle'})+'<rect x="322" y="140" width="46" height="6" rx="3" fill="'+C.track+'"/><rect x="322" y="154" width="32" height="6" rx="3" fill="'+C.track+'"/>'+
-      T(345,218,'经营周报',{s:12,a:'middle'})+T(20,276,'采集 → 整理 → 智能分析 → 周报到手机',{s:12,w:700,c:C.grey});
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件一体：门店数据汇入 AI，再变成经营决策">';
+    [70,145,220].forEach(function(y,j){
+      s+='<rect x="40" y="'+(y-22)+'" width="44" height="44" rx="12" fill="'+(j===1?C.ink:'#fff')+'" stroke="'+C.ink+'" stroke-width="2"/>'+
+         '<path d="M84 '+y+' C 140 '+y+' 140 145 176 145" fill="none" stroke="'+C.grey+'" stroke-width="1.6" stroke-dasharray="4 5"/>'; });
+    s+='<circle cx="206" cy="145" r="34" fill="'+C.ink+'"/>'+T(206,152,'AI',{s:18,w:800,n:1,a:'middle',c:'#fff'})+
+      '<path d="M240 145 H300" stroke="'+C.ink+'" stroke-width="2"/><path d="M294 139 L302 145 L294 151" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
+      '<circle cx="336" cy="145" r="30" fill="none" stroke="'+C.ink+'" stroke-width="2"/><path d="M322 150 L332 140 L340 147 L352 134" fill="none" stroke="'+C.ok+'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'+
+      T(62,262,'门店',{s:13,w:700,a:'middle'})+T(206,262,'AI',{s:13,w:700,a:'middle'})+T(336,262,'决策',{s:13,w:700,a:'middle'});
     return s+'</svg>'; };
   VIS.service = function(){
     var steps=[['安装调试','技术人员上门安装'],['培训上手','导购与店长培训'],['定期回访','跟进使用，持续优化']];
@@ -1404,18 +1395,18 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
 
   var SETS = {
     schedule: [
-      {img:'智能排班建议', vis:'usage', t:'智能排班建议', d:'结合客流规律，给出更合理的排班参考。'},
-      {img:'自动考勤', vis:'clock', t:'自动考勤', d:'到店打卡自动记录，考勤状态随时可查。'}
+      {img:'智能排班建议', vis:'usage', t:'智能排班', d:'人手安排，有据可依。'},
+      {img:'自动考勤', vis:'clock', t:'自动考勤', d:'考勤记录，省心省力。'}
     ],
     staff: [
-      {img:'导购表现概览', vis:'rank', t:'导购表现概览', d:'目标达成情况清晰可见，培养重点一目了然。'}
+      {img:'导购表现概览', vis:'rank', t:'目标达成', d:'谁需要帮助，一目了然。'}
     ],
     analysis: [
-      {img:'门店健康评分', vis:'rings', t:'门店健康评分', d:'多维度评估门店状况，优势与风险一目了然。'},
-      {img:'AI 经营解读', vis:'funnel', t:'AI 经营解读', d:'AI 找出关键问题，并给出改进优先级。'}
+      {img:'门店健康评分', vis:'rings', t:'门店健康分', d:'经营好坏，一眼可见。'},
+      {img:'AI 经营解读', vis:'funnel', t:'AI 解读', d:'问题在哪，AI 告诉您。'}
     ],
     traffic: [
-      {img:'客流数据看板', vis:'dashColor', t:'客流数据看板', d:'客流与进店情况集中呈现，随时可查。'}
+      {img:'客流数据看板', vis:'dashColor', t:'客流看板', d:'门店客流，随时掌握。'}
     ]
   };
 
