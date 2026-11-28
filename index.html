@@ -653,19 +653,6 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     </div>
   </section>
 
-  <section class="band" style="padding-bottom:32px">
-    <div class="wrap">
-      <div class="sec-head" style="margin-bottom:32px">
-        <div>
-          <p class="eyebrow">智能硬件</p>
-          <h2 class="h2 split" style="margin-top:10px"><b>三款门店硬件，</b><span>数据自动采集。</span></h2>
-        </div>
-        <a class="more" href="#product">了解软硬件如何协同</a>
-      </div>
-      <div class="hw-grid"><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div><h3>客流计数器</h3><p>自动感知门店客流。</p></a><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>智能门店管理终端</h3><p>一体化的门店管理入口。</p></a><a class="hw hw-abs" href="#staff"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>智能工牌</h3><p>AI 助力导购成长。</p></a></div>
-    </div>
-  </section>
-
   <section class="band">
     <div class="wrap">
       <div class="sec-head">
@@ -769,13 +756,6 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         </div>
         <div class="f-right">
           <div class="carousel" data-set="staff"></div>
-        </div>
-      </div>
-      <div class="badge-strip solo">
-        <div class="bs-text">
-          <span class="bs-tag">智能硬件 · 智能工牌</span>
-          <h3>一张工牌，听懂每一次接待。</h3>
-          <p class="bs-lead">借助 AI 理解接待过程，帮助导购持续提升。</p>
         </div>
       </div>
     </div>
@@ -1220,14 +1200,15 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     ['高学历','海外背景','年轻化'].forEach(function(t,i){ var x=74+i*88; s+='<rect x="'+x+'" y="246" width="80" height="28" rx="14" fill="'+C.ink+'"/>'+T(x+40,265,t,{s:12,w:700,a:'middle',c:'#fff'}); });
     return s+'</svg>'; };
   VIS.product = function(){
-    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件一体：门店数据汇入 AI，再变成经营决策">';
-    [70,145,220].forEach(function(y,j){
-      s+='<rect x="40" y="'+(y-22)+'" width="44" height="44" rx="12" fill="'+(j===1?C.ink:'#fff')+'" stroke="'+C.ink+'" stroke-width="2"/>'+
-         '<path d="M84 '+y+' C 140 '+y+' 140 145 176 145" fill="none" stroke="'+C.grey+'" stroke-width="1.6" stroke-dasharray="4 5"/>'; });
-    s+='<circle cx="206" cy="145" r="34" fill="'+C.ink+'"/>'+T(206,152,'AI',{s:18,w:800,n:1,a:'middle',c:'#fff'})+
-      '<path d="M240 145 H300" stroke="'+C.ink+'" stroke-width="2"/><path d="M294 139 L302 145 L294 151" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
-      '<circle cx="336" cy="145" r="30" fill="none" stroke="'+C.ink+'" stroke-width="2"/><path d="M322 150 L332 140 L340 147 L352 134" fill="none" stroke="'+C.ok+'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>'+
-      T(62,262,'门店',{s:13,w:700,a:'middle'})+T(206,262,'AI',{s:13,w:700,a:'middle'})+T(336,262,'决策',{s:13,w:700,a:'middle'});
+    var s='<svg viewBox="0 0 400 290" role="img" aria-label="软硬件一体：门店硬件、数据平台、AI 决策三层叠加">';
+    function slab(cy,top,l,r){ return '<path d="M200 '+(cy-36)+' L320 '+cy+' L200 '+(cy+36)+' L80 '+cy+' Z" fill="'+top+'"/>'+
+      '<path d="M80 '+cy+' V'+(cy+10)+' L200 '+(cy+46)+' V'+(cy+36)+' Z" fill="'+l+'"/><path d="M320 '+cy+' V'+(cy+10)+' L200 '+(cy+46)+' V'+(cy+36)+' Z" fill="'+r+'"/>'; }
+    s+=slab(236,'#E9E9ED','#D6D6DC','#C9C9CF')+T(200,241,'门店硬件',{s:14,w:700,a:'middle',c:'#3A3A3C'})+
+      '<line x1="200" y1="190" x2="200" y2="206" stroke="#B4B4BA" stroke-width="1.5" stroke-dasharray="3 3"/>'+
+      slab(162,'#C7C7CC','#AEAEB4','#9E9EA4')+T(200,167,'数据平台',{s:14,w:700,a:'middle',c:C.ink})+
+      '<line x1="200" y1="116" x2="200" y2="132" stroke="#8E8E93" stroke-width="1.5" stroke-dasharray="3 3"/>'+
+      slab(88,C.ink,'#0F0F10','#2C2C2E')+T(200,93,'AI 决策',{s:14,w:700,a:'middle',c:'#fff'})+
+      '<path d="M200 46 V18" stroke="'+C.ok+'" stroke-width="3" stroke-linecap="round"/><path d="M190 28 L200 16 L210 28" fill="none" stroke="'+C.ok+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>';
     return s+'</svg>'; };
   VIS.service = function(){
     var steps=[['安装调试','技术人员上门安装'],['培训上手','导购与店长培训'],['定期回访','跟进使用，持续优化']];
@@ -1253,12 +1234,10 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       s+=T(cx,Y+150,c[0],{s:20,w:800,a:'middle',c:tc})+T(cx,Y+176,c[1],{s:13,w:600,a:'middle',c:sc});
       if(i<4) s+='<path d="M'+(x+W+6)+' '+(Y+H/2)+' H'+(x+W+G-8)+'" stroke="'+C.ink+'" stroke-width="2.5"/><path d="M'+(x+W+G-14)+' '+(Y+H/2-6)+' L'+(x+W+G-6)+' '+(Y+H/2)+' L'+(x+W+G-14)+' '+(Y+H/2+6)+'" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linejoin="round"/>';
       var iy=Y+70;
-      if(i===0){ var dx=[-52,0,52];
-        // real device images, same as the home-page hardware cards
-        s+='<image href="img/p_counter.png" x="'+(cx-74)+'" y="'+(iy-12)+'" width="44" height="18" preserveAspectRatio="xMidYMid meet"/>'+
-          '<image href="img/p_screen.png" x="'+(cx-20)+'" y="'+(iy-34)+'" width="40" height="42" preserveAspectRatio="xMidYMid meet"/>'+
-          '<image href="img/p_badge.png" x="'+(cx+30)+'" y="'+(iy-14)+'" width="44" height="22" preserveAspectRatio="xMidYMid meet"/>';
-        ['计数器','管理终端','工牌'].forEach(function(t,j){ s+=T(cx+dx[j],iy+30,t,{s:10.5,a:'middle',c:C.grey}); }); }
+      if(i===0){ s+='<rect x="'+(cx-30)+'" y="'+(iy-30)+'" width="56" height="56" rx="12" fill="#fff" stroke="'+C.ink+'" stroke-width="2.5"/>'+
+        '<circle cx="'+(cx-2)+'" cy="'+(iy-2)+'" r="7" fill="'+C.ink+'"/>'+
+        '<path d="M'+(cx+34)+' '+(iy-26)+' a24 24 0 0 1 0 48" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linecap="round"/>'+
+        '<path d="M'+(cx+44)+' '+(iy-36)+' a36 36 0 0 1 0 68" fill="none" stroke="'+C.ink+'" stroke-width="2.5" stroke-linecap="round" opacity=".45"/>'; }
       if(i===1){ s+='<ellipse cx="'+cx+'" cy="'+(iy-24)+'" rx="34" ry="10" fill="#fff" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-24)+' V'+(iy+20)+' a34 10 0 0 0 68 0 V'+(iy-24)+'" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'+
         '<path d="M'+(cx-34)+' '+(iy-2)+' a34 10 0 0 0 68 0" fill="none" stroke="'+C.ink+'" stroke-width="2"/>'; }
@@ -1402,8 +1381,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
       {img:'导购表现概览', vis:'rank', t:'目标达成', d:'谁需要帮助，一目了然。'}
     ],
     analysis: [
-      {img:'门店健康评分', vis:'rings', t:'门店健康分', d:'经营好坏，一眼可见。'},
-      {img:'AI 经营解读', vis:'funnel', t:'AI 解读', d:'问题在哪，AI 告诉您。'}
+      {img:'门店健康评分', vis:'rings', t:'门店健康分', d:'经营好坏，一眼可见。'}
     ],
     traffic: [
       {img:'客流数据看板', vis:'dashColor', t:'客流看板', d:'门店客流，随时掌握。'}
