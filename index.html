@@ -523,6 +523,29 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
 
 .page{display:none}
 .page.show{display:block}
+/* desktop: tighter type scale so more fits on screen (2026-11-28) */
+@media (min-width:861px){
+  body{font-size:15px}
+  .display{font-size:clamp(40px,4.6vw,58px)}
+  .h2{font-size:clamp(28px,3vw,38px)}
+  .h3{font-size:clamp(20px,2vw,26px)}
+  .h4{font-size:clamp(17px,1.6vw,20px)}
+  .lead{font-size:clamp(16px,1.4vw,18px)}
+  .more{font-size:15px}
+  section.band{padding-block:clamp(56px,6vw,84px)}
+  section.band.fblk{padding-block:10px}
+  .hero{padding-block:clamp(72px,8vw,104px) clamp(44px,5vw,64px)}
+  .flow{margin-top:48px}
+  .card{padding:28px 26px 26px;gap:12px}
+  .f-panel{padding:28px;gap:32px}
+  .f-left h2{font-size:clamp(21px,2vw,26px)}
+  .ab-h{font-size:clamp(28px,3vw,38px)}
+  .timeline h3{font-size:clamp(18px,1.7vw,22px)}
+  .triad b{font-size:clamp(32px,3.6vw,44px)}
+  .lead-card h3{font-size:28px}
+  .bs-text h3{font-size:clamp(19px,1.8vw,22px)}
+  .hw h3{font-size:16px}
+}
 </style>
 
 </head>
