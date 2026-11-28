@@ -523,28 +523,41 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
 
 .page{display:none}
 .page.show{display:block}
-/* desktop: tighter type scale so more fits on screen (2026-11-28) */
+/* desktop: tighter type scale so more fits on screen (2026-11-28, v2 stronger) */
 @media (min-width:861px){
-  body{font-size:15px}
-  .display{font-size:clamp(40px,4.6vw,58px)}
-  .h2{font-size:clamp(28px,3vw,38px)}
-  .h3{font-size:clamp(20px,2vw,26px)}
-  .h4{font-size:clamp(17px,1.6vw,20px)}
-  .lead{font-size:clamp(16px,1.4vw,18px)}
-  .more{font-size:15px}
-  section.band{padding-block:clamp(56px,6vw,84px)}
-  section.band.fblk{padding-block:10px}
-  .hero{padding-block:clamp(72px,8vw,104px) clamp(44px,5vw,64px)}
-  .flow{margin-top:48px}
-  .card{padding:28px 26px 26px;gap:12px}
-  .f-panel{padding:28px;gap:32px}
-  .f-left h2{font-size:clamp(21px,2vw,26px)}
-  .ab-h{font-size:clamp(28px,3vw,38px)}
-  .timeline h3{font-size:clamp(18px,1.7vw,22px)}
-  .triad b{font-size:clamp(32px,3.6vw,44px)}
-  .lead-card h3{font-size:28px}
-  .bs-text h3{font-size:clamp(19px,1.8vw,22px)}
-  .hw h3{font-size:16px}
+  body{font-size:14.5px;line-height:1.6}
+  .nav .wrap{height:52px}
+  .display{font-size:clamp(34px,3.4vw,46px);line-height:1.12}
+  .h2{font-size:clamp(24px,2.3vw,30px)}
+  .h3{font-size:clamp(18px,1.5vw,21px)}
+  .h4{font-size:16.5px}
+  .lead{font-size:15.5px}
+  .eyebrow{font-size:12px}
+  .more{font-size:14px}
+  section.band{padding-block:clamp(40px,4.4vw,60px)}
+  section.band.fblk{padding-block:8px}
+  .hero{padding-block:clamp(56px,6vw,80px) clamp(32px,3.6vw,48px);margin-block:14px}
+  .hero .lead{margin-top:18px}
+  .hero .ctas{margin-top:26px}
+  .flow{margin-top:36px}
+  .flow div{font-size:13.5px;padding-top:14px}
+  .grid2{gap:16px}
+  .card{padding:22px 22px 20px;gap:10px;border-radius:22px}
+  .hw-photo{aspect-ratio:16/10}
+  .pc-photo{aspect-ratio:1/1}
+  .f-panel{padding:24px;gap:28px;border-radius:22px}
+  .f-left h2{font-size:clamp(19px,1.7vw,22px)}
+  .feature{gap:40px}
+  .feature .ph{min-height:320px}
+  .ab-h{font-size:clamp(24px,2.5vw,32px)}
+  .ab-hero{padding-block:32px 4px}
+  .timeline h3{font-size:18px}
+  .triad b{font-size:clamp(28px,2.8vw,36px)}
+  .lead-card{padding:26px}
+  .lead-card h3{font-size:24px}
+  .bs-text h3{font-size:19px}
+  .hw h3{font-size:15.5px}
+  .hw p{font-size:13.5px}
 }
 </style>
 
