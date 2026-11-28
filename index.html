@@ -415,6 +415,12 @@ body.clean .todo{display:none!important}
 .hw h3{font-size:18px;font-weight:800;margin:10px 4px 0}
 .hw p{margin:0 4px;font-size:14px;line-height:1.6;color:var(--grey)}
 .hw-for{margin:6px 4px 0;font-size:12.5px;font-weight:700;color:#157a4a}
+.hw-abs{padding:24px 22px 22px;gap:8px}
+.hw-ic{width:48px;height:48px;border-radius:14px;background:var(--ink);color:var(--paper);display:grid;place-items:center;margin:0 4px 6px}
+.hw-ic svg{width:24px;height:24px}
+.badge-strip.solo{grid-template-columns:1fr}
+.badge-strip.solo .bs-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.badge-strip.solo .bs-list{grid-template-columns:1fr}}
 @media (max-width:760px){.hw-grid{grid-template-columns:1fr}}
 @media (max-width:480px){.hw-grid{gap:10px}.hw{padding:10px 10px 14px}.hw h3{font-size:16px}.hw p{font-size:13px}}
 @media (max-width:420px){.logo small{display:none}}
@@ -613,28 +619,28 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <article class="card">
           <p class="tag">客流与进店</p>
           <h3 class="h3 split"><b>看清客流量</b><span>与进店率</span></h3>
-          <p class="muted">全面掌握门口客流与进店情况，门店动态一目了然，并给出针对性的引流建议。</p>
+          <p class="muted">把门口的流量变成可衡量的指标，帮您判断引流是否有效，找到提升进店的方向。</p>
           <div class="carousel" data-set="traffic"></div>
           <a class="more" href="#traffic">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">排班考勤</p>
           <h3 class="h3 split"><b>按客流排班，</b><span>考勤一目了然</span></h3>
-          <p class="muted">看清导购每天的忙闲，把人排在最需要的时段；人脸识别打卡，考勤自动记录。</p>
+          <p class="muted">让人手配置跟着客流走，减少忙闲不均，考勤管理更省心。</p>
           <div class="carousel" data-set="schedule"></div>
           <a class="more" href="#schedule">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">经营分析</p>
           <h3 class="h3 split"><b>一眼看懂，</b><span>门店正在发生什么</span></h3>
-          <p class="muted">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
+          <p class="muted">AI 定期为门店做经营体检，帮您及时发现问题，聚焦最该改进的地方。</p>
           <div class="carousel" data-set="analysis"></div>
           <a class="more" href="#analysis">了解详情</a>
         </article>
         <article class="card">
           <p class="tag">导购分析</p>
           <h3 class="h3 split"><b>看清每位导购，</b><span>针对性提升能力</span></h3>
-          <p class="muted">精准定位每位导购的薄弱环节，搭配智能工牌分析接待对话，据此开展针对性培训，切实提升接待与成交能力。</p>
+          <p class="muted">用数据看见每位导购的长处与短板，让培训和激励更有依据。</p>
           <div class="carousel" data-set="staff"></div>
           <a class="more" href="#staff">了解详情</a>
         </article>
@@ -651,7 +657,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         </div>
         <a class="more" href="#product">了解软硬件如何协同</a>
       </div>
-      <div class="hw-grid"><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_counter.png" alt="客流计数器" loading="lazy"></div><h3>客流计数器</h3><p>自研模型自动统计门店经过客流、进入客流和离开客流，并可按性别和年龄组聚类，帮助门店了解客流情况。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw" href="#traffic"><div class="hw-photo"><img src="img/p_screen.png" alt="智能门店管理终端" loading="lazy"></div><h3>智能门店管理终端</h3><p>一体式门店管理工具，兼备人脸打卡、门店排班和轮号装置，无感统计门店管理数据。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw" href="#staff"><div class="hw-photo"><img src="img/p_badge.png" alt="智能工牌" loading="lazy"></div><h3>智能工牌</h3><p>小巧精致，胸卡式佩戴，无感记录员工与顾客的沟通录音，通过 AI 分析帮助导购提升销售能力。</p><span class="hw-for">用于：导购分析</span></a></div>
+      <div class="hw-grid"><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></div><h3>客流计数器</h3><p>自研模型识别门店客流，帮助门店了解客流规模与结构。</p><span class="hw-for">用于：客流与进店</span></a><a class="hw hw-abs" href="#traffic"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>智能门店管理终端</h3><p>一体化的门店管理入口，打通考勤、排班与接待，让门店数据自动沉淀。</p><span class="hw-for">用于：客流与进店 · 导购分析 · 排班考勤</span></a><a class="hw hw-abs" href="#staff"><div class="hw-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg></div><h3>智能工牌</h3><p>轻便佩戴，借助 AI 理解接待过程，帮助导购提升服务与销售能力。</p><span class="hw-for">用于：导购分析</span></a></div>
     </div>
   </section>
 
@@ -721,9 +727,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="f-left">
           <p class="eyebrow">经营分析</p>
           <h2 class="split"><b>一眼看懂，</b><span>门店正在发生什么</span></h2>
-          <p class="f-lead">AI 每周为门店做一次经营体检，清晰呈现经营状况，深入分析背后原因，并给出可执行的改进建议。</p>
-          <dl class="f-rows"><div><dt>痛点</dt><dd>门店经营状况模糊，数据分散，不知从何分析，问题往往发现得太晚。</dd></div><div><dt>我们做什么</dt><dd>AI 每周为门店做一次经营体检，自动生成经营周报：三项健康评分、一句话经营概况、销售漏斗，以及本周重点与改进建议。</dd></div></dl>
-          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>每周通过企业微信或 App 接收经营周报。</li><li>先看三项健康评分：绿色健康，黄色普通，红色危险。</li><li>再看经营概况与销售漏斗，找到问题出在哪个环节。</li><li>按 AI 给出的重点与建议，安排本周工作。</li></ol></div>
+          <p class="f-lead">AI 定期为门店做经营体检，把分散的数据变成清晰的经营判断。</p>
+          <dl class="f-rows"><div><dt>挑战</dt><dd>经营状况不透明，数据分散，问题往往发现得太晚。</dd></div><div><dt>解决方案</dt><dd>AI 自动汇总门店数据，评估经营健康度，找出关键问题，并给出改进方向。</dd></div></dl>
+          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>及时发现经营风险。</li><li>聚焦最该改进的环节。</li><li>让经营决策更有依据。</li></ol></div>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="analysis"></div>
@@ -738,9 +744,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="f-left">
           <p class="eyebrow">客流与进店</p>
           <h2 class="split"><b>看清客流量</b><span>与进店率</span></h2>
-          <p class="f-lead">全面掌握门口客流与进店情况，门店动态一目了然，并给出针对性的引流建议。</p>
-          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚门口每天有多少人经过、多少人进店，难以评估门头、橱窗与活动的引流效果。</dd></div><div><dt>我们做什么</dt><dd>客流计数器统计门口客流，智能轮号系统记录进店批次，系统自动计算进店率，并给出引流建议。</dd></div></dl>
-          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>客流计数器装在门口，自动计数，无需任何操作。</li><li>顾客进店后，导购在轮号屏上点"开始接待"，同行顾客计 1 批。</li><li>您在手机上随时查看每日客流、进店批次与进店率。</li></ol></div>
+          <p class="f-lead">把门口的流量变成可衡量的指标，帮您找到提升进店的方向。</p>
+          <dl class="f-rows"><div><dt>挑战</dt><dd>不清楚门口有多少潜在顾客、有多少真正进店，引流效果难以评估。</dd></div><div><dt>解决方案</dt><dd>智能硬件自动采集客流与进店数据，系统分析转化情况，并给出引流建议。</dd></div></dl>
+          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>量化门头、橱窗与活动的引流效果。</li><li>发现进店转化的提升空间。</li><li>数据自动采集，无需额外人工。</li></ol></div>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="traffic"></div>
@@ -755,26 +761,25 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="f-left">
           <p class="eyebrow">导购分析</p>
           <h2 class="split"><b>看清每位导购，</b><span>针对性提升能力</span></h2>
-          <p class="f-lead">精准定位每位导购的薄弱环节，据此开展针对性培训，切实提升接待与成交能力。</p>
-          <dl class="f-rows"><div><dt>痛点</dt><dd>不清楚每位导购的真实销售能力：该重点培养谁、如何培养，招聘筛选与能力提升都缺少依据。</dd></div><div><dt>我们做什么</dt><dd>系统自动统计每位导购的接待批次、接待时长、成交与销售额，生成目标完成率排名与接待效率四象限；搭配智能工牌，还能分析接待对话本身。</dd></div></dl>
-          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>看排名：谁完成了目标，谁没有完成。</li><li>看四象限：左上角是标杆导购，右下角是重点辅导对象。</li><li>看建议：按 AI 给出的建议安排培训。</li></ol></div>
+          <p class="f-lead">用数据看见每位导购的长处与短板，让培训更有针对性。</p>
+          <dl class="f-rows"><div><dt>挑战</dt><dd>导购能力难以客观衡量，培养谁、怎么培养，缺少依据。</dd></div><div><dt>解决方案</dt><dd>系统多维度评估导购表现，结合智能工牌理解接待过程，找出每个人的提升方向。</dd></div></dl>
+          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>识别标杆，复制成功经验。</li><li>精准定位需要辅导的导购。</li><li>培训与激励更有依据。</li></ol></div>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="staff"></div>
         </div>
       </div>
-      <div class="badge-strip">
+      <div class="badge-strip solo">
         <div class="bs-text">
           <span class="bs-tag">智能硬件 · 智能工牌</span>
           <h3>一张工牌，听懂每一次接待。</h3>
-          <p class="bs-lead">导购佩戴卡片式智能工牌，接待时自动记录与顾客的对话。AI 对对话内容做文本分析、提炼关键词，帮助导购知道顾客关心什么、怎样服务得更好。</p>
+          <p class="bs-lead">借助 AI 理解接待过程，帮助导购把握顾客需求，持续提升服务与销售能力。</p>
           <ul class="bs-list">
-            <li><b>自动记录</b>佩戴即用，导购无需额外操作。</li>
-            <li><b>提炼关键词</b>顾客常问什么、在意什么，一目了然。</li>
-            <li><b>改进服务</b>结合成交结果，找出有效话术，用于培训。</li>
+            <li><b>无感佩戴</b>不打扰日常接待。</li>
+            <li><b>AI 理解</b>读懂顾客的关注点。</li>
+            <li><b>持续提升</b>沉淀有效经验，用于培训。</li>
           </ul>
         </div>
-        <div class="bs-art2"><div class="hw-photo"><img src="img/p_badge.png" alt="智能工牌" loading="lazy"></div><div class="vis bs-talk" data-vis="badgeTalk"></div></div>
       </div>
     </div>
   </section>
@@ -785,9 +790,9 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
         <div class="f-left">
           <p class="eyebrow">排班考勤</p>
           <h2 class="split"><b>按客流排班，</b><span>考勤一目了然</span></h2>
-          <p class="f-lead">看清导购每天的忙闲，把人排在最需要的时段；人脸识别打卡，考勤自动记录。</p>
-          <dl class="f-rows"><div><dt>痛点</dt><dd>排班依赖经验，高峰时段人手不足，平峰时段人力闲置；考勤记录不清晰，月底核对耗时。</dd></div><div><dt>我们做什么</dt><dd>周报自动计算每天的接待使用率，即接待时长占在岗时长的比例；系统据此按客流自动推荐班次，人脸识别打卡自动记录考勤。</dd></div></dl>
-          <div class="f-how"><p class="f-k">如何使用</p><ol class="howto step"><li>查看每日接待使用率，了解工作日与周末的忙闲。</li><li>按系统推荐的班次排班。</li><li>导购到店刷脸打卡。</li><li>随时查看考勤：正常、迟到、旷工。</li></ol></div>
+          <p class="f-lead">让人手配置跟着客流走，考勤管理更省心。</p>
+          <dl class="f-rows"><div><dt>挑战</dt><dd>排班依赖经验，忙闲不均；考勤记录分散，核对耗时。</dd></div><div><dt>解决方案</dt><dd>系统结合客流规律给出排班建议，考勤自动记录，管理数据自动汇总。</dd></div></dl>
+          <div class="f-how"><p class="f-k">带来的价值</p><ol class="howto step"><li>减少高峰缺人、平峰闲置。</li><li>考勤准确，省去人工核对。</li><li>人力成本更可控。</li></ol></div>
         </div>
         <div class="f-right">
           <div class="carousel" data-set="schedule"></div>
@@ -1399,22 +1404,21 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
 
   var SETS = {
     schedule: [
-      {img:'每日接待使用率截图', vis:'usage', t:'按客流推荐班次', d:'接待时长占在岗时长的比例。工作日偏低、周末偏高，系统据此自动推荐班次。'},
-      {img:'人脸识别打卡场景 + 考勤记录截图', vis:'clock', t:'刷脸打卡，自动考勤', d:'导购到店刷脸打卡，系统自动记录正常、迟到、旷工状态。'}
+      {img:'智能排班建议', vis:'usage', t:'智能排班建议', d:'结合客流规律，给出更合理的排班参考。'},
+      {img:'自动考勤', vis:'clock', t:'自动考勤', d:'到店打卡自动记录，考勤状态随时可查。'}
     ],
     staff: [
-      {img:'接待效率四象限截图', vis:'quad', t:'接待效率四象限', d:'每个点代表一位导购。左上象限为标杆导购，右下象限为重点辅导对象。'},
-      {img:'导购目标完成率排名截图', vis:'rank', t:'目标完成率排名', d:'按目标完成率排序，超额与落后情况清晰可见。'}
+      {img:'导购表现概览', vis:'rank', t:'导购表现概览', d:'目标达成情况清晰可见，培养重点一目了然。'}
     ],
     analysis: [
-      {img:'健康度界面截图', vis:'rings', t:'三个健康分', d:'门店、销售、导购三项健康评分，优势与风险一目了然。'},
-      {img:'销售漏斗截图', vis:'funnel', t:'销售漏斗 + AI 解读', d:'从门口客流到成交逐层呈现转化，AI 指出问题环节与改进优先级。'}
+      {img:'门店健康评分', vis:'rings', t:'门店健康评分', d:'多维度评估门店状况，优势与风险一目了然。'},
+      {img:'AI 经营解读', vis:'funnel', t:'AI 经营解读', d:'AI 找出关键问题，并给出改进优先级。'}
     ],
     traffic: [
-      {img:'智能轮号系统 · 门店使用场景', vis:'queueScene', t:'智能轮号系统', d:'导购接待顾客时在此排号，系统自动记录每一接待批次。'},
-      {img:'统计界面截图', vis:'dashColor', t:'统计界面', d:'每日门口客流、进店批次与进店率，随时可查。'}
+      {img:'客流数据看板', vis:'dashColor', t:'客流数据看板', d:'客流与进店情况集中呈现，随时可查。'}
     ]
   };
+
   document.querySelectorAll('.carousel').forEach(function(c){
     var set = SETS[c.dataset.set]; if (!set) return;
     c.innerHTML = '<div class="c-track">' + set.map(function(s,i){
@@ -1427,6 +1431,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:20px}
     }).join('') + '</div>' +
     '<div class="c-ctl"><div class="c-dots">' + set.map(function(_,i){ return '<button type="button" aria-label="第 '+(i+1)+' 张"></button>'; }).join('') + '</div>' +
     '<div class="c-arrows"><button type="button" data-d="-1" aria-label="上一张">‹</button><button type="button" data-d="1" aria-label="下一张">›</button></div></div>';
+    if (set.length < 2) { var cc = c.querySelector('.c-ctl'); if (cc) cc.style.display = 'none'; return; }
     var track = c.querySelector('.c-track'), dots = c.querySelectorAll('.c-dots button'), cur = 0, paused = false;
     function go(i){ cur = (i + set.length) % set.length; track.scrollTo({left: cur * track.clientWidth}); mark(); }
     function mark(){ dots.forEach(function(d,j){ d.classList.toggle('on', j === cur); }); }
